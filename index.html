@@ -2181,6 +2181,9 @@ tbody tr:hover{background:rgba(255,255,255,.45)}
             <div style="font-size:.75rem;color:var(--light);" id="cfg-data-evento-status"></div>
           </div>
         </div>
+
+        <!-- Cores -->
+        <div class="cfg-section">
           <div class="cfg-section-head">
             <div class="cfg-section-ico"><svg width="15" height="15"><use href="#ico-palette"/></svg></div>
             <div><div class="cfg-section-title">Cor do site</div>
@@ -4883,14 +4886,26 @@ function checkRateLimit(){
 }
 function compressImg(file,maxW=1200,maxH=1200,quality=0.78){
   return new Promise((res,rej)=>{
+    const isPng=file.type==='image/png'||file.name?.toLowerCase().endsWith('.png');
     const img=new Image(),url=URL.createObjectURL(file);
     img.onload=()=>{
       URL.revokeObjectURL(url);
       let{width:w,height:h}=img;
       if(w>maxW||h>maxH){const r=Math.min(maxW/w,maxH/h);w=Math.round(w*r);h=Math.round(h*r)}
       const c=document.createElement('canvas');c.width=w;c.height=h;
-      c.getContext('2d').drawImage(img,0,0,w,h);
-      res(c.toDataURL('image/jpeg',quality));
+      const ctx=c.getContext('2d');
+      if(isPng){
+        // PNG: fundo transparente — não preenche com cor
+        ctx.clearRect(0,0,w,h);
+        ctx.drawImage(img,0,0,w,h);
+        res(c.toDataURL('image/png'));
+      } else {
+        // JPEG: fundo branco (JPEG não suporta transparência)
+        ctx.fillStyle='#ffffff';
+        ctx.fillRect(0,0,w,h);
+        ctx.drawImage(img,0,0,w,h);
+        res(c.toDataURL('image/jpeg',quality));
+      }
     };
     img.onerror=rej;img.src=url;
   });
