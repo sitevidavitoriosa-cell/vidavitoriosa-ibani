@@ -2200,7 +2200,7 @@ tbody tr:hover{background:rgba(255,255,255,.45)}
       <div class="admin-tab hidden" id="at-planilha">
         <div id="storage-bar-wrap"></div>
         <div style="display:flex;align-items:center;gap:10px;margin-bottom:20px;flex-wrap:wrap;">
-          <button class="btn btn-accent btn-sm" onclick="exportCSV()">
+          <button class="btn btn-accent btn-sm admin-only-btn" onclick="exportCSV()">
             <svg width="13" height="13"><use href="#ico-upload"/></svg> Exportar CSV
           </button>
           <button class="btn btn-nm btn-sm" id="btn-backup" onclick="backupAutomatico()">
@@ -3003,11 +3003,13 @@ window.adminTab=tab=>{
   if(acts){
     acts.querySelectorAll('.extra-btn').forEach(b=>b.remove());
     if(tab==='cartas'){
-      const csvBtn=document.createElement('button');
-      csvBtn.className='btn btn-nm btn-sm extra-btn';
-      csvBtn.innerHTML='<svg width="13" height="13"><use href="#ico-upload"/></svg> Exportar CSV';
-      csvBtn.onclick=exportCSV;
-      acts.insertBefore(csvBtn,bell);
+      if(CU?.perfil==='admin'){
+        const csvBtn=document.createElement('button');
+        csvBtn.className='btn btn-nm btn-sm extra-btn';
+        csvBtn.innerHTML='<svg width="13" height="13"><use href="#ico-upload"/></svg> Exportar CSV';
+        csvBtn.onclick=exportCSV;
+        acts.insertBefore(csvBtn,bell);
+      }
     }
   }
   if(tab==='cartas')renderAdminCartas();
