@@ -3526,10 +3526,11 @@ function renderPals(containerId){
       </div>
     </button>`;
   }
-  // Atualiza todos os grids de paleta
+  const html=PALS.map(palCard).join('');
+  // Atualiza todos os grids existentes no DOM
   ['cfg-pal-grid','admin-pal-grid'].forEach(id=>{
     const g=document.getElementById(id);
-    if(g) g.innerHTML=PALS.map(palCard).join('');
+    if(g) g.innerHTML=html;
   });
 }
 
@@ -5778,8 +5779,8 @@ function renderConfig(){
     const st=document.getElementById('cfg-data-evento-status');
     if(st) st.textContent=`Limpeza automática programada para ${limpeza.toLocaleDateString('pt-BR')}`;
   }
-  // Paleta de cores
-  renderPals('cfg-pal-grid');
+  // Paleta de cores — pequeno delay para garantir que o DOM está pronto
+  setTimeout(()=>renderPals(), 50);
 }
 
 // ── Salvar data do evento ──
