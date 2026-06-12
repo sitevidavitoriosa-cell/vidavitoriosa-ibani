@@ -2843,22 +2843,34 @@ window.enviarCarta=async()=>{
     }
 
     // Sanitiza todos os inputs antes de salvar
-    const cartaId = await DB.add('cartas',{
-      nome:     sanitizeName(fv('f-nome')),
+    const dadosCarta = {
+      nome: sanitizeName(fv('f-nome')),
       telefone: fv('f-tel').replace(/\D/g,'').substring(0,15),
-      relacao:  sanitizeName(fv('f-relacao')),
-      para:     sanitizeName(fv('f-para')),
-      carta:    sanitizeText(fv('f-carta')),
+      relacao: sanitizeName(fv('f-relacao')),
+      para: sanitizeName(fv('f-para')),
+      carta: sanitizeText(fv('f-carta')),
+      timestamp: new Date().toISOString(),
+    };
+
+    const cartaId = await DB.add('cartas',{
+      ...dadosCarta,
       foto,
       status:'pendente',
       criadoEm: new Date().toISOString(),
     });
     if(!cartaId){
-      // DB.add falhou — não vai para tela de sucesso
       toast('Erro ao registrar carta. Verifique sua conexão e tente novamente.','err');
       btn.disabled=false;btn.textContent='Enviar carta';
       return;
     }
+
+    // Email de backup — não bloqueia o fluxo
+    fetch('https://us-central1-vida-vitoriosa-8b30e.cloudfunctions.net/emailBackupCarta',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({...dadosCarta, cartaId}),
+    }).catch(()=>{});
+
     gotoStep('success');
   }catch(e){
     console.error('enviarCarta error:',e);
