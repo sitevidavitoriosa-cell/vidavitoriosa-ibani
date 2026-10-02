@@ -2549,6 +2549,23 @@ function onFbReady(fn){ _fbReady ? fn() : _fbResolvers.push(fn); }
     const app  = initializeApp(FB_CONFIG);
     window._FB_CONFIG = FB_CONFIG;
     window._FB_APP = app;
+
+    // ── App Check — comprova que a requisição vem deste site ──
+    // Precisa vir antes de getAuth/getFirestore/getStorage.
+    // Se falhar, o site segue funcionando (enquanto a exigência
+    // não estiver ativada no console do Firebase).
+    try{
+      const { initializeAppCheck, ReCaptchaEnterpriseProvider }
+                             = await import('https://www.gstatic.com/firebasejs/10.12.2/firebase-app-check.js');
+      initializeAppCheck(app, {
+        provider: new ReCaptchaEnterpriseProvider('6LfaVtstAAAAAAVpD_E3aoQRr5lTrdETCafdfaRq'),
+        isTokenAutoRefreshEnabled: true
+      });
+      console.log('%c✦ App Check ativado','color:#4e9e6e;font-weight:bold');
+    }catch(e){
+      console.warn('App Check não iniciou:', e);
+    }
+
     const auth = getAuth(app);
     const db   = getFirestore(app);
     const st   = getStorage(app);
