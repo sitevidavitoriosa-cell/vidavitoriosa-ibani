@@ -3956,24 +3956,39 @@ window.assumirCarta=async id=>{
 };
 
 window.liberarCarta=async id=>{
-  if(!confirm('Liberar esta carta para outro servo assumir?'))return;
   const carta=cartasData.find(c=>c.id===id);
   if(!carta) return;
-  // Otimistic update — atualiza tela imediatamente
   const _uidAntes=carta.servoUid;
-  carta.status='pendente';
-  carta.servoUid=null;
-  carta.servoNome=null;
-  // Remove de prontas se estava lá
-  _cartasProntas=_cartasProntas.filter(c=>c.id!==id);
-  // Garante que está em ativas
-  if(!_cartasAtivas.find(c=>c.id===id)) _cartasAtivas.unshift(carta);
+  // "Assumir" pega todas as cartas do encontrista de uma vez; "Liberar"
+  // devolve todas as que estão com o mesmo servo, senão o encontrista
+  // continuava preso a ele pelas outras cartas.
+  const grupo=_uidAntes
+    ? cartasData.filter(c=>c.para===carta.para && c.servoUid===_uidAntes)
+    : [carta];
+  if(!grupo.includes(carta)) grupo.push(carta);
+  const msg=grupo.length>1
+    ? `Liberar as ${grupo.length} cartas de ${carta.para} que estão com ${carta.servoNome||'este servo'}?`
+    : 'Liberar esta carta para outro servo assumir?';
+  if(!confirm(msg))return;
+  // Otimistic update — atualiza tela imediatamente.
+  // A carta clicada volta para "pendente"; as demais já prontas continuam prontas.
+  const gravar=grupo.map(c=>{
+    const novoStatus=(c.id===id||c.status!=='pronta')?'pendente':'pronta';
+    c.status=novoStatus;
+    c.servoUid=null;
+    c.servoNome=null;
+    if(novoStatus==='pendente'){
+      _cartasProntas=_cartasProntas.filter(x=>x.id!==c.id);
+      if(!_cartasAtivas.find(x=>x.id===c.id)) _cartasAtivas.unshift(c);
+    }
+    return {id:c.id,status:novoStatus};
+  });
   filtrarAtivas();
   filtrarProntas();
   closeM('m-carta');
-  toast('Carta liberada!','ok');
+  toast(grupo.length>1?`${grupo.length} cartas liberadas!`:'Carta liberada!','ok');
   // Grava em segundo plano
-  DB.update('cartas',id,{servoUid:null,servoNome:null,status:'pendente'})
+  Promise.all(gravar.map(g=>DB.update('cartas',g.id,{servoUid:null,servoNome:null,status:g.status})))
     .then(()=>_revogarAcessoServo(carta.para,_uidAntes))
     .catch(e=>{
       console.error('Erro ao liberar carta:',e.message);
