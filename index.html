@@ -4260,14 +4260,73 @@ window.restaurarCartaLixeira=async id=>{
   if(typeof renderLixeira==='function') renderLixeira();
 };
 
-// Exclusão definitiva — só a partir da lixeira, com confirmação reforçada
+// Exclusão definitiva — só a partir da lixeira, sem confirmação (pedido do
+// admin): um clique apaga a carta e tudo o que pertence só a ela — a página
+// no editor, a referência no índice do encontrista e as fotos no Storage.
+// Imagens de templates nunca são apagadas (são compartilhadas).
 window.excluirDefinitivamente=async id=>{
-  setTimeout(()=>DB.setCfg('syncVersao',Date.now()),1500);
-  const carta=cartasData.find(c=>c.id===id);
-  const nomeConf=prompt(`Isso apaga a carta PARA SEMPRE, sem possibilidade de recuperação.\nDigite o nome do remetente para confirmar: "${carta?.nome||''}"`);
-  if(nomeConf!==carta?.nome){ toast('Nome não confere. Cancelado.','wrn'); return; }
-  await DB.del('cartas',id);
-  toast('Carta excluída permanentemente.','ok');
+  if(CU?.perfil!=='admin'){ toast('Ação restrita ao administrador','err'); return; }
+  const {db,doc,getDoc,setDoc,deleteDoc,ref,deleteObject,st}=window._FB;
+  const btn=document.querySelector(`[onclick="excluirDefinitivamente('${id}')"]`);
+  if(btn){ if(btn.disabled) return; btn.disabled=true; btn.textContent='Excluindo...'; }
+  try{
+    // A carta na lixeira não fica na lista local — busca direto no banco
+    const cSnap=await getDoc(doc(db,'cartas',id));
+    const carta=cSnap.exists()?cSnap.data():{};
+
+    // 1) Reúne os arquivos do Storage que são só desta carta
+    const arquivos=new Set();
+    const _path=u=>{
+      if(!u||typeof u!=='string') return null;
+      let p=u;
+      if(u.startsWith('http')){
+        if(!u.includes('firebasestorage')) return null;
+        try{ p=decodeURIComponent(u.split('/o/')[1]?.split('?')[0]||''); }catch(_){ return null; }
+      }
+      return (p.startsWith('fotos/')||p.startsWith('editor/'))?p:null;
+    };
+    const _add=u=>{ const p=_path(u); if(p) arquivos.add(p); };
+    _add(carta.foto); _add(carta.cropPath);
+    let pgSnap=null;
+    try{ pgSnap=await getDoc(doc(db,'editor_paginas',id)); }catch(_){}
+    if(pgSnap?.exists()){
+      (pgSnap.data()?.page?.elements||[]).forEach(el=>{ _add(el.src); _add(el.origSrc); _add(el.cropPath); });
+    }
+
+    // 2) Apaga a carta (se isto falhar, nada mais é apagado)
+    await deleteDoc(doc(db,'cartas',id));
+
+    // 3) Apaga o que sobrou dela — falhas aqui não desfazem a exclusão
+    const pend=[];
+    try{ if(pgSnap?.exists()) await deleteDoc(doc(db,'editor_paginas',id)); }catch(e){ pend.push('página do editor'); }
+    if(carta.para){
+      try{
+        const key='enc_'+String(carta.para).replace(/\W/g,'_');
+        const idxSnap=await getDoc(doc(db,'editor_index',key));
+        if(idxSnap.exists() && (idxSnap.data().cartaIds||[]).includes(id)){
+          const atuais=(idxSnap.data().cartaIds||[]).filter(x=>x!==id);
+          await setDoc(doc(db,'editor_index',key),{cartaIds:atuais,updatedAt:new Date().toISOString()});
+          if(window._idxCache) window._idxCache[key]=atuais;
+        }
+      }catch(e){ pend.push('índice do editor'); }
+    }
+    let fotosFalha=0;
+    for(const p of arquivos){
+      try{ await deleteObject(ref(st,p)); }
+      catch(e){ if(e?.code!=='storage/object-not-found'){ fotosFalha++; console.warn('Foto não apagada:',p,e.message); } }
+    }
+    if(fotosFalha) pend.push(fotosFalha+' foto(s)');
+    window._removerCartaLocal?.(id);
+    if(carta.servoUid && carta.para){ try{ await _revogarAcessoServo(carta.para,carta.servoUid); }catch(_){} }
+    // Avisa os outros aparelhos para recarregarem a lista de cartas
+    try{ await DB.setCfg('syncVersao',Date.now()); }catch(_){}
+
+    if(pend.length) toast('Carta excluída, mas não foi possível apagar: '+pend.join(', ')+'.','wrn');
+    else toast('Carta excluída permanentemente.','ok');
+  }catch(e){
+    console.error('Erro ao excluir definitivamente:',e);
+    toast('Erro ao excluir — a carta continua na lixeira.','err');
+  }
   if(typeof renderLixeira==='function') renderLixeira();
 };
 
