@@ -4400,24 +4400,32 @@ async function _revogarAcessoServo(nomeEnc, uid){
 let _encDadosEm=0;
 async function carregarEncDados(forcar){
   if(CU?.perfil!=='admin' && CU?.perfil!=='servo') return;
-  if(CU?.perfil==='admin' && !forcar && _encDadosEm && Date.now()-_encDadosEm<10*60*1000){ renderAdminEncs(); return; }
+  // Admin e servo veem os dados de TODOS os encontristas (servo só leitura).
+  // A lista completa fica guardada por 10 min para não gastar leituras à toa.
+  if(!forcar && _encDadosEm && Date.now()-_encDadosEm<10*60*1000){ renderAdminEncs(); return; }
   try{
     const m={};
-    if(CU?.perfil==='servo'){
+    let completo=false;
+    try{
+      const {getDocs,collection}=window._FB;
+      const snap=await getDocs(collection(window._FB.db,'encontristas_dados'));
+      snap.docs.forEach(d=>{m[d.id]=d.data();});
+      completo=true;
+    }catch(e){
+      if(CU?.perfil!=='servo') throw e;
+      // Regra antiga ainda publicada (servo só lê os que assumiu): carrega
+      // o que for permitido em vez de deixar a aba vazia.
+      console.warn('encontristas_dados (lista completa negada ao servo):',e.message);
       const {doc,getDoc}=window._FB;
       for(const nome of _meusEncontristasNomes()){
         const enc=_encPorNome(nome); if(!enc) continue;
         const carta=cartasData.find(c=>c.para===nome && c.servoUid===CU.uid);
-        await _garantirAcessoServo(nome, carta?.id); // cobre cartas assumidas antes desta versão
+        await _garantirAcessoServo(nome, carta?.id);
         try{ const sn=await getDoc(doc(window._FB.db,'encontristas_dados',enc.id)); if(sn.exists()) m[enc.id]=sn.data(); }catch(_){}
       }
-    } else {
-      const {getDocs,collection}=window._FB;
-      const snap=await getDocs(collection(window._FB.db,'encontristas_dados'));
-      snap.docs.forEach(d=>{m[d.id]=d.data();});
     }
     _encDados=m;
-    if(CU?.perfil==='admin') _encDadosEm=Date.now();
+    if(completo) _encDadosEm=Date.now();
     renderAdminEncs();
     if(CU?.perfil!=='admin') return;
     const mapaG={};
@@ -4502,12 +4510,8 @@ function renderAdminEncs(){
     wrap.innerHTML=`<div class="empty-state"><div class="empty-ico"><svg><use href="#ico-users"/></svg></div><div class="empty-ttl">Nenhum encontrista</div><div class="empty-sub">Importe a planilha de inscrições ou adicione manualmente.</div></div>`;return;
   }
   const busca=_normNome(document.getElementById('encx-busca')?.value||'');
-  const meus=_ehAdmin?null:new Set(_meusEncontristasNomes().map(_normNome));
-  const base=_ehAdmin?encsData:encsData.filter(e=>meus.has(_normNome(e.nome)));
-  if(!_ehAdmin){
-    if(cnt) cnt.innerHTML=`<b>${base.length}</b> encontrista${base.length!==1?'s':''} sob sua responsabilidade`;
-    if(!base.length){wrap.innerHTML=`<div class="empty-state"><div class="empty-sub">Você ainda não assumiu nenhum encontrista. Assuma as cartas em Homenagens para ver os contatos aqui.</div></div>`;return;}
-  }
+  // Servo vê todos os encontristas, igual ao admin (sem editar nem excluir)
+  const base=encsData;
   const lista=busca?base.filter(e=>_normNome(e.nome).includes(busca)):base;
   if(!lista.length){wrap.innerHTML=`<div class="empty-state"><div class="empty-sub">Nenhum encontrista encontrado com esse nome.</div></div>`;return;}
   const waIco=`<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-12.6 7.3L3 20.5l1.8-5.2A8.4 8.4 0 1 1 21 11.5z"/><path d="M9 9.5c.3 1.8 1.7 3.6 3.6 4.5l1-1 2 .8"/></svg>`;
@@ -4802,7 +4806,7 @@ window.apagarTodosEncs=async()=>{
       await deleteDoc(doc(window._FB.db,'encontristas',e.id));
       try{ await deleteDoc(doc(window._FB.db,'encontristas_dados',e.id)); }catch(_){}
     }
-    _encDados={};
+    _encDados={}; _encDadosEm=0;
     toast('Todos os encontristas foram apagados!','ok');
   }catch(e){toast('Erro: '+e.message,'err');}
 };
@@ -4819,7 +4823,7 @@ window.apagarDadosPessoais=async()=>{
     const {getDocs,collection,deleteDoc,doc}=window._FB;
     const snap=await getDocs(collection(window._FB.db,'encontristas_dados'));
     let n=0; for(const d of snap.docs){ await deleteDoc(doc(window._FB.db,'encontristas_dados',d.id)); n++; }
-    _encDados={}; renderAdminEncs?.();
+    _encDados={}; _encDadosEm=0; renderAdminEncs?.();
     toast(`${n} cadastro${n!==1?'s':''} de dados pessoais apagado${n!==1?'s':''}.`,'ok');
   }catch(e){ toast('Erro: '+e.message,'err'); }
 };
