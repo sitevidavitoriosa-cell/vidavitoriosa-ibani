@@ -390,6 +390,14 @@ select.fi{cursor:pointer}
 .recado-chip.nao{background:rgba(196,136,58,.15);color:var(--warn);}
 .recado-env button{border:none;background:none;color:var(--light);cursor:pointer;font-size:.72rem;font-weight:700;font-family:inherit;}
 .recado-env button:hover{color:var(--err);}
+/* Aviso de novos encontristas: mesma caixa do recado, em outra cor */
+#encs-novos-topo{padding:10px 22px 0;}
+#encs-novos-topo:empty{display:none;}
+.recado.enc-novos{background:linear-gradient(135deg,var(--accent),var(--accent2));box-shadow:3px 3px 10px rgba(var(--argb),.35);}
+.recado.enc-novos .recado-txt{white-space:normal;}
+.enc-novos-lista{display:flex;flex-wrap:wrap;gap:5px;margin-top:7px;max-height:118px;overflow-y:auto;}
+.enc-novos-lista span{background:rgba(255,255,255,.22);border-radius:var(--pill);padding:3px 10px;font-size:.74rem;font-weight:700;white-space:nowrap;}
+@media(max-width:700px){#encs-novos-topo{padding:8px 8px 0;}}
 @media(max-width:700px){#recados-topo{padding:8px 8px 0;}}
 /* Botão de imprimir de quem já foi impresso: sem cor, mas funcionando */
 .btn-impresso{filter:grayscale(1);opacity:.55;box-shadow:none !important;}
@@ -1989,6 +1997,7 @@ tbody tr:hover{background:rgba(255,255,255,.45)}
       </div>
     </div>
     <div id="recados-topo" aria-live="polite"></div>
+    <div id="encs-novos-topo" aria-live="polite"></div>
     <div class="admin-content">
 
       <!-- Cartas -->
@@ -2840,6 +2849,7 @@ function onFbReady(fn){ _fbReady ? fn() : _fbResolvers.push(fn); }
       window._unsubEncs = ons(q(col(db,'encontristas'),ob('nome')), snap=>{
         encsData = snap.docs.map(d=>({id:d.id,...d.data()}));
         _onEncsUpdate();
+        try{ _checarEncsNovos(snap); }catch(e){ console.warn('aviso de novos encontristas:',e.message); }
       });
 
       // Presença — REMOVIDO A PEDIDO: gerava leituras replicadas para todos
@@ -3578,6 +3588,7 @@ function _pararRecados(){
   try{ if(_recadosUnsub) _recadosUnsub(); }catch(_){}
   _recadosUnsub=null; _recadosMeus=[]; _recadosVistos=new Set(); _recadosEnv=[];
   _renderRecadosTopo();
+  _encsNovos=[]; _encsAvisoPronto=false; _renderEncsNovos();
 }
 // X da caixa vermelha: some na hora e fica marcado como lido para o admin.
 window.fecharRecado=async id=>{
@@ -3587,6 +3598,67 @@ window.fecharRecado=async id=>{
     const {db,doc,updateDoc}=window._FB;
     await updateDoc(doc(db,'recados',id),{lido:true,lidoEm:new Date().toISOString()});
   }catch(e){ console.warn('recado (marcar lido):',e.message); }
+};
+
+// ══════════════════════════════════════════════════════════
+//  AVISO DE NOVOS ENCONTRISTAS
+//  Cada aparelho guarda (no próprio navegador, sem gastar leituras) quais
+//  encontristas a pessoa já viu. O que aparecer a mais na lista vira um
+//  aviso no topo: "N novos encontristas foram adicionados" + os nomes.
+//  O X marca todos como vistos. Quem cadastrou não recebe o próprio aviso.
+// ══════════════════════════════════════════════════════════
+let _encsNovos=[];
+function _encsVistosKey(){ return 'vv_encs_vistos_'+(window._FB_CONFIG?.projectId||'')+'_'+(CU?.uid||''); }
+function _lerEncsVistos(){
+  try{ const v=JSON.parse(localStorage.getItem(_encsVistosKey())||'null'); return Array.isArray(v)?new Set(v):null; }
+  catch(_){ return null; }
+}
+function _gravarEncsVistos(set){ try{ localStorage.setItem(_encsVistosKey(),JSON.stringify([...set])); }catch(_){} }
+function _checarEncsNovos(snap){
+  if(!CU?.uid) return;
+  const doCache=!!snap.metadata?.fromCache;
+  const atuais=snap.docs.map(d=>({id:d.id,nome:d.data()?.nome||'Sem nome',local:!!d.metadata?.hasPendingWrites}));
+  let vistos=_lerEncsVistos();
+  if(!vistos){
+    // Primeira vez neste aparelho: o que já existe conta como visto.
+    // Espera a lista vir do servidor para não tomar um cache parcial como base.
+    if(doCache) return;
+    _gravarEncsVistos(new Set(atuais.map(e=>e.id)));
+    _encsNovos=[]; _renderEncsNovos(); return;
+  }
+  const idsAtuais=new Set(atuais.map(e=>e.id));
+  let mudou=false;
+  // cadastrados por este próprio aparelho não geram aviso
+  atuais.forEach(e=>{ if(e.local && !vistos.has(e.id)){ vistos.add(e.id); mudou=true; } });
+  // esquece os que foram excluídos, para a lista guardada não crescer para sempre
+  if(!doCache) [...vistos].forEach(id=>{ if(!idsAtuais.has(id)){ vistos.delete(id); mudou=true; } });
+  if(mudou) _gravarEncsVistos(vistos);
+  const antes=new Set(_encsNovos.map(e=>e.id));
+  _encsNovos=atuais.filter(e=>!vistos.has(e.id))
+    .sort((a,b)=>a.nome.localeCompare(b.nome,'pt-BR',{sensitivity:'base'}));
+  const chegaram=_encsNovos.filter(e=>!antes.has(e.id)).length;
+  if(chegaram && _encsAvisoPronto) toast(chegaram===1?'1 novo encontrista foi adicionado':`${chegaram} novos encontristas foram adicionados`,'wrn');
+  _encsAvisoPronto=true;
+  _renderEncsNovos();
+}
+let _encsAvisoPronto=false; // evita o balãozinho no carregamento inicial (a caixa aparece mesmo assim)
+function _renderEncsNovos(){
+  const el=document.getElementById('encs-novos-topo'); if(!el) return;
+  const n=_encsNovos.length;
+  if(!n){ el.innerHTML=''; return; }
+  el.innerHTML=`<div class="recado enc-novos" role="status">
+      <svg class="recado-ico" width="16" height="16"><use href="#ico-users"/></svg>
+      <div class="recado-txt">${n===1?'1 novo encontrista foi adicionado':`${n} novos encontristas foram adicionados`}
+        <div class="enc-novos-lista">${_encsNovos.map(e=>`<span>${esc(e.nome)}</span>`).join('')}</div>
+      </div>
+      <button class="recado-x" onclick="fecharEncsNovos()" aria-label="Fechar aviso" title="Fechar"><svg width="13" height="13"><use href="#ico-x"/></svg></button>
+    </div>`;
+}
+window.fecharEncsNovos=()=>{
+  const vistos=_lerEncsVistos()||new Set();
+  _encsNovos.forEach(e=>vistos.add(e.id));
+  _gravarEncsVistos(vistos);
+  _encsNovos=[]; _renderEncsNovos();
 };
 
 // ── Admin: escrever ──
