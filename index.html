@@ -1381,9 +1381,12 @@ tbody tr:hover{background:rgba(255,255,255,.45)}
    Versão Original (neumorphism) — nada abaixo vale sem ela.
    ════════════════════════════════════════════════════════════════════ */
 html.nv{
-  --pg:#efefef; --bg:#ffffff; --soft:#f5f5f4; --soft2:#ececea; --ln:#ececea;
+  --pg:color-mix(in srgb,var(--accent) 5%,#efefef); --bg:#ffffff; --soft:#f5f5f4; --soft2:#ececea; --ln:#ececea;
   --text:#161616; --mid:#5f5f5b; --light:#8a8a86;
-  --accent:#6e5a3a; --accent2:#a88d62; --argb:110,90,58; --br-bg:#f3ede3;
+  --accent:#7c6b50; --accent2:#c4a882; --argb:124,107,80;
+  /* tudo que é "cor da marca" sai da paleta escolhida em Configurações → Cores */
+  --br-bg:rgba(var(--argb),.11); --acc-dk:color-mix(in srgb,var(--accent) 82%,#000);
+  --acc-grad:linear-gradient(140deg,color-mix(in srgb,var(--accent) 88%,#000) 0%,var(--accent) 55%,var(--accent2) 100%);
   --ok:#2f9e63; --err:#d24b4b; --warn:#c8862a;
   --sh-out:none; --sh-sm:0 0 0 1px #ececea; --sh-lg:0 20px 60px rgba(0,0,0,.08);
   --sh-in:inset 0 0 0 1.5px #e6e6e2;
@@ -1391,7 +1394,7 @@ html.nv{
 }
 html.nv.dark{
   --pg:#121214; --bg:#1c1c1f; --soft:#26262a; --soft2:#2f2f34; --ln:#2c2c31;
-  --text:#ededea; --mid:#b9b9b4; --light:#8d8d88; --br-bg:#2e281e;
+  --text:#ededea; --mid:#b9b9b4; --light:#8d8d88; --br-bg:rgba(var(--argb),.22);
   --sh-sm:0 0 0 1px #2c2c31; --sh-in:inset 0 0 0 1.5px #34343a; --sh-lg:0 20px 60px rgba(0,0,0,.4);
 }
 html.nv body{font-family:'Urbanist','Nunito',sans-serif;background:var(--pg);font-size:14px}
@@ -1401,7 +1404,7 @@ html.nv button,html.nv input,html.nv select,html.nv textarea,html.nv .encx-row{f
 html.nv .btn{border-radius:999px;font-weight:600;padding:10px 18px;transition:background .15s}
 html.nv .btn-sm{padding:8px 15px;font-size:.82rem}
 html.nv .btn-accent{background:var(--accent);box-shadow:none}
-html.nv .btn-accent:hover{background:#5d4b30;transform:none;box-shadow:none}
+html.nv .btn-accent:hover{background:var(--acc-dk);transform:none;box-shadow:none}
 html.nv .btn-nm{background:var(--soft);box-shadow:none;color:var(--text)}
 html.nv .btn-nm:hover{background:var(--soft2)}
 html.nv .btn-danger{background:transparent;border:none;color:var(--err);font-weight:600;border-radius:999px;padding:8px 14px}
@@ -1423,8 +1426,7 @@ html.nv .admin-content{overflow:visible;padding:0!important}
 .nv-top,.nv-rail,.nv-mnav,.nv-only{display:none}
 html.nv .nv-top{grid-column:1/3;grid-row:1;display:flex;align-items:center;gap:16px;background:var(--bg);border-radius:999px;padding:10px 12px 10px 20px;position:relative;z-index:40}
 html.nv .nv-logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:19px;color:var(--accent);min-width:190px;letter-spacing:-.01em}
-html.nv .nv-logo i{width:36px;height:36px;border-radius:50%;background:var(--accent);display:grid;place-items:center;color:#fff}
-html.nv .nv-logo i svg{width:24px;height:24px}
+html.nv .nv-logo-ic{width:38px;height:38px;flex-shrink:0}
 html.nv .nv-pnav{display:flex;gap:4px;background:var(--soft);border-radius:999px;padding:5px;margin:0 auto;overflow-x:auto;scrollbar-width:none}
 html.nv .nv-pnav button{padding:10px 18px;border-radius:999px;font-weight:600;color:var(--mid);font-size:14px;white-space:nowrap;background:none;border:none;cursor:pointer}
 html.nv .nv-pnav button:hover{color:var(--text)}
@@ -1433,7 +1435,7 @@ html.nv .nv-topr{display:flex;gap:10px;align-items:center;min-width:190px;justif
 html.nv .nv-circ{width:44px;height:44px;border-radius:50%;background:var(--soft);display:grid;place-items:center;color:var(--mid);border:none;cursor:pointer;position:relative}
 html.nv .nv-circ:hover{background:var(--soft2);color:var(--text)}
 html.nv .nv-circ svg{width:19px;height:19px}
-html.nv .nv-av{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;font-weight:700;font-size:14px;color:#fff;background:linear-gradient(135deg,#8b7350,#c9b38a);flex-shrink:0}
+html.nv .nv-av{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;font-weight:700;font-size:14px;color:#fff;background:linear-gradient(135deg,var(--accent),var(--accent2));flex-shrink:0}
 html.nv .nv-me{position:relative}
 html.nv .nv-me>button{display:flex;align-items:center;gap:6px;border:none;background:none;cursor:pointer;color:var(--light);padding:0}
 html.nv .nv-menu{position:absolute;right:0;top:54px;background:var(--bg);border-radius:18px;box-shadow:0 18px 50px rgba(0,0,0,.14);padding:8px;min-width:220px;z-index:60}
@@ -1494,36 +1496,36 @@ html.nv #recados-topo,html.nv #encs-novos-topo{padding:0 0 12px}
 .nv-srch svg{width:17px;height:17px;flex-shrink:0}
 .nv-btn{display:inline-flex;align-items:center;gap:8px;height:40px;padding:0 16px;border-radius:999px;background:var(--soft);font-weight:600;font-size:13.5px;white-space:nowrap;color:var(--text);border:none;cursor:pointer}
 .nv-btn:hover{background:var(--soft2)}.nv-btn svg{width:16px;height:16px}
-.nv-btn.dk{background:var(--accent);color:#fff}.nv-btn.dk:hover{background:#5d4b30}
+.nv-btn.dk{background:var(--accent);color:#fff}.nv-btn.dk:hover{background:var(--acc-dk)}
 .nv-btn.wh{background:var(--bg);box-shadow:inset 0 0 0 1px var(--ln)}
 .nv-btn.sm{height:34px;padding:0 13px;font-size:13px}
 .nv-btn.rd{color:var(--err);background:transparent}.nv-btn.rd:hover{background:#fbe7e7}
 .nv-ib{width:36px;height:36px;border-radius:50%;display:inline-grid;place-items:center;color:var(--mid);background:transparent;border:none;cursor:pointer}
 .nv-ib:hover{background:var(--soft);color:var(--text)}.nv-ib svg{width:16px;height:16px}
 .nv-ib.rd:hover{color:var(--err);background:#fbe7e7}
-.nv-avs{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;font-weight:700;font-size:12.5px;color:#fff;background:linear-gradient(135deg,#8b7350,#c9b38a);flex-shrink:0;overflow:hidden}
+.nv-avs{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;font-weight:700;font-size:12.5px;color:#fff;background:linear-gradient(135deg,var(--accent),var(--accent2));flex-shrink:0;overflow:hidden}
 .nv-avs img{width:100%;height:100%;object-fit:cover}
 .nv-avs.m{background:linear-gradient(135deg,#4b78b8,#8db0e0)}.nv-avs.f{background:linear-gradient(135deg,#c0628f,#e7a3c2)}.nv-avs.g{background:linear-gradient(135deg,#8b8b86,#c3c3be)}
 .nv-empty{text-align:center;color:var(--light);padding:26px 10px;font-weight:500}
 .nv-inner{background:var(--soft);border-radius:18px;padding:16px}
 
 /* Homenagens */
-.nv-feat{flex:1;display:flex;flex-direction:column;background:linear-gradient(140deg,#6e5a3a 0%,#8b7350 60%,#a88d62 100%);color:#fff;border-radius:22px;padding:20px 22px;position:relative;overflow:hidden;min-height:170px}
+.nv-feat{flex:1;display:flex;flex-direction:column;background:var(--acc-grad);color:#fff;border-radius:22px;padding:20px 22px;position:relative;overflow:hidden;min-height:170px}
 .nv-feat::after{content:'';position:absolute;right:-60px;top:-60px;width:200px;height:200px;border-radius:50%;border:30px solid rgba(255,255,255,.07);pointer-events:none}
 .nv-feat .lb{font-size:13px;opacity:.85;font-weight:500}
 .nv-feat .bn{font-size:46px;font-weight:600;letter-spacing:-.03em;margin:6px 0 2px;line-height:1.05}
 .nv-feat .bn span{opacity:.6;font-size:22px;font-weight:500;margin-left:6px;letter-spacing:0}
 .nv-feat .ft{display:flex;justify-content:space-between;align-items:center;margin-top:18px;font-size:13px;font-weight:600;gap:10px;position:relative;z-index:1}
-.nv-feat .ft button{background:#fff;color:#6e5a3a;padding:9px 16px;border-radius:999px;font-weight:700;font-size:13px;display:flex;gap:7px;align-items:center;border:none;cursor:pointer}
+.nv-feat .ft button{background:#fff;color:var(--accent);padding:9px 16px;border-radius:999px;font-weight:700;font-size:13px;display:flex;gap:7px;align-items:center;border:none;cursor:pointer}
 .nv-feat .ft button svg{width:15px;height:15px}
 .nv-bars{position:relative;flex:1;min-height:230px;display:flex;align-items:flex-end;gap:14px;padding-left:34px;padding-bottom:26px}
 .nv-bars .ax{position:absolute;left:0;top:0;bottom:26px;display:flex;flex-direction:column;justify-content:space-between;font-size:12px;color:var(--light);font-weight:500}
 .nv-bars .gl{position:absolute;left:34px;right:0;border-top:1.5px dashed var(--ln)}
 .nv-bar{flex:1;position:relative;display:flex;flex-direction:column;align-items:center;height:100%;justify-content:flex-end;min-width:0}
-.nv-bar i{display:block;width:100%;max-width:56px;border-radius:999px;min-height:6px;background-color:#d9ccb3;background-image:repeating-linear-gradient(135deg,rgba(255,255,255,.35) 0 2px,transparent 2px 9px)}
-.nv-bar.on i{background-color:#6e5a3a;background-image:repeating-linear-gradient(135deg,rgba(255,255,255,.12) 0 2px,transparent 2px 9px)}
+.nv-bar i{display:block;width:100%;max-width:56px;border-radius:999px;min-height:6px;background-color:rgba(var(--argb),.28);background-image:repeating-linear-gradient(135deg,rgba(255,255,255,.35) 0 2px,transparent 2px 9px)}
+.nv-bar.on i{background-color:var(--accent);background-image:repeating-linear-gradient(135deg,rgba(255,255,255,.12) 0 2px,transparent 2px 9px)}
 .nv-bar span{position:absolute;bottom:-24px;font-size:12px;color:var(--light);font-weight:600;white-space:nowrap}
-.nv-bar .pop{position:absolute;background:#6e5a3a;color:#fff;font-size:11.5px;font-weight:700;padding:4px 9px;border-radius:999px;white-space:nowrap;transform:translateY(-30px);z-index:2}
+.nv-bar .pop{position:absolute;background:var(--accent);color:#fff;font-size:11.5px;font-weight:700;padding:4px 9px;border-radius:999px;white-space:nowrap;transform:translateY(-30px);z-index:2}
 .nv-bar:hover i{filter:brightness(.95)}
 .nv-stack{display:flex;height:14px;border-radius:999px;overflow:hidden;gap:3px;margin:18px 0 16px;background:var(--soft)}
 .nv-stack i{display:block;height:100%;border-radius:999px}
@@ -1629,39 +1631,44 @@ html.nv .cfg-section-title{font-size:1.05rem}
 html.nv #minhas-cartas-list>div{box-shadow:none!important;background:var(--soft)!important;border-radius:18px!important}
 html.nv #at-cartas .admin-only-btn{display:flex;justify-content:flex-end}
 
-/* ══════ janela de impressão ══════ */
-#nv-print{position:fixed;inset:0;z-index:900;background:var(--pg,#efefef);display:grid;grid-template-rows:auto 1fr;gap:18px;padding:18px 22px 22px;overflow:hidden}
+/* ══════ impressão ══════ */
+#nv-print{position:fixed;inset:0;z-index:900;background:var(--pg,#efefef);overflow-y:auto;padding:22px}
 #nv-print.hidden{display:none}
-.nv-ptop{display:flex;align-items:center;gap:12px;background:var(--bg);border-radius:999px;padding:8px 10px 8px 12px}
-.nv-ptop .t{display:flex;flex-direction:column;line-height:1.15;min-width:0}
-.nv-ptop .t b{font-weight:700;font-size:16px;color:var(--text)}.nv-ptop .t small{color:var(--light);font-weight:500;font-size:12.5px}
-.nv-pbody{display:grid;grid-template-columns:340px minmax(0,1fr) 300px;gap:18px;min-height:0}
-.nv-plist{display:flex;flex-direction:column;min-height:0}
-.nv-pl{display:flex;flex-direction:column;gap:4px;overflow-y:auto;min-height:0;flex:1;margin:0 -6px;padding:0 6px}
-.nv-pi{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:16px;cursor:pointer}
-.nv-pi:hover{background:var(--soft)}.nv-pi.on{background:var(--br-bg)}
-.nv-pi .tx{flex:1;min-width:0}.nv-pi b{font-weight:600;display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--text)}
-.nv-pi small{color:var(--light);font-weight:500;font-size:12.5px;display:block}
-.nv-pi .nv-tag{height:21px;font-size:11px;margin-top:5px}
-.nv-pv{border-radius:26px;background:#e6e6e3;background-image:radial-gradient(#d4d4cf 1px,transparent 1.2px);background-size:18px 18px;display:flex;flex-direction:column;min-height:0;overflow:hidden}
-html.nv.dark .nv-pv{background-color:#232326;background-image:radial-gradient(#34343a 1px,transparent 1.2px)}
-.nv-pv .hd{display:flex;align-items:center;gap:10px;background:var(--bg);border-radius:999px;padding:6px 6px 6px 18px;font-weight:600;margin:16px 16px 0;color:var(--text)}
-.nv-pv .hd span{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.nv-pv iframe{flex:1;border:none;width:100%;min-height:0;background:transparent}
-.nv-pv .msg{flex:1;display:grid;place-items:center;color:var(--light);font-weight:600;text-align:center;padding:20px}
-.nv-opt{display:flex;flex-direction:column;gap:8px}
-.nv-opt .o{display:flex;align-items:center;gap:10px;padding:12px 14px;border-radius:14px;background:var(--soft);font-weight:600;font-size:13.5px;cursor:pointer;color:var(--text);border:none;text-align:left}
-.nv-opt .o.on{background:var(--br-bg);color:var(--accent)}
-.nv-opt .o i{width:18px;height:18px;border-radius:50%;border:2px solid #c9c9c4;background:#fff;flex-shrink:0}
-.nv-opt .o.on i{border:5px solid var(--accent)}
-.nv-sw{width:46px;height:27px;border-radius:999px;background:#d9d9d4;position:relative;flex-shrink:0;border:none;cursor:pointer}
-.nv-sw::after{content:'';position:absolute;top:3px;left:3px;width:21px;height:21px;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.15);transition:left .15s}
-.nv-sw.on{background:var(--accent)}.nv-sw.on::after{left:22px}
-.nv-sum{background:var(--soft);border-radius:18px;padding:16px;display:flex;flex-direction:column;gap:8px;font-weight:500;color:var(--text)}
-.nv-sum div{display:flex;justify-content:space-between}.nv-sum b{font-weight:700}
-.nv-popt{overflow-y:auto}
-.nv-srow{display:flex;align-items:center;gap:12px;padding:14px 0;border-top:1px solid var(--ln);margin-top:14px}
-.nv-srow .tx{flex:1}.nv-srow b{font-weight:600;display:block;color:var(--text)}.nv-srow small{color:var(--light);font-weight:500;font-size:12.5px}
+.nvp{max-width:900px;margin:0 auto;display:flex;flex-direction:column;gap:14px}
+.nvp-top{display:flex;align-items:center;gap:12px;background:var(--bg);border-radius:999px;padding:8px 8px 8px 10px}
+.nvp-top .t{flex:1;display:flex;flex-direction:column;line-height:1.15;min-width:0}
+.nvp-top .t b{font-weight:700;font-size:17px;color:var(--text)}.nvp-top .t small{color:var(--light);font-weight:500;font-size:13px}
+.nvp-top .nv-btn{height:44px}
+.nvp-prog{height:8px;border-radius:999px;background:var(--bg);overflow:hidden}
+.nvp-prog i{display:block;height:100%;background:var(--accent);border-radius:999px;transition:width .3s}
+.nvp-bar{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.nvp-bar .nv-seg{background:var(--bg)}
+.nvp-bar .nv-srch{flex:1;min-width:200px;background:var(--bg)}
+.nvp-list{background:var(--bg);border-radius:26px;padding:10px;display:flex;flex-direction:column;gap:4px}
+.nvp-it{border-radius:18px}
+.nvp-it.op{background:var(--soft)}
+.nvp-row{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:18px;cursor:pointer}
+.nvp-row:hover{background:var(--soft)}
+.nvp-row .tx{flex:1;min-width:0}.nvp-row b{font-weight:600;display:block;color:var(--text);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.nvp-row small{color:var(--light);font-weight:500;font-size:12.5px}
+.nvp-row .nv-tag{gap:5px}
+.nvp-row .chv{color:var(--light);display:grid;place-items:center;transition:transform .2s}.nvp-row .chv.op{transform:rotate(90deg);color:var(--accent)}
+.nvp-cartas{padding:0 14px 12px 60px;display:flex;flex-direction:column;gap:2px}
+.nvp-cartas>div{display:flex;align-items:center;gap:10px;font-size:13.5px;padding:6px 0;border-top:1px solid var(--ln)}
+.nvp-cartas>div:first-child{border-top:none}
+.nvp-cartas b{font-weight:600;color:var(--text)}
+.nvp-cartas .rl{color:var(--light);flex:1}
+.nvp-cartas .ok{width:20px;height:20px;border-radius:50%;border:2px solid #d4d4cf;display:grid;place-items:center;flex-shrink:0}
+.nvp-cartas .ok.s{background:#2f9e63;border-color:#2f9e63;color:#fff}
+.nvp-acts{display:flex;gap:8px;flex-wrap:wrap;padding-top:10px}
+.nvp-acts .nv-btn{background:var(--bg)}
+@media (max-width:860px){
+  #nv-print{padding:12px}
+  .nvp-top .nv-btn span{display:none}.nvp-top .nv-btn{width:44px;padding:0;justify-content:center}
+  .nvp-row{flex-wrap:wrap}.nvp-st{order:3;width:100%;padding-left:48px}
+  .nvp-row .nv-btn span{display:none}
+  .nvp-cartas{padding-left:14px}
+}
 
 /* ══════ editor ══════ */
 html.nv #screen-editor{background:var(--pg)}
@@ -1679,7 +1686,7 @@ html.nv #pr-img-fmt,html.nv #pr-moldura{display:none!important}
 html.nv #screen-landing{background:var(--pg)}
 html.nv .land-topbar{background:var(--bg);margin:18px 22px 0;border-radius:999px;box-shadow:none;padding:10px 12px 10px 20px}
 html.nv .land-body{display:grid;grid-template-columns:minmax(0,1fr) 520px;gap:22px;align-items:stretch;padding:22px;max-width:1400px;margin:0 auto;width:100%}
-html.nv .nv-hero{display:flex;flex-direction:column;background:linear-gradient(150deg,#6e5a3a,#8b7350 55%,#b39a6f);border-radius:26px;padding:48px;color:#fff;position:relative;overflow:hidden;min-height:480px}
+html.nv .nv-hero{display:flex;flex-direction:column;background:var(--acc-grad);border-radius:26px;padding:48px;color:#fff;position:relative;overflow:hidden;min-height:480px}
 html.nv .nv-hero::after{content:'';position:absolute;right:-120px;bottom:-120px;width:420px;height:420px;border-radius:50%;border:60px solid rgba(255,255,255,.06);pointer-events:none}
 html.nv .nv-hero h1{font-size:54px;font-weight:600;letter-spacing:-.035em;line-height:1.03;max-width:540px}
 html.nv .nv-hero p{font-size:17px;opacity:.88;margin-top:18px;max-width:460px;line-height:1.5;font-weight:500}
@@ -1740,6 +1747,35 @@ html.nv .auth-btn{background:var(--accent);box-shadow:none;border-radius:999px}
 }
 @media print{#nv-print{display:none!important}}
 
+/* formulário público: mais legível e centralizado no cartão */
+html.nv .form-card{display:flex;flex-direction:column;justify-content:center;padding:10px 6px 14px;background:var(--bg)}
+html.nv .form-card{position:relative}
+html.nv .prog-track{position:absolute;top:24px;left:28px;right:28px;margin:0;height:6px;border-radius:999px;background:var(--soft);overflow:hidden}
+html.nv .prog-fill{border-radius:999px;background:var(--accent)}
+html.nv .shead{padding:18px 28px 10px}
+html.nv .snum{font-size:12px;letter-spacing:.12em}
+html.nv .stitle{font-size:26px;font-weight:700;letter-spacing:-.02em;line-height:1.15}
+html.nv #screen-landing .fi{font-size:16px;padding:15px 18px}
+html.nv .sfoot{padding:16px 28px 18px}
+html.nv .land-topbar .btn{background:var(--soft)}
+@media (max-width:860px){ html.nv .stitle{font-size:21px} html.nv .form-card{justify-content:flex-start} }
+
+/* aviso do limite de 1 carta por hora para o mesmo encontrista */
+.vv-limite{margin-top:12px;background:#fcf1de;color:#7a4e0e;border-radius:14px;padding:12px 14px;font-size:14px;line-height:1.5;font-weight:500}
+.vv-limite b{font-weight:700}
+html.nv.dark .vv-limite{background:#3a2c14;color:#f3d9a8}
+
+/* dicas da barra da esquerda por cima dos cartões */
+html.nv .nv-rail{z-index:60}
+html.nv .nv-top{z-index:70}
+/* restos do marrom original → cor da paleta escolhida */
+html.nv .pp-head-ico{background:var(--br-bg);color:var(--accent)}
+html.nv .pp-seg button.active{color:var(--accent)}
+html.nv .pp-link{color:var(--accent)}
+html.nv .mtb button.on,html.nv .msheet-list button.on{background:var(--br-bg);color:var(--accent)}
+html.nv .msheet-tpls button.on{box-shadow:0 0 0 3px var(--accent)}
+html.nv .encx-chip.cartas{background:var(--br-bg);color:var(--accent)}
+
 </style>
 </style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
@@ -1747,11 +1783,7 @@ html.nv .auth-btn{background:var(--accent);box-shadow:none;border-radius:999px}
 <body>
 <!-- SVG ICONS SPRITE -->
 <svg style="display:none" xmlns="http://www.w3.org/2000/svg">
-    <symbol id="ico-brand" viewBox="0 0 262 262">
-    <path d="M262 131C262 203.349 203.349 262 131 262C58.6507 262 0 203.349 0 131C0 58.6507 58.6507 0 131 0C203.349 0 262 58.6507 262 131Z" fill="var(--accent)"/>
-    <path d="M176.048 105.015C176.048 105.015 150.215 107.515 144.548 107.515L144.048 109.515C144.048 109.515 134.048 144.681 132.048 150.015C132.048 150.015 126.548 168.015 122.048 170.015C122.048 170.015 115.548 173.515 106.548 170.015C106.548 170.015 108.548 117.848 110.548 108.515C110.548 108.515 84.5482 109.515 80.0482 107.015C79.7148 99.6815 81.0482 86.5148 86.0482 80.0148C92.4482 76.8148 110.048 76.1815 117.548 76.0148C117.548 76.0148 118.548 63.5148 126.548 51.5148C126.548 51.5148 141.548 47.5148 155.548 52.5148C155.548 52.5148 153.382 70.3481 152.048 75.0148C152.048 75.0148 167.548 73.5148 182.048 76.5148C182.048 76.5148 183.048 91.5148 176.048 105.015Z" fill="white"/>
-    <path d="M130.048 194.015C130.048 204.232 121.765 212.515 111.548 212.515C101.331 212.515 93.0482 204.232 93.0482 194.015C93.0482 183.798 101.331 175.515 111.548 175.515C121.765 175.515 130.048 183.798 130.048 194.015Z" fill="white"/>
-  </symbol>
+    <symbol id="ico-brand" viewBox="0 0 262 262"><circle cx="131" cy="131" r="131" fill="var(--accent)"/><path d="M108.9 183.8 L105.1 185.9 L102.0 188.7 L100.7 190.5 L98.9 194.4 L98.1 198.2 L98.1 203.1 L98.6 206.2 L100.7 211.1 L104.0 215.0 L106.6 216.8 L110.0 218.4 L113.3 219.2 L119.5 219.4 L123.1 218.9 L125.7 218.1 L129.3 216.3 L133.5 212.4 L135.8 208.3 L136.8 204.4 L136.8 197.2 L135.8 193.3 L134.2 190.2 L129.6 185.6 L126.7 184.0 L123.6 183.0 L120.5 182.5 L114.1 182.5Z M160.8 57.8 L153.3 56.5 L143.0 56.3 L137.1 56.8 L131.6 58.1 L130.4 59.4 L127.8 65.0 L125.2 73.1 L123.1 81.3 L122.6 81.8 L105.3 83.4 L93.2 85.7 L92.2 86.2 L91.1 87.5 L88.5 93.2 L86.7 99.6 L85.7 105.3 L85.7 112.8 L88.5 113.6 L93.4 114.1 L116.4 114.6 L113.8 132.7 L112.0 158.7 L112.0 173.7 L112.5 176.3 L113.6 176.8 L120.0 177.9 L126.2 177.6 L129.3 176.6 L130.9 174.8 L134.2 167.3 L139.6 151.5 L150.2 113.8 L150.7 113.3 L169.6 112.3 L180.9 111.0 L182.5 109.4 L183.8 106.6 L185.3 102.0 L187.4 92.9 L188.2 87.2 L188.2 82.6 L187.7 82.1 L179.7 81.1 L158.7 80.5 L158.5 80.3 L160.3 72.3 L161.6 63.0 L161.6 58.3Z" fill="#fff"/></symbol>
   <symbol id="ico-user" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></symbol>
   <symbol id="ico-text" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7V5h16v2M9 20h6M12 5v15"/></symbol>
   <symbol id="ico-img" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></symbol>
@@ -1850,7 +1882,7 @@ html.nv .auth-btn{background:var(--accent);box-shadow:none;border-radius:999px}
         <div class="shead">
           <div class="stitle" id="landing-boasvindas">Escreva sua carta de homenagem</div>
         </div>
-        <div class="shead"><div class="snum">1 de 5</div><div class="stitle">Qual é o seu nome?</div></div>
+        <div class="shead"><div class="snum">1 de 6</div><div class="stitle">Qual é o seu nome?</div></div>
         <div class="sbody">
           <input type="text" class="fi" id="f-nome" placeholder="Seu nome completo" maxlength="60" oninput="document.getElementById('f-nome-count').textContent=this.value.length" onkeydown="if(event.key==='Enter')nextStep(2)">
           <div style="text-align:right;font-size:.7rem;color:var(--light);margin-top:4px;">
@@ -1882,9 +1914,10 @@ html.nv .auth-btn{background:var(--accent);box-shadow:none;border-radius:999px}
       <div class="form-step hidden" data-step="3">
         <div class="shead"><div class="snum">3 de 6</div><div class="stitle">Para quem é a carta?</div></div>
         <div class="sbody">
-          <select class="fi" id="f-para">
+          <select class="fi" id="f-para" onchange="_vvLimiteLimpar()">
             <option value="">Selecione o encontrista...</option>
           </select>
+          <div id="vv-limite-aviso" class="vv-limite hidden" role="alert"></div>
 
         </div>
         <div class="sfoot">
@@ -3787,8 +3820,58 @@ window.nextStep=n=>{
     6:[['f-carta','Escreva a carta']]
   };
   for(const [id,msg] of(v[n]||[])){const el=document.getElementById(id);if(!el?.value?.trim()){toast(msg,'err');el?.focus();return}}
+  // Ao escolher o encontrista, confere o limite antes da pessoa escrever a carta
+  if(n===4){
+    _vvLimiteVerificar().then(bloq=>{ if(bloq){ _vvLimiteAviso(bloq); return; } _vvLimiteLimpar(); gotoStep(4); });
+    return;
+  }
   gotoStep(n);
 };
+// Uma pessoa (identificada pelo telefone) só pode mandar outra carta para o
+// MESMO encontrista depois de 1 hora. Para outros encontristas, liberado.
+// Fica guardado neste aparelho e também no banco (envios/{código}), para
+// valer mesmo se a pessoa trocar de celular ou limpar o navegador.
+const VV_LIM_MS=60*60*1000;
+function _vvLimLocal(){ try{ return JSON.parse(localStorage.getItem('vv::envios')||'{}'); }catch(_){ return {}; } }
+async function _vvLimChave(){
+  const tel=fv('f-tel').replace(/\D/g,''), para=_normNome(fv('f-para'));
+  if(!tel||!para) return null;
+  const txt='vv|'+tel+'|'+para;
+  try{ const b=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(txt)); return [...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,'0')).join('').slice(0,40); }
+  catch(_){ return 'l_'+txt; }
+}
+async function _vvLimiteVerificar(){
+  const k=await _vvLimChave(); if(!k) return null;
+  let ult=Number(_vvLimLocal()[k])||0;
+  try{
+    if(window._FB && !k.startsWith('l_')){
+      const {doc,getDoc}=window._FB;
+      const sn=await getDoc(doc(window._FB.db,'envios',k));
+      if(sn.exists()) ult=Math.max(ult,Number(sn.data().t)||0);
+    }
+  }catch(_){ /* sem permissão ou sem conexão: vale o registro deste aparelho */ }
+  if(ult && Date.now()-ult<VV_LIM_MS) return {para:fv('f-para'), libera:ult+VV_LIM_MS};
+  return null;
+}
+async function _vvLimiteRegistrar(){
+  const k=await _vvLimChave(); if(!k) return;
+  const agora=Date.now();
+  try{
+    const m=_vvLimLocal();
+    Object.keys(m).forEach(x=>{ if(agora-m[x]>VV_LIM_MS) delete m[x]; });
+    m[k]=agora; localStorage.setItem('vv::envios',JSON.stringify(m));
+  }catch(_){}
+  try{ if(!k.startsWith('l_')){ const {doc,setDoc}=window._FB; await setDoc(doc(window._FB.db,'envios',k),{t:agora}); } }catch(_){}
+}
+function _vvLimiteAviso(b){
+  const hora=new Date(b.libera).toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'});
+  const el=document.getElementById('vv-limite-aviso');
+  const msg=`Você já enviou uma carta para <b>${esc(b.para)}</b>. Para manter as cartas organizadas, cada pessoa pode enviar uma carta por encontrista a cada 1 hora — você poderá escrever de novo para ele(a) a partir das <b>${hora}</b>. Enquanto isso, pode escrever para outro encontrista.`;
+  if(el){ el.innerHTML=msg; el.classList.remove('hidden'); }
+  try{ if(typeof _posicionarSocial==='function') setTimeout(_posicionarSocial,30); }catch(_){}
+  toast(`Você poderá escrever de novo para ${b.para} a partir das ${hora}`,'wrn');
+}
+window._vvLimiteLimpar=()=>{ const el=document.getElementById('vv-limite-aviso'); if(!el||el.classList.contains('hidden')) return; el.classList.add('hidden'); try{ if(typeof _posicionarSocial==='function') setTimeout(_posicionarSocial,30); }catch(_){} };
 window.prevStep=n=>gotoStep(n);
 function gotoStep(n){
   document.querySelectorAll('.form-step').forEach(s=>s.classList.add('hidden'));
@@ -3873,6 +3956,9 @@ window.enviarCarta=async()=>{
   try{
     const rl=checkRateLimit();
     if(!rl.ok){toast(rl.msg,'wrn');btn.disabled=false;btn.textContent='Enviar carta';return;}
+    // Confere de novo o limite de 1 hora (ex.: carta enviada em outra aba)
+    const _bloq=await _vvLimiteVerificar();
+    if(_bloq){ btn.disabled=false;btn.textContent='Enviar carta'; gotoStep(3); _vvLimiteAviso(_bloq); return; }
 
     const fEl=document.getElementById('f-foto');
     if(_cfg.fotoObrig && !fEl.files[0]){
@@ -3930,6 +4016,7 @@ window.enviarCarta=async()=>{
       return;
     }
 
+    await _vvLimiteRegistrar();
     if(fotoFalhou){
       toast('Carta enviada! A foto não pôde ser anexada, mas sua mensagem foi registrada.','wrn');
     }
@@ -8928,7 +9015,7 @@ html,body{background:#888;font-family:'Nunito',sans-serif;-webkit-print-color-ad
 .bar .info{font-size:.76rem;color:#9ca3af;margin-left:auto}
 .bar button{padding:8px 18px;border:none;border-radius:50px;font-family:'Nunito',sans-serif;font-size:.8rem;font-weight:700;cursor:pointer}
 .bc{background:#e8ecf0;color:#6b7280;box-shadow:3px 3px 8px #c4c9d2,-3px -3px 8px #fff}
-.bp{background:linear-gradient(135deg,#7c6b50,#c4a882);color:#fff;box-shadow:3px 3px 10px rgba(124,107,80,.35)}
+.bp{background:${getComputedStyle(document.documentElement).getPropertyValue('--accent').trim()||'#7c6b50'};color:#fff;box-shadow:none}
 .wrap{display:flex;flex-direction:column;align-items:center;gap:18px;padding:70px 20px 20px}
 @media print{
   .bar{display:none!important}
@@ -9464,7 +9551,7 @@ function applyDark(dark){
     const ico=document.getElementById(id);
     if(ico)ico.innerHTML=dark?sunSvg:moonSvg;
   });
-  document.querySelector('meta[name="theme-color"]')?.setAttribute('content',dark?'#1e2126':'#7c6b50');
+  document.querySelector('meta[name="theme-color"]')?.setAttribute('content',dark?'#1e2126':(getComputedStyle(document.documentElement).getPropertyValue('--accent').trim()||'#7c6b50'));
 }
 window.toggleDark=()=>applyDark(!_darkMode);
 if(_darkMode) applyDark(true);
@@ -9980,7 +10067,7 @@ const NVI={
  search:'<circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/>', plus:'<path d="M12 5v14M5 12h14"/>',
  undo:'<path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/>', edit:'<path d="M4 20h4L19 9l-4-4L4 16z"/>',
  wa:'<path d="M3 21l1.6-4.6A8.5 8.5 0 1 1 8 19.6z"/><path d="M9 9.5c.5 2 2.5 4 4.5 4.5l1.2-1.2 2 .8-.4 1.9c-4 .3-8.5-4.2-8.2-8.2l1.9-.4.8 2z"/>',
- x:'<path d="M6 6l12 12M18 6 6 18"/>', brand:'<path d="M12 3v18M7 8h10"/>',
+ x:'<path d="M6 6l12 12M18 6 6 18"/>', check:'<path d="m5 12 5 5 9-10"/>', brand:'<path d="M12 3v18M7 8h10"/>',
 };
 const nvI=(n,s)=>`<svg viewBox="0 0 24 24" ${s?`style="width:${s}px;height:${s}px"`:''} fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${NVI[n]||''}</svg>`;
 const _nvIni=n=>String(n||'?').trim().split(/\s+/).filter(Boolean).map(w=>w[0]).slice(0,2).join('').toUpperCase();
@@ -10009,7 +10096,7 @@ function _nvNav(){
   const top=document.getElementById('nv-top'); if(!top) return;
   const atual=_nvTabAtual(), admin=CU?.perfil==='admin';
   const itens=_nvItensNav();
-  top.innerHTML=`<div class="nv-logo"><i>${nvI('brand')}</i>${esc(_cfg?.nomeSite||'Vida Vitoriosa')}</div>
+  top.innerHTML=`<div class="nv-logo"><svg class="nv-logo-ic" viewBox="0 0 262 262"><use href="#ico-brand"/></svg>${esc(_cfg?.nomeSite||'Vida Vitoriosa')}</div>
    <nav class="nv-pnav">${itens.map(([k,t])=>`<button class="${k===atual?'on':''}" onclick="_nvIr('${k}')">${t}</button>`).join('')}</nav>
    <div class="nv-topr"><button class="nv-circ nv-hm" title="Modo noturno" onclick="toggleDark()">${nvI('moon')}</button>
     <div class="nv-me"><button onclick="_nvMenu(event)" aria-label="Menu da conta"><span class="nv-av">${esc(_nvIni(CU?.nome))}</span><span class="nv-hm">${nvI('chev',16)}</span></button>
@@ -10068,12 +10155,12 @@ function _nvHome(){
   const seg=(n,c)=>n?`<i style="flex:${n};background:${c}"></i>`:'';
   document.getElementById('nv-andamento').innerHTML=`<div class="nv-ch"><div class="tt"><h3>Andamento</h3><small>Todas as cartas do encontro</small></div></div>
    <div style="text-align:center"><div class="nv-lb">Total recebido</div><div class="nv-big" style="justify-content:center;margin-top:6px">${tot}<span>carta${tot!==1?'s':''}</span></div></div>
-   <div class="nv-stack">${seg(pend,'#e9a23b')}${seg(edit,'#3b7bd6')}${seg(pr,'#8b7350')}${seg(imp,'#2f9e63')}</div>
-   <div class="nv-leg"><div><i style="background:#e9a23b"></i>Pendentes<b>${pend}</b></div><div><i style="background:#3b7bd6"></i>Em edição<b>${edit}</b></div><div><i style="background:#8b7350"></i>Prontas<b>${pr}</b></div><div><i style="background:#2f9e63"></i>Impressas<b>${imp}</b></div></div>
+   <div class="nv-stack">${seg(pend,'#e9a23b')}${seg(edit,'#3b7bd6')}${seg(pr,'var(--accent)')}${seg(imp,'#2f9e63')}</div>
+   <div class="nv-leg"><div><i style="background:#e9a23b"></i>Pendentes<b>${pend}</b></div><div><i style="background:#3b7bd6"></i>Em edição<b>${edit}</b></div><div><i style="background:var(--accent)"></i>Prontas<b>${pr}</b></div><div><i style="background:#2f9e63"></i>Impressas<b>${imp}</b></div></div>
    <div class="nv-inner nv-push nv-att"><b style="font-weight:700;font-size:14px;color:var(--text)">Precisa de atenção</b>
     <div class="r"><i style="background:#d24b4b"></i><span>Cartas sem servo</span><b>${semServo}</b><button class="nv-btn sm wh" onclick="_nvFiltrarAtivas('pendente')">Ver</button></div>
     <div class="r"><i style="background:#e9a23b"></i><span>Encontristas sem carta</span><b>${semCarta}</b><button class="nv-btn sm wh" onclick="_nvEncFiltro='semcarta';adminTab('encontristas')">Ver</button></div>
-    <div class="r"><i style="background:#8b7350"></i><span>Para imprimir</span><b>${pendImp.length}</b><button class="nv-btn sm wh" onclick="nvAbrirImpressao()">Abrir</button></div></div>`;
+    <div class="r"><i style="background:var(--accent)"></i><span>Para imprimir</span><b>${pendImp.length}</b><button class="nv-btn sm wh" onclick="nvAbrirImpressao()">Abrir</button></div></div>`;
   // cartas por servo
   const sv={}; cartasData.forEach(c=>{ if(!c.servoUid) return; const s=sv[c.servoUid]=sv[c.servoUid]||{n:c.servoNome||'Servo',t:0,p:0}; s.t++; if(c.status==='pronta') s.p++; });
   const lsv=Object.values(sv).sort((a,b)=>b.t-a.t);
@@ -10219,125 +10306,106 @@ function _nvEncDetalhe(id){
      ${ehAdmin?`<button class="nv-btn sm rd" style="margin-left:auto" onclick="delEnc('${e.id}')" title="Excluir encontrista">${nvI('trash')}</button>`:''}</div></div>`;
 }
 
-// ── Janela de Impressão ──
-const NVP={aba:'prontos',sel:new Set(),foco:null,so:'prontas',arq:'um',marcar:true,cache:{},fila:null,busca:''};
+// ── Impressão: uma lista simples do que já foi impresso e do que falta ──
+const NVP={aba:'falta',abertos:new Set(),busca:''};
 window.nvAbrirImpressao=nome=>{
-  const box=document.getElementById('nv-print'); if(!box) return imprimirPorEncontrista(nome);
+  const box=document.getElementById('nv-print'); if(!box) return nome?imprimirPorEncontrista(nome):null;
   _ouvirImpressoes();
-  NVP.fila=null; NVP.busca='';
+  NVP.busca=''; NVP.abertos=new Set(nome?[nome]:[]);
   const g=_nvPGrupos();
-  if(nome){ NVP.sel=new Set([nome]); NVP.foco=nome; NVP.aba=g.find(x=>x.nome===nome)?.st==='i'?'feitos':'prontos'; }
-  else { NVP.aba='prontos'; NVP.sel=new Set(g.filter(x=>x.st!=='i').map(x=>x.nome)); NVP.foco=g.find(x=>x.st!=='i')?.nome||g[0]?.nome||null; }
-  box.classList.remove('hidden');
-  _nvPRender(); _nvPPrevia();
+  NVP.aba=(nome&&g.find(x=>x.nome===nome)?.st==='i')?'feito':'falta';
+  box.classList.remove('hidden'); _nvPRender();
 };
 window.nvFecharImpressao=()=>document.getElementById('nv-print')?.classList.add('hidden');
 function _nvPGrupos(){
   const m={};
   _cartasProntas.forEach(c=>{ const n=c.para||'—'; (m[n]=m[n]||{nome:n,prontas:[],edicao:0}).prontas.push(c); });
-  _cartasAtivas.forEach(c=>{ const n=c.para; if(m[n]) m[n].edicao++; });
+  _cartasAtivas.forEach(c=>{ if(m[c.para]) m[c.para].edicao++; });
   const quando=_impressoes?.quando_impresso||{};
   return Object.values(m).map(g=>{
     const imp=new Set(_impressoes?.[g.nome]||[]);
-    const ja=g.prontas.filter(c=>imp.has(c.id)).length;
-    g.st=ja===0?'n':ja<g.prontas.length?'p':'i'; g.novas=g.prontas.length-ja; g.quando=quando[g.nome]||null;
+    g.prontas.forEach(c=>c._imp=imp.has(c.id));
+    g.feitas=g.prontas.filter(c=>c._imp).length; g.novas=g.prontas.length-g.feitas;
+    g.st=g.novas===0?'i':g.feitas===0?'n':'p'; g.quando=quando[g.nome]||null;
     return g;
   }).sort((a,b)=>a.nome.localeCompare(b.nome,'pt'));
-}
-function _nvPStatusTag(g){
-  if(g.st==='n') return '<span class="nv-tag nv-t-wa">Nunca impresso</span>';
-  if(g.st==='p') return `<span class="nv-tag nv-t-bl">${g.novas} carta${g.novas!==1?'s':''} nova${g.novas!==1?'s':''} desde a impressão</span>`;
-  return `<span class="nv-tag nv-t-g">Impresso${g.quando?' '+_nvQuando(g.quando):''}</span>`;
 }
 function _nvPRender(){
   const box=document.getElementById('nv-print'); if(!box) return;
   const g=_nvPGrupos();
-  const vis=g.filter(x=>NVP.aba==='todos'||(NVP.aba==='prontos'?x.st!=='i':x.st==='i')).filter(x=>!NVP.busca||_normNome(x.nome).includes(_normNome(NVP.busca)));
-  const nP=g.filter(x=>x.st!=='i').length, nI=g.length-nP;
-  const selG=g.filter(x=>NVP.sel.has(x.nome));
-  const cartasSel=selG.reduce((s,x)=>s+(NVP.so==='prontas'?x.prontas.length:x.prontas.length+x.edicao),0);
-  const fila=NVP.fila, prox=fila?fila.lista[fila.i]:null;
-  const rotBtn=fila?(prox?`Imprimir ${esc(prox)} (${fila.i+1} de ${fila.lista.length})`:'Concluído'):`Imprimir ${selG.length} encontrista${selG.length!==1?'s':''}`;
-  const todosVis=vis.length&&vis.every(x=>NVP.sel.has(x.nome));
-  box.innerHTML=`<div class="nv-ptop"><button class="nv-circ" onclick="nvFecharImpressao()" aria-label="Fechar">${nvI('back')}</button><div class="t"><b>Impressão</b><small>Escolha os encontristas, confira e imprima</small></div><span style="flex:1"></span>
-   <div class="nv-seg nv-hm"><button class="${NVP.aba==='prontos'?'on':''}" onclick="_nvPAba('prontos')">Prontos · ${nP}</button><button class="${NVP.aba==='feitos'?'on':''}" onclick="_nvPAba('feitos')">Já impressos · ${nI}</button><button class="${NVP.aba==='todos'?'on':''}" onclick="_nvPAba('todos')">Todos</button></div></div>
-  <div class="nv-pbody">
-   <section class="nv-card nv-plist"><div class="nv-srch" style="margin-bottom:10px">${nvI('search')}<input placeholder="Buscar encontrista" value="${esc(NVP.busca)}" oninput="NVP.busca=this.value;_nvPRender();this.focus&&setTimeout(()=>{const i=document.querySelector('#nv-print .nv-srch input');if(i){i.focus();i.setSelectionRange(i.value.length,i.value.length);}},0)"></div>
-    <div class="nv-seg" style="display:none;margin-bottom:10px" id="nv-pseg-m"></div>
-    <div style="display:flex;align-items:center;gap:10px;padding:2px 12px 10px;color:var(--light);font-weight:600;font-size:13px;cursor:pointer" onclick="_nvPTodos(${todosVis?0:1})"><span class="nv-box ${todosVis?'on':''}"></span><span style="flex:1">Marcar todos ${NVP.aba==='feitos'?'os impressos':NVP.aba==='todos'?'':'os prontos'}</span><span>${selG.length} de ${g.length}</span></div>
-    <div class="nv-pl">${vis.length?vis.map(x=>{const nj=esc(x.nome).replace(/'/g,"\\'");return `<div class="nv-pi ${NVP.foco===x.nome?'on':''}" onclick="_nvPFoco('${nj}')"><span class="nv-box ${NVP.sel.has(x.nome)?'on':''}" onclick="event.stopPropagation();_nvPSel('${nj}')"></span>${_nvAv(x.nome,_nvSexo(x.nome))}<div class="tx"><b>${esc(x.nome)}</b><small>${x.prontas.length} pronta${x.prontas.length!==1?'s':''}${x.edicao?` · <span style="color:#c8862a">${x.edicao} em edição</span>`:''}</small>${_nvPStatusTag(x)}</div></div>`;}).join(''):'<div class="nv-empty">Nada aqui</div>'}</div></section>
-   <div class="nv-pv"><div class="hd"><span id="nv-pv-t">${NVP.foco?esc(NVP.foco):'Prévia'}</span><button class="nv-btn sm wh" onclick="_nvPNav(-1)" aria-label="Anterior">${nvI('back')}</button><button class="nv-btn sm wh" onclick="_nvPNav(1)" aria-label="Próximo">${nvI('chevr')}</button></div><div id="nv-pv-c" class="msg">Selecione um encontrista para ver a prévia</div></div>
-   <section class="nv-card nv-fx nv-popt"><div class="nv-sect" style="margin-top:0">O que imprimir</div><div class="nv-opt"><button class="o ${NVP.so==='prontas'?'on':''}" onclick="NVP.so='prontas';NVP.cache={};_nvPRender();_nvPPrevia()"><i></i>Só cartas prontas</button><button class="o ${NVP.so==='todas'?'on':''}" onclick="NVP.so='todas';NVP.cache={};_nvPRender();_nvPPrevia()"><i></i>Todas as cartas</button></div>
-    <div class="nv-sect">Arquivo</div><div class="nv-opt"><button class="o ${NVP.arq==='um'?'on':''}" onclick="NVP.arq='um';NVP.fila=null;_nvPRender()"><i></i>Um PDF por encontrista</button><button class="o ${NVP.arq==='junto'?'on':''}" onclick="NVP.arq='junto';NVP.fila=null;_nvPRender()"><i></i>Tudo num PDF só</button></div>
-    <div class="nv-srow"><div class="tx"><b>Marcar como impressas</b><small>Desligue para só conferir</small></div><button class="nv-sw ${NVP.marcar?'on':''}" onclick="NVP.marcar=!NVP.marcar;_nvPRender()" aria-label="Marcar como impressas"></button></div>
-    <div class="nv-sum nv-push" style="margin-top:14px"><div><span>Encontristas</span><b>${selG.length}</b></div><div><span>Cartas</span><b>${cartasSel}</b></div><div><span>Papel</span><b>${_nvPapel()}</b></div></div>
-    <button class="nv-btn dk" style="justify-content:center;margin-top:12px;height:50px" ${(!selG.length&&!fila)||(fila&&!prox)?'disabled':''} onclick="_nvPImprimir()">${nvI('print')}${rotBtn}</button>
-    ${fila?`<button class="nv-btn sm" style="justify-content:center;margin-top:8px;background:transparent" onclick="NVP.fila=null;_nvPRender()">Cancelar sequência</button>`:''}</section>
+  const falta=g.filter(x=>x.st!=='i'), feito=g.filter(x=>x.st==='i');
+  const pct=g.length?Math.round(feito.length/g.length*100):0;
+  let lista=NVP.aba==='falta'?falta:feito;
+  if(NVP.busca) lista=lista.filter(x=>_normNome(x.nome).includes(_normNome(NVP.busca)));
+  const nj=n=>esc(n).replace(/'/g,"\\'");
+  box.innerHTML=`<div class="nvp">
+   <div class="nvp-top"><button class="nv-circ" onclick="nvFecharImpressao()" aria-label="Voltar">${nvI('back')}</button>
+     <div class="t"><b>Impressão</b><small>${feito.length} de ${g.length} encontristas impressos</small></div>
+     ${falta.length?`<button class="nv-btn dk" onclick="_nvPTodos()">${nvI('print')}<span>Imprimir os ${falta.length} que faltam</span></button>`:''}</div>
+   <div class="nvp-prog"><i style="width:${pct}%"></i></div>
+   <div class="nvp-bar">
+     <div class="nv-seg"><button class="${NVP.aba==='falta'?'on':''}" onclick="NVP.aba='falta';_nvPRender()">Falta imprimir · ${falta.length}</button><button class="${NVP.aba==='feito'?'on':''}" onclick="NVP.aba='feito';_nvPRender()">Impressos · ${feito.length}</button></div>
+     <label class="nv-srch">${nvI('search')}<input placeholder="Buscar encontrista" value="${esc(NVP.busca)}" oninput="NVP.busca=this.value;_nvPRender();const i=document.querySelector('.nvp-bar input');if(i){i.focus();i.setSelectionRange(i.value.length,i.value.length);}"></label>
+   </div>
+   <div class="nvp-list">${lista.length?lista.map(x=>{
+     const ab=NVP.abertos.has(x.nome);
+     const info=x.st==='n'?'<span class="nv-tag nv-t-wa">Nunca impresso</span>'
+       :x.st==='p'?`<span class="nv-tag nv-t-bl">${x.novas} nova${x.novas!==1?'s':''} desde ${x.quando?_nvQuando(x.quando):'a última impressão'}</span>`
+       :`<span class="nv-tag nv-t-ok">${nvI('check',12)}Impresso${x.quando?' '+_nvQuando(x.quando):''}</span>`;
+     return `<div class="nvp-it ${ab?'op':''}">
+      <div class="nvp-row" onclick="_nvPAbre('${nj(x.nome)}')">${_nvAv(x.nome,_nvSexo(x.nome))}
+       <div class="tx"><b>${esc(x.nome)}</b><small>${x.prontas.length} carta${x.prontas.length!==1?'s':''} pronta${x.prontas.length!==1?'s':''}${x.edicao?` · <span style="color:#c8862a">${x.edicao} ainda em edição</span>`:''}</small></div>
+       <span class="nvp-st">${info}</span>
+       <button class="nv-btn sm ${x.st==='i'?'':'dk'}" onclick="event.stopPropagation();imprimirPorEncontrista('${nj(x.nome)}')">${nvI('print')}<span>${x.st==='i'?'De novo':'Imprimir'}</span></button>
+       <span class="chv ${ab?'op':''}">${nvI('chevr',16)}</span></div>
+      ${ab?`<div class="nvp-cartas">${x.prontas.map(c=>`<div><span class="ok ${c._imp?'s':''}">${c._imp?nvI('check',13):''}</span><b>${esc(c.nome||'—')}</b><span class="rl">${esc(c.relacao||'')}</span><span class="nv-mut">${c._imp?'impressa':'não impressa'}</span></div>`).join('')}
+        <div class="nvp-acts">${x.st!=='i'?`<button class="nv-btn sm" onclick="_nvPMarcar('${nj(x.nome)}',true)">Marcar tudo como impresso</button>`:''}${x.feitas?`<button class="nv-btn sm" onclick="_nvPMarcar('${nj(x.nome)}',false)">Desmarcar impressão</button>`:''}</div></div>`:''}
+     </div>`;}).join(''):`<div class="nv-empty">${NVP.busca?'Nenhum encontrista encontrado':NVP.aba==='falta'?'Tudo impresso por enquanto':'Nenhum encontrista impresso ainda'}</div>`}</div>
   </div>`;
-  if(NVP._html&&NVP._htmlNome===NVP.foco) _nvPMostrar(NVP._html);
 }
-function _nvPapel(){ const w=(window._PRANCH_W||794)/37.795, h=(window._PRANCH_H||1123)/37.795; if(Math.abs(w-21)<.2&&Math.abs(h-29.7)<.2) return 'A4 retrato'; return `${w.toFixed(1).replace('.',',')} × ${h.toFixed(1).replace('.',',')} cm`; }
-window._nvPAba=a=>{ NVP.aba=a; _nvPRender(); };
-window._nvPSel=n=>{ NVP.sel.has(n)?NVP.sel.delete(n):NVP.sel.add(n); NVP.fila=null; _nvPRender(); };
-window._nvPTodos=on=>{ const g=_nvPGrupos().filter(x=>NVP.aba==='todos'||(NVP.aba==='prontos'?x.st!=='i':x.st==='i')); g.forEach(x=>on?NVP.sel.add(x.nome):NVP.sel.delete(x.nome)); NVP.fila=null; _nvPRender(); };
-window._nvPFoco=n=>{ NVP.foco=n; _nvPRender(); _nvPPrevia(); };
-window._nvPNav=d=>{ const g=_nvPGrupos().filter(x=>NVP.aba==='todos'||(NVP.aba==='prontos'?x.st!=='i':x.st==='i')); if(!g.length) return; let i=g.findIndex(x=>x.nome===NVP.foco); i=(i+d+g.length)%g.length; _nvPFoco(g[i].nome); };
-async function _nvPPaginas(nome){
-  const k=NVP.so+'|'+nome;
-  if(NVP.cache[k]) return NVP.cache[k];
-  let r;
-  if(NVP.so==='todas'){
-    // todas as cartas do encontrista, na ordem do editor (prontas ou não)
-    let doc_=[]; try{ doc_=(await DB.loadEditorDoc(nome))||[]; }catch(_){ doc_={_erro:true}; }
-    if(!Array.isArray(doc_)){ toast(`Não consegui carregar as páginas de ${nome}`,'err'); return null; }
-    const ids=new Set(cartasData.filter(c=>c.para===nome).map(c=>c.id));
-    const pages=doc_.filter(pg=>pg&&(!pg.cartaId||ids.has(pg.cartaId)));
-    r={pages, ids:_cartasProntas.filter(c=>c.para===nome).map(c=>c.id)};
-  } else r=await window._nvColetarPaginas(nome,true);
-  if(r&&r.pages?.length) NVP.cache[k]=r;
-  return r;
-}
-async function _nvPPrevia(){
-  const nome=NVP.foco; const c=document.getElementById('nv-pv-c'); if(!nome||!c) return;
-  c.className='msg'; c.innerHTML='Carregando prévia…';
-  const r=await _nvPPaginas(nome);
-  if(NVP.foco!==nome) return;
-  if(!r||!r.pages?.length){ c.innerHTML='Nenhuma página para mostrar'; return; }
-  const orig=pagesData; let html='';
-  try{ pagesData=r.pages; window._nvSoHtml=true; window._printCtx={nome,ids:r.ids}; html=openPrint()||''; }
-  finally{ window._nvSoHtml=false; pagesData=orig; }
-  NVP._html=html; NVP._htmlNome=nome;
-  const t=document.getElementById('nv-pv-t'); if(t) t.textContent=`${nome} · ${r.pages.length} página${r.pages.length!==1?'s':''}`;
-  _nvPMostrar(html);
-}
-function _nvPMostrar(html){
-  const c=document.getElementById('nv-pv-c'); if(!c) return;
-  const extra='<style>.bar{display:none!important}.wrap{padding:20px!important;zoom:.55}html,body{background:transparent!important}</style>';
-  c.className=''; c.style.cssText='flex:1;display:flex;min-height:0';
-  c.innerHTML='<iframe title="Prévia de impressão"></iframe>';
-  c.firstChild.srcdoc=html.replace('</head>',extra+'</head>').replace(/<script>[\s\S]*?<\/script>/g,'');
-}
-window._nvPImprimir=async()=>{
-  const g=_nvPGrupos().filter(x=>NVP.sel.has(x.nome));
-  if(NVP.arq==='junto'&&!NVP.fila){
-    if(!g.length) return;
-    toast(`Preparando ${g.length} encontrista${g.length!==1?'s':''}…`,'wrn');
-    const pages=[], lista=[];
-    for(const x of g){ const r=await _nvPPaginas(x.nome); if(r&&r.pages?.length){ pages.push(...r.pages); lista.push({nome:x.nome,ids:r.ids}); } }
-    if(!pages.length){ toast('Nenhuma página para imprimir','wrn'); return; }
-    _nvPAbrir(pages, NVP.marcar?{nome:g.length===1?g[0].nome:`${g.length} encontristas`,ids:[],lista}:null);
-    return;
+window._nvPAbre=n=>{ NVP.abertos.has(n)?NVP.abertos.delete(n):NVP.abertos.add(n); _nvPRender(); };
+// Marcar/desmarcar sem imprimir (ex.: impresso antes, fora do sistema)
+window._nvPMarcar=async(nome,marcar)=>{
+  const ids=_cartasProntas.filter(c=>c.para===nome).map(c=>c.id);
+  if(marcar){ _registrarImpressao(nome,ids); toast(`${nome}: marcado como impresso`,'ok'); }
+  else{
+    if(!confirm(`Desmarcar a impressão de ${nome}? Ele volta para "Falta imprimir".`)) return;
+    _impressoes[nome]=[]; window.filtrarProntas?.(); _nvPRender();
+    try{ const {doc,setDoc}=window._FB; await setDoc(doc(window._FB.db,'editor','impressoes'),{[nome]:[]},{merge:true}); toast('Impressão desmarcada','ok'); }
+    catch(e){ toast('Não consegui salvar — tente de novo','err'); }
   }
-  if(!NVP.fila){ if(!g.length) return; NVP.fila={lista:g.map(x=>x.nome),i:0}; }
-  const nome=NVP.fila.lista[NVP.fila.i]; if(!nome) return;
-  const r=await _nvPPaginas(nome);
-  if(r&&r.pages?.length) _nvPAbrir(r.pages, NVP.marcar?{nome,ids:r.ids}:null);
-  NVP.fila.i++;
-  if(NVP.fila.i>=NVP.fila.lista.length){ toast('Todos os encontristas selecionados foram enviados para impressão','ok'); NVP.fila=null; }
-  _nvPRender();
 };
-function _nvPAbrir(pages,ctx){ const orig=pagesData; try{ pagesData=pages; window._printCtx=ctx; openPrint(); } finally{ pagesData=orig; } }
+// Imprime de uma vez todos os que faltam, num PDF só
+window._nvPTodos=async()=>{
+  const falta=_nvPGrupos().filter(x=>x.st!=='i');
+  if(!falta.length) return;
+  if(!confirm(`Imprimir as cartas de ${falta.length} encontrista${falta.length!==1?'s':''} num PDF só?`)) return;
+  toast(`Preparando ${falta.length} encontrista${falta.length!==1?'s':''}…`,'wrn');
+  const pages=[], lista=[];
+  for(const x of falta){ const r=await window._nvColetarPaginas(x.nome,true); if(r&&r.pages?.length){ pages.push(...r.pages); lista.push({nome:x.nome,ids:r.ids}); } }
+  if(!pages.length){ toast('Nenhuma página para imprimir','wrn'); return; }
+  const orig=pagesData;
+  try{ pagesData=pages; window._printCtx={nome:falta.length===1?falta[0].nome:`${falta.length} encontristas`,ids:[],lista}; openPrint(); }
+  finally{ pagesData=orig; }
+};
 document.addEventListener('keydown',e=>{ if(e.key==='Escape'&&!document.getElementById('nv-print')?.classList.contains('hidden')) nvFecharImpressao(); });
+
+
+// ── Ícone da aba do navegador e do app no celular, na cor da paleta ──
+function _nvFavicon(){
+  try{
+    const cor=getComputedStyle(document.documentElement).getPropertyValue('--accent').trim()||'#7c6b50';
+    const d=document.querySelector('#ico-brand path')?.getAttribute('d'); if(!d) return;
+    const mk=n=>{ const c=document.createElement('canvas'); c.width=c.height=n; const x=c.getContext('2d');
+      x.fillStyle=cor; x.beginPath(); x.arc(n/2,n/2,n/2,0,Math.PI*2); x.fill();
+      x.scale(n/262,n/262); x.fillStyle='#fff'; x.fill(new Path2D(d)); return c.toDataURL('image/png'); };
+    const set=(rel,href)=>{ let l=document.querySelector(`link[rel="${rel}"]`); if(!l){ l=document.createElement('link'); l.rel=rel; document.head.appendChild(l);} l.href=href; };
+    set('icon',mk(64)); set('apple-touch-icon',mk(180));
+    document.querySelector('meta[name="theme-color"]')?.setAttribute('content',cor);
+  }catch(e){ console.warn('favicon',e); }
+}
+(function(){ const _ap=applyPal; applyPal=function(id){ _ap(id); _nvFavicon(); }; })();
+_nvFavicon();
 
 </script>
 </body>
