@@ -1833,7 +1833,7 @@ html.nv .encx-chip.cartas{background:var(--br-bg);color:var(--accent)}
       </div>
       <span class="brand-name">Vida Vitoriosa</span>
     </div>
-    <button class="btn btn-nm btn-sm" style="margin-left:auto;" onclick="showAuth()">
+    <button class="btn btn-nm btn-sm" style="margin-left:auto;" onclick="CU?showAdmin():showAuth()">
       <svg width="13" height="13"><use href="#ico-lock"/></svg> Área restrita
     </button>
   </div>
@@ -4264,7 +4264,10 @@ window.abrirRecado=async()=>{
     }catch(e){ toast('Erro ao carregar os servos','err'); return; }
   }
   const servos=_recadoServos();
-  if(!servos.length){ toast('Nenhum servo cadastrado para receber recado','wrn'); return; }
+  if(!servos.length){
+    toast('Ainda não há servos cadastrados. Convide alguém em Usuários para poder deixar recados.','wrn');
+    adminTab('usuarios'); return;
+  }
   const sel=document.getElementById('recado-para');
   sel.innerHTML=`<option value="">Escolha o servo…</option>
     <option value="__todos__">Todos os servos (${servos.length})</option>`
@@ -4696,8 +4699,10 @@ function _initAfterAuth(){
   _ouvirRecados();
   try{ _aplicarModoKids(); }catch(_){}
   // Admin e servo entram pelo painel, na aba Homenagens. O servo vai ao
-  // editor pelo menu quando quiser editar.
-  showAdmin();
+  // editor pelo menu quando quiser editar. Se a página foi aberta pelo
+  // botão "Formulário público" (?formulario), continua no formulário.
+  if(new URLSearchParams(location.search).has('formulario')) showLanding();
+  else showAdmin();
   // Após 2s, roda o auto-assign para cartas órfãs que já existiam antes do login
   // (o snapshot inicial pode chegar antes de cartasData estar completo)
   setTimeout(_autoAssignOrfas, 2000);
@@ -10108,7 +10113,7 @@ function _nvNav(){
   if(rail) rail.innerHTML=`<div class="nv-cap"><button class="${atual==='cartas'?'on':''}" data-t="Homenagens" onclick="adminTab('cartas')">${nvI('home')}</button>
      <button data-t="Impressão" onclick="nvAbrirImpressao()">${nvI('print')}</button>
      ${admin?`<button data-t="Deixar recado" onclick="abrirRecado()">${nvI('msg')}</button>`:''}
-     <button data-t="Formulário público" onclick="window.open(location.origin+location.pathname,'_blank')">${nvI('link')}</button></div>
+     <button data-t="Formulário público" onclick="window.open(location.origin+location.pathname+'?formulario=1','_blank')">${nvI('link')}</button></div>
     <div class="nv-cap">${admin?`<button data-t="Fazer backup" onclick="backupCompleto()">${nvI('db')}</button>`:''}<button data-t="Modo noturno" onclick="toggleDark()">${nvI('moon')}</button></div>
     <div class="nv-cap">${admin?`<button data-t="Configurações" onclick="adminTab('config')">${nvI('gear')}</button>`:''}<button data-t="Sair" onclick="doLogout()">${nvI('logout')}</button></div>`;
   const mn=document.getElementById('nv-mnav');
