@@ -423,6 +423,140 @@ select.fi{cursor:pointer}
 .recado-chip.nao{background:rgba(196,136,58,.15);color:var(--warn);}
 .recado-env button{border:none;background:none;color:var(--light);cursor:pointer;font-size:.72rem;font-weight:700;font-family:inherit;}
 .recado-env button:hover{color:var(--err);}
+/* ══ Novo fluxo ══ */
+.anav-bd{margin-left:auto;background:var(--warn);color:#fff;font-size:.62rem;font-weight:800;border-radius:99px;padding:1px 7px}
+.encx-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:4px 0 14px}
+.encx-st{border-radius:var(--r);box-shadow:var(--sh-out);padding:12px 14px}
+.encx-st .l{font-size:.6rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--light)}
+.encx-st .v{font-size:1.45rem;font-weight:800;margin-top:2px;font-variant-numeric:tabular-nums}
+.encx-st .s{font-size:.68rem;color:var(--light)}
+.encx-st.warn .v{color:var(--warn)}
+.encx-fil{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+.encx-fbtn{border:none;background:var(--bg);box-shadow:var(--sh-sm);border-radius:99px;padding:6px 13px;font-family:inherit;font-size:.74rem;font-weight:700;color:var(--mid);cursor:pointer}
+.encx-fbtn.on{box-shadow:var(--sh-in);color:var(--accent)}
+.encx-fbtn .n{margin-left:5px;color:var(--light)}
+.encx-cl{display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid rgba(0,0,0,.05);font-size:.8rem}
+.encx-cl:last-child{border:none}
+.encx-cl .q{flex:1;min-width:0}.encx-cl .q small{display:block;color:var(--light);font-size:.68rem}
+.encx-stb{font-size:.62rem;font-weight:800;border-radius:99px;padding:2px 8px;white-space:nowrap}
+.encx-stb.pendente{background:#fdf0dc;color:#b7791f}.encx-stb.ed{background:#e3ecfb;color:#3b6fd4}.encx-stb.pronta{background:#e2f2e8;color:var(--ok)}
+/* editor */
+.ed-prog{display:flex;flex-direction:column;gap:3px;min-width:150px;max-width:260px;flex:1;margin:0 6px}
+.ed-prog b{font-size:.74rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ed-prog .bar{height:6px;border-radius:99px;box-shadow:var(--sh-in);overflow:hidden}
+.ed-prog .bar i{display:block;height:100%;background:linear-gradient(90deg,var(--ok),#7cc29a);transition:width .3s}
+.enc-sec-bar{height:3px;border-radius:99px;background:rgba(0,0,0,.07);margin-top:4px;overflow:hidden}
+.enc-sec-bar i{display:block;height:100%;background:var(--ok)}
+.ci-dot{width:9px;height:9px;border-radius:50%;background:#3b6fd4;flex-shrink:0;margin:0 4px}
+.ci-dot.p{background:var(--ok)}
+.a4-band{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:6px 4px 8px;font-size:.76rem;width:100%;max-width:var(--pw,794px)}
+.a4-band .who{font-weight:800;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:280px}
+.a4-band .who small{font-weight:700;color:var(--light);margin-left:4px}
+.a4-band select{border:none;background:var(--bg);box-shadow:var(--sh-sm);border-radius:99px;padding:5px 10px;font-family:inherit;font-size:.72rem;font-weight:700;color:var(--mid)}
+.a4-band .pf-ok{margin-left:auto;border:none;border-radius:99px;padding:6px 14px;font-family:inherit;font-size:.74rem;font-weight:800;cursor:pointer;background:var(--bg);box-shadow:var(--sh-sm);color:var(--mid)}
+.a4-band .pf-ok.on{background:var(--ok);color:#fff;box-shadow:none}
+.a4-band .warn{color:var(--warn);font-weight:800;font-size:.7rem}
+.a4-wrap.pronta .a4-page{outline:3px solid rgba(78,158,110,.55);outline-offset:2px}
+/* preparar evento */
+.ptabs{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap}
+.hint-ln{font-size:.76rem;color:var(--light);margin:-6px 0 12px;line-height:1.5}
+.tpl-area-btn{margin:6px 8px 8px;justify-content:center}
+.tpl-area-btn.on{box-shadow:var(--sh-in);color:var(--accent)}
+.area-ed{display:grid;grid-template-columns:minmax(0,320px) minmax(0,300px);gap:22px;align-items:start;margin-top:18px;border-radius:var(--r);box-shadow:var(--sh-in);padding:16px}
+.area-w{position:relative;user-select:none}
+.area-w img{width:100%;display:block;aspect-ratio:var(--ar);object-fit:cover;box-shadow:0 8px 22px rgba(0,0,0,.14)}
+.area-r{position:absolute;border:2px dashed #3b6fd4;background:rgba(59,111,212,.08);cursor:move;touch-action:none}
+.area-r i{position:absolute;width:14px;height:14px;border-radius:50%;background:#3b6fd4;border:2px solid #fff}
+.area-r .h1{left:-8px;top:-8px;cursor:nwse-resize}.area-r .h2{right:-8px;bottom:-8px;cursor:nwse-resize}
+.sec-t{font-size:.62rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--light);margin-bottom:8px}
+.lb{display:grid;grid-template-columns:190px minmax(0,340px) minmax(0,1fr);gap:20px;align-items:start}
+.lb-list{display:flex;flex-direction:column;gap:6px}
+.lbi{display:flex;gap:10px;align-items:center;padding:8px;border-radius:var(--r-sm);border:none;background:none;text-align:left;width:100%;cursor:pointer;font-family:inherit;color:var(--text)}
+.lbi.on{box-shadow:var(--sh-in)}
+.lbi b{font-size:.78rem;display:block}
+.lbi .tg{display:inline-block;font-size:.6rem;font-weight:800;border-radius:99px;padding:1px 7px;margin:2px 3px 0 0;background:rgba(78,158,110,.15);color:var(--ok)}
+.lbi .tg.off{background:rgba(0,0,0,.06);color:var(--mid)}
+.lic{aspect-ratio:210/297;width:38px;border-radius:4px;background:#fff;box-shadow:var(--sh-sm);position:relative;flex-shrink:0}
+.lic i{position:absolute;display:block;border-radius:1.5px}
+.lic i.f{background:#c9d6ea}.lic i.t{background:repeating-linear-gradient(#cfd3d9 0 2px,transparent 2px 5px)}
+.lb-cv{position:relative;user-select:none}
+.lb-safe{position:absolute;outline:1px dashed rgba(0,0,0,.25)}
+.lz{position:absolute;cursor:move;touch-action:none;border:2px solid;border-radius:4px}
+.lz.foto{border-color:#3b6fd4;background:rgba(59,111,212,.10)}.lz.texto{border-color:#c4883a;background:rgba(196,136,58,.08)}
+.lz.sel{border-width:3px}
+.lz .tag{position:absolute;top:-1px;left:-1px;font-size:.58rem;font-weight:800;color:#fff;padding:2px 7px;border-radius:3px 0 5px 0;pointer-events:none;letter-spacing:.06em}
+.lz.foto .tag{background:#3b6fd4}.lz.texto .tag{background:#c4883a}
+.lz .hd{position:absolute;width:14px;height:14px;border-radius:50%;background:#fff;border:2px solid currentColor}
+.lz.foto .hd{color:#3b6fd4}.lz.texto .hd{color:#c4883a}
+.lz .nw{left:-8px;top:-8px;cursor:nwse-resize}.lz .ne{right:-8px;top:-8px;cursor:nesw-resize}.lz .sw{left:-8px;bottom:-8px;cursor:nesw-resize}.lz .se{right:-8px;bottom:-8px;cursor:nwse-resize}
+.lb-p{display:flex;flex-direction:column;gap:12px;font-size:.78rem}
+.lb-p .fi2{width:100%;border:none;background:var(--bg);box-shadow:var(--sh-in);border-radius:10px;padding:8px 12px;font-family:inherit;font-size:.82rem;color:var(--text);outline:none}
+.lb-p .ctl{display:flex;flex-direction:column;gap:6px}
+.seg2{display:flex;gap:6px;flex-wrap:wrap}
+.seg2 .btn.on{box-shadow:var(--sh-in);color:var(--accent)}
+.num4{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.num4 label{display:flex;flex-direction:column;gap:3px;font-size:.6rem;font-weight:800;color:var(--light);text-transform:uppercase}
+.num4 input{width:100%;border:none;background:var(--bg);box-shadow:var(--sh-in);border-radius:8px;padding:6px;font-family:inherit;font-size:.8rem;color:var(--text)}
+.sw2{display:flex;align-items:center;gap:8px;font-weight:700;color:var(--mid);cursor:pointer}
+.warn-b{font-size:.72rem;color:var(--warn);font-weight:700}
+/* prévia de layout (sem depender do editor) */
+.lpv{container-type:inline-size;position:relative;width:100%;aspect-ratio:var(--ar,210/297);background-size:cover;background-position:center;background-color:#fff;overflow:hidden;color:#2b2a28;box-shadow:0 10px 26px rgba(0,0,0,.14)}
+.lpv .s{position:absolute}
+.lpv .zf{position:absolute;display:flex;align-items:center;justify-content:center}
+.lpv .zf .ft{width:100%;height:100%;background-size:cover;background-position:center;background-color:#ddd}
+.lpv .tx{position:absolute;overflow:hidden;display:flex;flex-direction:column}
+.lpv .pa{font-family:'Playfair Display',serif;font-weight:700;line-height:1.2;color:#3a3228;margin-bottom:.6em}
+.lpv .co{white-space:pre-wrap;line-height:1.6}
+.lpv .de{margin-top:.8em;font-family:'Playfair Display',serif;font-style:italic;color:#5a4630;line-height:1.3}
+/* impressão */
+.imp-ig{border-radius:var(--r);box-shadow:var(--sh-sm);margin-bottom:10px;padding:10px 12px}
+.imp-ig label{display:flex;align-items:center;gap:10px;cursor:pointer}
+.imp-ig b{font-size:.86rem}.imp-ig small{display:block;font-size:.68rem;color:var(--light)}
+.imp-l{margin:6px 0 0 28px}
+.imp-pc{display:flex;align-items:center;gap:9px;padding:5px 0;font-size:.78rem;border-top:1px solid rgba(0,0,0,.05)}
+.imp-pc label{display:flex;align-items:center;gap:9px;flex:1;cursor:pointer;flex-wrap:wrap}
+.imp-pc small{color:var(--light);font-size:.68rem}
+.imp-av{font-size:.7rem;color:var(--warn);font-weight:700;margin-top:3px}
+.imp-opts{display:flex;gap:16px;flex-wrap:wrap;padding:10px 0 2px;font-size:.78rem;border-top:1px solid rgba(0,0,0,.05);margin-top:6px}
+.imp-opts label{display:flex;align-items:center;gap:7px;font-weight:700;color:var(--mid);cursor:pointer}
+.imp-tabs{display:flex;gap:8px;margin-bottom:12px}
+/* ajuda */
+.aj{max-width:880px}
+.aj-busca{display:flex;align-items:center;gap:10px;border-radius:99px;box-shadow:var(--sh-in);padding:12px 18px;color:var(--light);margin-bottom:22px}
+.aj-busca input{flex:1;min-width:0;border:none;background:none;font-family:inherit;font-size:.92rem;outline:none;color:var(--text)}
+.tuts{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px}
+.tut{border-radius:var(--r);box-shadow:var(--sh-out);padding:16px;display:flex;flex-direction:column;gap:8px}
+.tut b{font-size:.88rem}.tut p{font-size:.76rem;color:var(--mid);line-height:1.5;flex:1}
+.tut .f2{display:flex;align-items:center;gap:8px}.tut .f2 small{font-size:.68rem;color:var(--light);font-weight:700}.tut .f2 .btn{margin-left:auto}
+.faq{border-radius:var(--r-sm);box-shadow:var(--sh-sm);margin-bottom:8px}
+.faq button.q{width:100%;border:none;background:none;text-align:left;display:flex;gap:10px;align-items:center;padding:12px 14px;font-family:inherit;font-weight:800;font-size:.84rem;color:var(--text);cursor:pointer}
+.faq button.q span{flex:1}
+.faq.open button.q svg{transform:rotate(90deg)}
+.faq .a{padding:0 14px 14px;font-size:.8rem;line-height:1.6;color:var(--mid)}
+.faq .a b{color:var(--text)}.faq .a ol{padding-left:18px;margin:6px 0}
+.aj-fim{margin-top:22px;font-size:.8rem;color:var(--mid);border-radius:var(--r);box-shadow:var(--sh-in);padding:14px 16px}
+#vv-tour{position:fixed;inset:0;z-index:9000;pointer-events:none}
+#vv-tour .sp{position:fixed;border-radius:12px;border:3px solid #ffcf5a;box-shadow:0 0 0 9999px rgba(20,23,30,.5),0 0 22px 4px rgba(255,207,90,.55);transition:all .25s;pointer-events:none}
+#vv-tour .bb{position:fixed;width:min(340px,calc(100vw - 32px));background:#1f232b;color:#fff;border-radius:14px;padding:14px 16px;box-shadow:0 14px 34px rgba(0,0,0,.35);pointer-events:auto;font-size:.84rem;line-height:1.5}
+#vv-tour .pn{font-size:.64rem;font-weight:800;color:#ffcf5a;letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px}
+#vv-tour .tt{font-weight:800;margin-bottom:4px}
+#vv-tour .bt{display:flex;gap:8px;margin-top:12px;align-items:center}
+#vv-tour .bt button{border:none;border-radius:99px;padding:6px 13px;font-family:inherit;font-weight:800;font-size:.74rem;cursor:pointer}
+#vv-tour .bt .sair{background:none;color:#cfd3da;margin-right:auto;padding-left:0}
+#vv-tour .bt .ant{background:#2c313b;color:#fff}
+#vv-tour .bt .prox{background:#ffcf5a;color:#1f232b}
+@media (max-width:760px){
+  .encx-stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .encx-st .s{display:none}
+  .encx-fil{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;padding-bottom:4px}
+  .encx-fbtn{flex-shrink:0}
+  .lb,.area-ed{grid-template-columns:minmax(0,1fr)}
+  .lb-list{flex-direction:row;overflow-x:auto}.lbi{flex-shrink:0;width:auto}
+  .lb-cv{max-width:340px;margin:0 auto}
+  .tuts{grid-template-columns:1fr}
+  .ed-prog{display:none}
+}
+
 /* Responsável pelo encontrista */
 .encx-resp{display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
 .encx-resp-t{flex:1;min-width:180px;font-size:.8rem;line-height:1.45;text-align:left;}
@@ -1705,6 +1839,7 @@ tbody tr:hover{background:rgba(255,255,255,.45)}
 
     <div class="tsep"></div>
 
+    <div class="ed-prog" id="ed-prog"></div>
     <!-- Undo / Redo -->
     <div class="tgrp">
       <button class="tbtn" id="btn-undo" title="Desfazer (Ctrl+Z)" onclick="doUndo()">
@@ -1732,7 +1867,7 @@ tbody tr:hover{background:rgba(255,255,255,.45)}
           <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
         </svg>
       </button>
-      <button class="btn btn-accent btn-sm" onclick="openPrint()">
+      <button class="btn btn-accent btn-sm" id="btn-imprimir-ed" onclick="abrirImpressao()">
         <svg width="13" height="13"><use href="#ico-print"/></svg> Imprimir
       </button>
     </div>
@@ -1994,27 +2129,20 @@ tbody tr:hover{background:rgba(255,255,255,.45)}
 
     </div>
     <nav class="admin-nav">
-      <button class="anav-item act" onclick="adminTab('cartas')" title="Homenagens">
-        <span class="anav-ico"><svg><use href="#ico-mail"/></svg></span> Homenagens
+      <button class="anav-item act" onclick="adminTab('encontristas')" title="Encontristas">
+        <span class="anav-ico"><svg><use href="#ico-users"/></svg></span> Encontristas <span class="anav-bd hidden" id="nav-enc-bd"></span>
       </button>
       <button class="anav-item" onclick="switchToEditor()" title="Editor de Cartas">
         <span class="anav-ico"><svg><use href="#ico-layout"/></svg></span> Editor de Cartas
       </button>
-      <!-- Aba Minhas Cartas — só para servo -->
-      <button class="anav-item hidden" id="nav-minhas-cartas" onclick="adminTab('minhas-cartas')" title="Minhas Cartas">
-        <span class="anav-ico"><svg><use href="#ico-user"/></svg></span> Minhas Cartas
-      </button>
-      <button class="anav-item hidden" id="nav-encontristas-servo" onclick="adminTab('encontristas')" title="Encontristas">
-        <span class="anav-ico"><svg><use href="#ico-users"/></svg></span> Encontristas
+      <button class="anav-item" onclick="adminTab('ajuda')" title="Ajuda">
+        <span class="anav-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3"/><circle cx="12" cy="17" r=".6" fill="currentColor"/></svg></span> Ajuda
       </button>
       <!-- Abas exclusivas do admin — ocultadas para servo -->
       <div id="admin-only-nav">
         <div id="admin-nav-sep" style="height:1px;background:rgba(0,0,0,.06);margin:6px 8px;"></div>
-        <button class="anav-item" onclick="adminTab('encontristas')" title="Encontristas">
-          <span class="anav-ico"><svg><use href="#ico-users"/></svg></span> Encontristas
-        </button>
-        <button class="anav-item" onclick="adminTab('templates')" title="Templates">
-          <span class="anav-ico"><svg><use href="#ico-img"/></svg></span> Templates
+        <button class="anav-item" onclick="adminTab('templates')" title="Preparar evento">
+          <span class="anav-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span> Preparar evento
         </button>
         <button class="anav-item" onclick="adminTab('usuarios')" title="Usuários">
           <span class="anav-ico"><svg><use href="#ico-lock"/></svg></span> Usuários
@@ -2132,6 +2260,8 @@ tbody tr:hover{background:rgba(255,255,255,.45)}
           </div>
         </div>
         <div id="encx-import" class="encx-import hidden"></div>
+        <div class="encx-stats" id="encx-stats"></div>
+        <div class="encx-fil" id="encx-fil"></div>
         <label class="encx-search">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.6" y2="16.6"/></svg>
           <input type="search" id="encx-busca" placeholder="Pesquisar pelo nome…" aria-label="Pesquisar encontrista" oninput="renderAdminEncs()">
@@ -2146,7 +2276,11 @@ tbody tr:hover{background:rgba(255,255,255,.45)}
       </div>
 
       <!-- Templates -->
+      <div class="admin-tab hidden" id="at-ajuda"><div id="ajuda-c"></div></div>
       <div class="admin-tab hidden" id="at-templates">
+        <div class="ptabs" id="prep-tabs"></div>
+        <div id="prep-layouts" class="hidden"></div>
+        <div id="prep-fundos">
         <div style="display:flex;align-items:center;gap:9px;margin-bottom:16px;flex-wrap:wrap;">
           <label class="btn btn-accent btn-sm" style="cursor:pointer;">
             <svg width="13" height="13"><use href="#ico-upload"/></svg> Upload de templates
@@ -2156,7 +2290,10 @@ tbody tr:hover{background:rgba(255,255,255,.45)}
             <svg width="13" height="13"><use href="#ico-trash"/></svg> Excluir todos
           </button>
         </div>
+        <div class="hint-ln">Marque cada fundo como F ou M e toque em <b>Área segura</b> para dizer onde a foto e o texto podem ficar sem bater nos desenhos.</div>
         <div class="admin-tpl-grid" id="admin-tpl-grid"></div>
+        <div id="tpl-area-ed"></div>
+        </div>
       </div>
 
       <!-- Usuários -->
@@ -3020,6 +3157,7 @@ function onFbReady(fn){ _fbReady ? fn() : _fbResolvers.push(fn); }
         const d = cfgSnap.data();
         if(d.paleta){ palActive=d.paleta; applyPal(d.paleta); }
         if(d.templates){ templates=d.templates; }
+        try{ window._vvReceberLayouts?.(d); }catch(_){}
       }
     }catch(_e){}
 
@@ -3030,6 +3168,7 @@ function onFbReady(fn){ _fbReady ? fn() : _fbResolvers.push(fn); }
       const d = snap.data();
       if(d.paleta){ palActive=d.paleta; applyPal(d.paleta); }
       if(d.templates){ templates=d.templates; renderTplGridEd?.(); }
+      try{ window._vvReceberLayouts?.(d); }catch(_){}
       if(d.pranchetaW && d.pranchetaH && CU && (d.pranchetaW!==window._PRANCH_W || d.pranchetaH!==window._PRANCH_H)){
         try{
           Object.assign(_cfg,{pranchetaW:d.pranchetaW,pranchetaH:d.pranchetaH,pranchetaNome:d.pranchetaNome,pranchetaWcm:d.pranchetaWcm,pranchetaHcm:d.pranchetaHcm});
@@ -4478,7 +4617,10 @@ function _onCartasUpdate(){
     if(activeTab?.id==='at-cartas') renderAdminCartas();
     // Fix 3: atualiza Minhas Cartas em tempo real via listener
     if(activeTab?.id==='at-minhas-cartas') renderMinhasCartas();
+    if(activeTab?.id==='at-encontristas') renderAdminEncs();
   }
+  if(editorVisible){ try{ _vvAtualizarFaixas(); _vvProgresso(); }catch(_){} }
+  _vvBadge();
 }
 
 // Documento público config/lista: só os nomes, que é o que o formulário
@@ -4509,7 +4651,7 @@ function _onEncsUpdate(){
 }
 
 // ══ ADMIN ══
-const AT_NAMES={cartas:'Homenagens',encontristas:'Encontristas',templates:'Templates',cores:'Cores',usuarios:'Usuários',config:'Configurações','minhas-cartas':'Minhas Cartas'};
+const AT_NAMES={cartas:'Homenagens',encontristas:'Encontristas',templates:'Preparar evento',ajuda:'Ajuda',cores:'Cores',usuarios:'Usuários',config:'Configurações','minhas-cartas':'Minhas Cartas'};
 // Troca de categoria dentro de Configurações (Backup, Lixeira, Identidade,
 // Formulário, Prancheta, Cores, Zona de risco) — mostra só a seção
 // correspondente ao índice clicado, na mesma ordem dos botões do menu.
@@ -4547,7 +4689,8 @@ window.adminTab=tab=>{
   }
   if(tab==='cartas')renderAdminCartas();
   if(tab==='encontristas'){renderAdminEncs();carregarEncDados();}
-  if(tab==='templates')renderAdminTpls();
+  if(tab==='templates')renderPrepEvento();
+  if(tab==='ajuda')renderAjuda();
   if(tab==='usuarios'){
     // Mesma correção da aba Homenagens: a contagem de cartas por servo
     // usava cartasData, que só reflete o estado de "prontas" no momento
@@ -4587,7 +4730,9 @@ function initAdmin(){
   }
 
   applyPal(palActive||'dourado');
-  adminTab('cartas');
+  _encFiltro=isServo?'meus':'todos';
+  adminTab('encontristas');
+  _vvBadge();
 }
 
 function renderAdminCartas(){
@@ -4708,14 +4853,15 @@ function _scriptAvisoImpressao(ctx){
   if(!ctx) return '';
   const dados=JSON.stringify(ctx).replace(/</g,'\\u003c');
   return `<script>(function(){var d=${dados};var feito=false;
-function avisar(){if(feito)return;feito=true;var m={tipo:'vv-impresso',nome:d.nome,ids:d.ids,t:Date.now()};
+function avisar(){if(feito)return;feito=true;var m={tipo:'vv-impresso',nome:d.nome,ids:d.ids,lista:d.lista,t:Date.now()};
 setTimeout(function(){
 try{new BroadcastChannel('vv-impressao').postMessage(m);}catch(e){}
 try{localStorage.setItem('vv-impresso',JSON.stringify(m));}catch(e){}},1500);}
 window.addEventListener('beforeprint',avisar);})();<\/script>`;
 }
 (function(){
-  const receber=m=>{ if(m&&m.tipo==='vv-impresso') _registrarImpressao(m.nome,m.ids); };
+  const receber=m=>{ if(!m||m.tipo!=='vv-impresso') return;
+    if(Array.isArray(m.lista)) m.lista.forEach(x=>_registrarImpressao(x.nome,x.ids)); else _registrarImpressao(m.nome,m.ids); };
   try{ new BroadcastChannel('vv-impressao').onmessage=e=>receber(e.data); }catch(_){}
   window.addEventListener('storage',e=>{
     if(e.key!=='vv-impresso'||!e.newValue) return;
@@ -5481,6 +5627,8 @@ function _onRespUpdate(){
   if(CU) _autoAssignOrfas();
   const adminVisible=!document.getElementById('screen-admin').classList.contains('hidden');
   if(adminVisible && document.querySelector('.admin-tab.act')?.id==='at-encontristas') renderAdminEncs();
+  if(!document.getElementById('screen-editor').classList.contains('hidden')) renderLeftPanel(document.getElementById('pl-search')?.value||'');
+  _vvBadge();
 }
 async function _registrarResp(enc){
   if(!enc||!CU) return false;
@@ -5555,7 +5703,8 @@ function renderAdminEncs(){
   encsData=[...encsData].sort((a,b)=>String(a.nome||'').localeCompare(String(b.nome||''),'pt-BR',{sensitivity:'base'}));
   const totalAvisados=encsData.filter(e=>{const d=_encDados[e.id];const c=d?.contatos||[];return c.length&&c.every((x,i)=>_envOk(d,i));}).length;
   const cnt=document.getElementById('enc-count');
-  if(cnt) cnt.innerHTML=`<b>${encsData.length}</b> encontrista${encsData.length!==1?'s':''} · ${totalAvisados} com todos os contatos avisados`;
+  if(cnt) cnt.innerHTML=`<b>${encsData.length}</b> encontrista${encsData.length!==1?'s':''}`;
+  try{ _vvEncCabecalho(); }catch(e){ console.warn('cabeçalho encontristas:',e.message); }
   const wrap=document.getElementById('enc-list-wrap');
   if(!wrap) return;
   if(!encsData.length){
@@ -5563,7 +5712,7 @@ function renderAdminEncs(){
   }
   const busca=_normNome(document.getElementById('encx-busca')?.value||'');
   // Servo vê todos os encontristas, igual ao admin (sem editar nem excluir)
-  const base=encsData;
+  const base=encsData.filter(_vvFiltroEnc);
   const lista=busca?base.filter(e=>_normNome(e.nome).includes(busca)):base;
   _encSelVisiveis=lista.map(e=>e.id);
   _renderEncSelBar();
@@ -5589,7 +5738,7 @@ function renderAdminEncs(){
       d?.rede?`<span class="encx-chip">Rede ${esc(d.rede)}</span>`:'',
       `<span class="encx-chip cartas">${nCartas} carta${nCartas!==1?'s':''}</span>`,
       _dono?`<span class="encx-chip ${_dono.uid===CU?.uid?'ok':''}">${_dono.uid===CU?.uid?'Com você':'Com '+esc(String(_dono.nome||'servo').split(' ')[0])}</span>`:'',
-      cts.length?`<span class="encx-chip ${env===cts.length?'ok':'pend'}">Avisados ${env}/${cts.length}</span>`:'',
+
       !d?`<span class="encx-chip pend">Sem dados da inscrição</span>`:''
     ].join('');
     let body='';
@@ -5606,15 +5755,13 @@ function renderAdminEncs(){
             ${campo('Nome da célula',d.celula)}${campo('Líder',d.lider)}
             ${comWa('Telefone do líder',d.liderTel,'do líder')}
           </div>
-          <div class="encx-blk full"><div class="encx-sec-t">Contatos para as cartas · não estarão no retiro</div>
+          ${_vvCartasDoEnc(e)}
+          <div class="encx-blk full encx-ctblk"><div class="encx-sec-t">Contatos da família · não estarão no retiro</div>
             ${cts.length?cts.map((c,i)=>{const h=_waHref(c.tel);return `<div class="encx-ct">
               <div class="encx-ct-main">
                 <div class="encx-ct-nome">${esc(c.nome)}${c.grau?`<span class="encx-chip cartas">${esc(c.grau)}</span>`:''}</div>
                 ${h?`<span class="encx-ct-tel">${_fmtTel(c.tel)}</span>`:`<span class="encx-ct-raw">Contato não identificado — informe o número manualmente</span>${c.raw?`<span class="encx-hint">Escrito na inscrição: “${esc(c.raw)}”</span>`:''}`}
               </div>
-              ${podeMarcar
-                ?`<label class="encx-env"><input type="checkbox" ${_envOk(d,i)?'checked':''} onchange="encMarcarEnviado('${e.id}',${i},this.checked)"> Mensagem enviada</label>`
-                :`<label class="encx-env ro" title="Só a serva que assumiu este encontrista pode marcar"><input type="checkbox" ${_envOk(d,i)?'checked':''} disabled> Mensagem enviada</label>`}
               ${h?`<a class="encx-wa lg" href="${h}" target="_blank" rel="noopener">${waIco} WhatsApp</a>`:(_ehAdmin?`<button class="btn btn-nm btn-sm" onclick="encAbrirModal('${e.id}')">Informar número</button>`:'')}
             </div>`;}).join(''):'<div class="encx-hint">Nenhum contato informado.</div>'}
           </div>
@@ -5624,7 +5771,7 @@ function renderAdminEncs(){
           </div>
         </div>`;
       } else {
-        body=`<div class="encx-body">${_blocoResp(e)}<div class="encx-blk full"><div class="encx-hint">${_ehAdmin?'Este encontrista ainda não tem os dados da inscrição. Importe a planilha ou complete manualmente.':'Este encontrista ainda não tem os dados da inscrição.'}</div></div>
+        body=`<div class="encx-body">${_blocoResp(e)}${_vvCartasDoEnc(e)}<div class="encx-blk full"><div class="encx-hint">${_ehAdmin?'Este encontrista ainda não tem os dados da inscrição. Importe a planilha ou complete manualmente.':'Este encontrista ainda não tem os dados da inscrição.'}</div></div>
           <div class="encx-foot encx-admin-only">
             <button class="btn btn-accent btn-sm" onclick="encAbrirModal('${e.id}')">Completar dados</button>
             <button class="btn-danger" onclick="delEnc('${e.id}')"><svg width="13" height="13"><use href="#ico-trash"/></svg> Excluir</button>
@@ -6333,6 +6480,7 @@ function renderAdminTpls(){
         </span>
         <button class="icobtn red" onclick="delTpl('${t.id}')"><svg width="12" height="12"><use href="#ico-trash"/></svg></button>
       </div>
+      <button class="btn btn-nm btn-sm tpl-area-btn ${_tplAreaEd===t.id?'on':''}" onclick="abrirAreaSegura('${t.id}')">Área segura</button>
     </div>`).join('');
 }
 // Marca um template como Feminino (F) ou Masculino (M). Clicar de novo na
@@ -6815,88 +6963,56 @@ function getElDom(id){return document.getElementById('el-'+id)}
 
 // ── Left panel ──
 function renderLeftPanel(filter=''){
-  // Preserva quais seções estão abertas
   const abertas=new Set();
   document.querySelectorAll('.enc-sec.open').forEach(s=>abertas.add(s.id));
-
-  const grupos={};
-  // Editor mostra só cartas ATIVAS (pendente + em edição) — cartas prontas
-  // foram para o painel direito de Homenagens e não precisam aparecer aqui.
-  // Isso reduz drasticamente o volume de dados carregados no editor ao longo
-  // do evento, quando a maioria das cartas já está finalizada.
-  _cartasAtivas.forEach(c=>{
-    if(!c.para)return;
-    if(CU?.perfil==='servo' && c.servoUid!==CU?.uid) return;
-    if(filter&&!(c.nome+c.para).toLowerCase().includes(filter.toLowerCase()))return;
-    (grupos[c.para]=grupos[c.para]||[]).push(c);
-  });
-  const names=Object.keys(grupos).sort();
-  const g=document.getElementById('enc-group');
-  if(!names.length){
-    const msg=CU?.perfil==='servo'
-      ?'Nenhuma carta assumida ainda.<br>Vá em Homenagens e assuma cartas para editar.'
-      :'Nenhuma carta ainda';
-    g.innerHTML=`<div style="text-align:center;padding:28px 14px;color:var(--light);font-size:.78rem;line-height:1.7;">${msg}</div>`;
+  const g=document.getElementById('enc-group'); if(!g) return;
+  // Só os encontristas assumidos: o servo vê os dele; o admin vê os dele e os dos servos
+  const lista=encsData.map(e=>({e,dono:_donoEnc(e.nome)})).filter(x=>x.dono && (CU?.perfil==='admin'||x.dono.uid===CU?.uid))
+    .filter(x=>!filter||x.e.nome.toLowerCase().includes(filter.toLowerCase()))
+    .sort((a,b)=>String(a.e.nome).localeCompare(String(b.e.nome),'pt-BR',{sensitivity:'base'}));
+  if(!lista.length){
+    g.innerHTML=`<div style="text-align:center;padding:28px 14px;color:var(--light);font-size:.78rem;line-height:1.7;">${filter?'Nenhum encontrista com esse nome.':'Você ainda não assumiu nenhum encontrista.<br>Vá na aba <b>Encontristas</b> e toque em <b>Assumir encontrista</b>.'}</div>`;
     return;
   }
-  function renderEncSec(nome){
-    const cs=grupos[nome]; // cartas ativas deste encontrista
+  function renderEncSec({e,dono}){
+    const nome=e.nome, k=_normNome(nome);
+    const cs=cartasData.filter(c=>_normNome(c.para)===k).sort((a,b)=>_vvTempo(a.criadoEm)-_vvTempo(b.criadoEm));
     const ini=nome.split(' ').map(w=>w[0]).join('').substring(0,2).toUpperCase();
     const sid='es-'+nome.replace(/\W/g,'_');
     const isAberto=abertas.has(sid);
-    // Contador: prontas vs total (ativas + prontas)
-    const prontas=_cartasProntas.filter(c=>c.para===nome).length;
-    const totalEnc=prontas+cs.length;
-    const allPron=cs.length===0&&prontas>0;
-    const subTxt=`${prontas}/${totalEnc} prontas`;
+    const prontas=cs.filter(c=>c.status==='pronta').length;
+    const allPron=cs.length>0&&prontas===cs.length;
+    const outro=CU?.perfil==='admin'&&dono.uid!==CU?.uid?` · ${esc(String(dono.nome||'').split(' ')[0])}`:'';
+    const subTxt=cs.length?`${prontas} de ${cs.length} prontas${outro}`:`aguardando cartas${outro}`;
     return`<div class="enc-sec ${isAberto?'open':''}" id="${sid}">
-      <div class="enc-sec-hd ${isAberto?'open':''}" onclick="togEncSec('${sid}')">
+      <div class="enc-sec-hd ${isAberto?'open':''}" onclick="${cs.length?`togEncSec('${sid}')`:`toast('Ainda não chegou nenhuma carta para ${esc(nome)}','wrn')`}">
         <div class="enc-sec-av" style="${allPron?'background:var(--ok)':''}">${ini}</div>
         <div class="enc-sec-info">
           <div class="enc-sec-name">${esc(nome)}</div>
           <div class="enc-sec-sub">${subTxt}</div>
+          <div class="enc-sec-bar"><i style="width:${cs.length?prontas/cs.length*100:0}%"></i></div>
         </div>
-        ${allPron?`<span style="color:var(--ok);margin-right:4px;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></span>`:''}
         <span class="enc-chev"><svg><use href="#ico-chevron-r"/></svg></span>
       </div>
       <div class="carta-list">${cs.map(c=>{
         const isPron=c.status==='pronta';
-        // Dentro do editor não existe "pendente" visível: se a carta
-        // chegou até aqui é porque já está sendo trabalhada. O botão é
-        // só liga/desliga (em edição ↔ pronta), sem o terceiro estado.
-        const statusClass=isPron?'status-pronta':'status-edicao';
-        const checkIco=isPron
-          ?`<button class="carta-check-ico pron" onclick="event.stopPropagation();toggleStatusRapidoEditor('${c.id}','${c.status}')" title="Clique: → Em edição"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></button>`
-          :`<button class="carta-check-ico edit" onclick="event.stopPropagation();toggleStatusRapidoEditor('${c.id}','${c.status}')" title="Clique: → Pronta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></button>`;
-        return`<div class="carta-item ${selCartaId===c.id?'sel':''} ${statusClass}" onclick="selCarta('${c.id}')" id="ci-${c.id}">
-          ${c.foto?`<img src="${c.foto}" class="carta-thumb">`:`<div class="carta-ph"><svg><use href="#ico-user"/></svg></div>`}
+        return`<div class="carta-item ${selCartaId===c.id?'sel':''} ${isPron?'status-pronta':'status-edicao'}" onclick="selCarta('${c.id}')" id="ci-${c.id}">
+          <span class="ci-dot ${isPron?'p':''}" title="${isPron?'Pronta':'Em edição'}"></span>
           <div class="carta-info">
             <div class="carta-nome">${esc(c.nome)}</div>
             <div class="carta-rel">${esc(c.relacao||'')}</div>
           </div>
-          ${checkIco}
         </div>`;
       }).join('')}
       </div>
     </div>`;
   }
-
-  // Para admin: separa em "Minhas cartas" (encontristas com pelo menos
-  // uma carta atribuída a ele via servoUid) e "Todas as cartas" (o
-  // restante). Servo já só enxerga as próprias (filtro aplicado acima).
   if(CU?.perfil==='admin'){
-    const minhas=names.filter(nome=>grupos[nome].some(c=>c.servoUid===CU?.uid));
-    const todas=names.filter(nome=>!minhas.includes(nome));
-    let html='';
-    if(minhas.length){
-      html+=`<div class="enc-divider">Minhas cartas</div>`;
-      html+=minhas.map(renderEncSec).join('');
-    }
-    html+=`<div class="enc-divider">Todas as cartas</div>`;
-    html+=todas.length?todas.map(renderEncSec).join(''):`<div style="text-align:center;padding:16px 14px;color:var(--light);font-size:.76rem;">Nenhuma outra carta.</div>`;
-    g.innerHTML=html;
+    const meus=lista.filter(x=>x.dono.uid===CU?.uid), dos=lista.filter(x=>x.dono.uid!==CU?.uid);
+    g.innerHTML=(meus.length?`<div class="enc-divider">Meus encontristas</div>`+meus.map(renderEncSec).join(''):'')
+      +(dos.length?`<div class="enc-divider">Dos servos</div>`+dos.map(renderEncSec).join(''):'');
   } else {
-    g.innerHTML=names.map(renderEncSec).join('');
+    g.innerHTML=`<div class="enc-divider">Meus encontristas</div>`+lista.map(renderEncSec).join('');
   }
 }
 window.togEncSec=sid=>{
@@ -7004,6 +7120,11 @@ function _poolTemplates(nomeEnc){
 }
 
 function _criarPaginaPadrao(c,i,PW,PH){
+  try{ return _vvPaginaPorLayout(c,i,PW,PH); }
+  catch(e){ console.warn('layout: usando a página simples',e.message); }
+  return _criarPaginaSimples(c,i,PW,PH);
+}
+function _criarPaginaSimples(c,i,PW,PH){
   const pg=newPg(c.id);
   const _pool=_poolTemplates(c.para);
   if(_pool.length) pg.tplId=_pool[i%_pool.length].id;
@@ -7072,14 +7193,15 @@ async function loadEncDocument(nomeEnc){
   ]);
   await _garantirGenero(nomeEnc);
 
-  const cartasAtivas=_cartasAtivas.filter(c=>c.para===nomeEnc);
-  const todasCartas=cartasData.filter(c=>c.para===nomeEnc);
+  // Mostra TODAS as cartas do encontrista (em edição e prontas), uma
+  // embaixo da outra; cada página tem a faixa com o botão "Pronta".
+  const _donoAtual=_donoEnc(nomeEnc);
+  const cartasAtivas=cartasData.filter(c=>c.para===nomeEnc && c.status!=='pendente'
+      && (CU?.perfil==='admin'||c.servoUid===CU?.uid||_donoAtual?.uid===CU?.uid))
+    .sort((a,b)=>_vvTempo(a.criadoEm)-_vvTempo(b.criadoEm));
 
-  if(!cartasAtivas.length && !todasCartas.length){
-    toast('Nenhuma carta para '+nomeEnc,'wrn');return;
-  }
   if(!cartasAtivas.length){
-    toast('Todas as cartas de '+nomeEnc+' já estão prontas','ok');return;
+    toast('Nenhuma carta para '+nomeEnc,'wrn');return;
   }
 
   let saved=null;
@@ -7158,6 +7280,11 @@ async function loadEncDocument(nomeEnc){
     }
   }
 
+  // Ajusta páginas feitas em outro tamanho de papel (ex.: Modo Kids ligado/desligado)
+  if(_vvAjustarEscala(pagesData)) savePages();
+  // Ordem das páginas = ordem de chegada das cartas
+  const _ordem=new Map(cartasAtivas.map((c,i)=>[c.id,i]));
+  pagesData.sort((a,b)=>(_ordem.has(a.cartaId)?_ordem.get(a.cartaId):999)-(_ordem.has(b.cartaId)?_ordem.get(b.cartaId):999));
   currentEncDoc=nomeEnc;
   _ultimoSalvoPorCarta={};
   pagesData.forEach(pg=>{
@@ -7174,6 +7301,7 @@ async function loadEncDocument(nomeEnc){
     savePages();
     toast(`Templates ${_generoEnc(nomeEnc)==='F'?'femininos':'masculinos'} aplicados em ${_trocadas} página${_trocadas!==1?'s':''}`,'ok');
   }
+  _vvProgresso();
   toast(cartasAtivas.length+' carta'+(cartasAtivas.length!==1?'s':'')+' de '+nomeEnc+' carregadas','ok');
   // Abrir o editor NÃO muda status nem atribui carta a ninguém — isso só
   // acontece pelo fluxo próprio (botão "Ver carta" → "Assumir carta"),
@@ -7545,7 +7673,7 @@ function renderAllPages(){
   pagesData.forEach((pg,idx)=>{
     const wrap=document.createElement('div');wrap.className='a4-wrap';
     const total=pagesData.length;
-    wrap.appendChild(document.createElement("div"));
+    wrap.appendChild(_vvFaixaPagina(pg,idx));
     wrap.appendChild(makePage(pg,idx));
     inner.appendChild(wrap);
   });
@@ -7595,6 +7723,7 @@ function makeElDom(el){
     inner.style.overflow='hidden';
     // Default: square (borderRadius 0)
     inner.style.borderRadius=el.borderRadius||'0px';
+    if(el.fotoEstilo){ inner.style.cssText+=_vvEstiloFotoCss(el); }
     inner.appendChild(img);
     // Duplo clique na imagem entra no modo de corte fixo — separado do
     // resize normal da moldura, que continua funcionando como sempre.
@@ -8816,7 +8945,8 @@ window.openPrint=()=>{
   const _ctxImp=window._printCtx; window._printCtx=null;
   // Nome do encontrista no título: aparece no cabeçalho do navegador e vira
   // o nome do arquivo ao salvar em PDF (ex.: "Cartas – Ana Beatriz Moura")
-  const _nomeImp=_ctxImp?.nome||currentEncDoc||'';
+  const _nomeImp=_ctxImp?.titulo||_ctxImp?.nome||currentEncDoc||'';
+  const _fmtA5=window._printFmt==='a5'; window._printFmt=null;
   const _tituloImp=_nomeImp?('Cartas – '+_nomeImp):'Impressão';
   if(!pagesData.length){toast('Nenhuma página para imprimir','wrn');return}
 
@@ -8835,7 +8965,12 @@ window.openPrint=()=>{
   const folhaWmm=(Math.floor(Math.min(_wmm,PW/3.7795)*10)/10-0.2).toFixed(1); // folha desenhada:
   const folhaHmm=(Math.floor(Math.min(_hmm,PH/3.7795)*10)/10-0.2).toFixed(1); // sempre um fio menor
 
-  const pagesHtml=pagesData.map((pg,idx)=>{
+  const folhas=pagesData.map((pg,idx)=>{
+    if(pg.capa) return `<div class="folha" style="width:${folhaWmm}mm;height:${folhaHmm}mm;position:relative;background:#fbf8f3;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:14px;">
+      <div style="width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,#7c6b50,#c4a882);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:30px;font-weight:700;">V</div>
+      <div style="font-size:13px;letter-spacing:.3em;text-transform:uppercase;color:#7c6b50;font-weight:800;">${esc(pg.titulo||'Vida Vitoriosa')}</div>
+      <div style="font-family:'Playfair Display',serif;font-size:44px;font-weight:700;line-height:1.1;padding:0 60px;color:#3a3228;">${esc(pg.nome)}</div>
+      <div style="font-size:16px;color:#7a7265;">${pg.n} carta${pg.n!==1?'s':''} para você</div></div>`;
     let bgStyle=`background:${pg.bg||'#ffffff'};`;
     if(pg.tplId&&pg.tplId!=='none'){
       const t=templates.find(t=>t.id===pg.tplId);
@@ -8854,16 +8989,31 @@ window.openPrint=()=>{
         // el.src já é a foto final, possivelmente já cortada pelo modo
         // de corte (canvas) — não precisa de nenhum transform extra aqui,
         // a impressão usa exatamente a mesma imagem mostrada no editor.
-        return`<div style="${base}overflow:hidden;border-radius:${el.borderRadius||'0'};"><img src="${el.src}" style="width:100%;height:100%;object-fit:cover;display:block;"></div>`;
+        return`<div style="${base}overflow:hidden;border-radius:${el.borderRadius||'0'};${_vvEstiloFotoCss(el)}"><img src="${el.src}" style="width:100%;height:100%;object-fit:cover;display:block;"></div>`;
       }
       if(el.type==='rect'){
         return`<div style="${base}background:${el.fillColor||'transparent'};border:${el.bw||0}px solid ${el.borderColor||'transparent'};border-radius:${el.rr||0}px;"></div>`;
       }
       return'';
     }).join('');
-    const isLast=idx===pagesData.length-1;
-    return`<div class="folha" style="width:${folhaWmm}mm;height:${folhaHmm}mm;position:relative;${bgStyle}overflow:hidden;${isLast?'':'page-break-after:always;break-after:page;'}">${elsHtml}</div>`;
-  }).join('\n');
+    return`<div class="folha" style="width:${folhaWmm}mm;height:${folhaHmm}mm;position:relative;${bgStyle}overflow:hidden;">${elsHtml}</div>`;
+  });
+  // 2 por folha (A5): duas páginas lado a lado (ou uma sobre a outra) numa folha A4
+  let _pgW=pageWmm,_pgH=pageHmm,pagesHtml;
+  if(_fmtA5){
+    const retrato=_hmm>=_wmm, k=Math.SQRT1_2;
+    const SW=retrato?_hmm:_wmm, SH=retrato?_wmm:_hmm; // folha A4 virada
+    const slotW=retrato?SW/2:SW, slotH=retrato?SH:SH/2;
+    _pgW=SW.toFixed(2);_pgH=SH.toFixed(2);
+    const lados=[];
+    for(let i=0;i<folhas.length;i+=2){
+      const slot=f=>`<div style="width:${slotW.toFixed(2)}mm;height:${slotH.toFixed(2)}mm;overflow:hidden;display:flex;align-items:center;justify-content:center"><div style="width:${(folhaWmm*k).toFixed(2)}mm;height:${(folhaHmm*k).toFixed(2)}mm;overflow:hidden"><div style="transform:scale(${k});transform-origin:top left">${f}</div></div></div>`;
+      lados.push(`<div class="folha" style="width:${(SW-0.2).toFixed(1)}mm;height:${(SH-0.2).toFixed(1)}mm;background:#fff;display:flex;flex-direction:${retrato?'row':'column'};overflow:hidden">${slot(folhas[i])}${folhas[i+1]?slot(folhas[i+1]):''}</div>`);
+    }
+    pagesHtml=lados.map((f,i)=>i<lados.length-1?f.replace('class="folha" style="','class="folha" style="page-break-after:always;break-after:page;'):f).join('\n');
+  } else {
+    pagesHtml=folhas.map((f,i)=>i<folhas.length-1?f.replace('class="folha" style="','class="folha" style="page-break-after:always;break-after:page;'):f).join('\n');
+  }
 
   const html=`<!DOCTYPE html>
 <html>
@@ -8873,7 +9023,7 @@ window.openPrint=()=>{
 <title>${esc(_tituloImp)}</title>
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 <style>
-@page{size:${pageWmm}mm ${pageHmm}mm;margin:0}
+@page{size:${_pgW}mm ${_pgH}mm;margin:0}
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{background:#888;font-family:'Nunito',sans-serif;-webkit-print-color-adjust:exact;print-color-adjust:exact}
 .bar{position:fixed;top:0;left:0;right:0;height:52px;background:#e8ecf0;
@@ -8887,7 +9037,7 @@ html,body{background:#888;font-family:'Nunito',sans-serif;-webkit-print-color-ad
 .wrap{display:flex;flex-direction:column;align-items:center;gap:18px;padding:70px 20px 20px}
 @media print{
   .bar{display:none!important}
-  html,body{background:none!important;width:${pageWmm}mm}
+  html,body{background:none!important;width:${_pgW}mm}
   /* bloco (não flex): alguns navegadores ignoram a quebra de página em flex */
   .wrap{display:block!important;margin:0!important;padding:0!important;gap:0!important;zoom:1!important}
   .wrap>.folha{box-shadow:none!important;margin:0!important;break-inside:avoid;page-break-inside:avoid}
@@ -8909,7 +9059,7 @@ html,body{background:#888;font-family:'Nunito',sans-serif;-webkit-print-color-ad
 <body>
 <div class="bar">
   <span>${esc(_nomeImp||'Prévia de impressão')}</span>
-  <span class="info">${pagesData.length} página${pagesData.length!==1?'s':''} · A4</span>
+  <span class="info">${pagesData.length} página${pagesData.length!==1?'s':''}${_fmtA5?' · 2 por folha':' · A4'}</span>
   <button class="bc" onclick="window.close()">← Fechar</button>
   <button class="bp" onclick="window.print()">Imprimir / PDF</button>
 </div>
@@ -9904,6 +10054,572 @@ window.importarConfig=async(inp)=>{
 onFbReady(()=>carregarConfig());
 
 console.log('%c✦ Vida Vitoriosa — Firebase Edition','color:#7c6b50;font-weight:bold;font-size:14px');
+</script>
+<script>
+// ══════════════════════════════════════════════════════════════════
+//  NOVO FLUXO — Encontristas como centro, páginas montadas por layout,
+//  Preparar evento, impressão em janela e Ajuda com tutoriais.
+// ══════════════════════════════════════════════════════════════════
+let _encFiltro='todos', _tplAreaEd=null, _prepAba='fundos', _layEd=null, _zonaSel='foto', _layAmostra='curta', _layPrevTpl=null;
+const _vvSemAc=t=>String(t||'').normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase();
+const _vvEhMeu=nome=>_donoEnc(nome)?.uid===CU?.uid;
+
+/* ───────── Encontristas: números, filtros e cartas recebidas ───────── */
+function _vvCartasSemServo(){ return cartasData.filter(c=>c.para && !_donoEnc(c.para)); }
+function _vvParaImprimir(){
+  return _cartasProntas.filter(c=>{ if(!c.para) return false; const d=_donoEnc(c.para);
+    if(CU?.perfil!=='admin' && d?.uid!==CU?.uid && c.servoUid!==CU?.uid) return false;
+    return !(_impressoes[c.para]||[]).includes(c.id); });
+}
+function _vvBadge(){
+  const b=document.getElementById('nav-enc-bd'); if(!b) return;
+  const n=CU?.perfil==='admin'?_vvCartasSemServo().length:0;
+  b.textContent=n; b.classList.toggle('hidden',!n);
+}
+function _vvFiltroEnc(e){
+  const d=_donoEnc(e.nome);
+  if(_encFiltro==='meus') return d?.uid===CU?.uid;
+  if(_encFiltro==='semresp'||_encFiltro==='livres') return !d;
+  if(_encFiltro==='semservo') return !d && cartasData.some(c=>_normNome(c.para)===_normNome(e.nome));
+  return true;
+}
+function _vvEncCabecalho(){
+  const st=document.getElementById('encx-stats'), fl=document.getElementById('encx-fil'); if(!st||!fl) return;
+  const tot=cartasData.length, pr=cartasData.filter(c=>c.status==='pronta').length;
+  const semServo=_vvCartasSemServo().length, semR=encsData.filter(e=>!_donoEnc(e.nome)).length, imp=_vvParaImprimir().length;
+  st.innerHTML=[['Cartas recebidas',tot,`${pr} prontas`,0],['Cartas sem servo',semServo,'encontrista não assumido',semServo],['Sem responsável',semR,`de ${encsData.length} encontristas`,semR],['Para imprimir',imp,'prontas e não impressas',0]]
+    .map(([l,v,sub,w])=>`<div class="encx-st ${w?'warn':''}"><div class="l">${l}</div><div class="v">${v}</div><div class="s">${sub}</div></div>`).join('');
+  const meus=encsData.filter(e=>_vvEhMeu(e.nome)).length;
+  const fs=CU?.perfil==='admin'
+    ?[['todos','Todos',encsData.length],['semresp','Sem responsável',semR],['semservo','Cartas sem servo',encsData.filter(e=>!_donoEnc(e.nome)&&cartasData.some(c=>_normNome(c.para)===_normNome(e.nome))).length],['meus','Meus',meus]]
+    :[['meus','Meus encontristas',meus],['livres','Livres para assumir',semR],['todos','Todos',encsData.length]];
+  fl.innerHTML=fs.map(([k,l,n])=>`<button class="encx-fbtn ${_encFiltro===k?'on':''}" data-k="${k}" onclick="_encFiltro='${k}';renderAdminEncs()">${l}<span class="n">${n}</span></button>`).join('');
+}
+function _vvCartasDoEnc(e){
+  const k=_normNome(e.nome);
+  const cs=cartasData.filter(c=>_normNome(c.para)===k).sort((a,b)=>_vvTempo(a.criadoEm)-_vvTempo(b.criadoEm));
+  const adm=CU?.perfil==='admin';
+  const lista=cs.length?cs.map(c=>`<div class="encx-cl"><div class="q">${esc(c.nome||'—')} <small>${esc(c.relacao||'')}${c.criadoEm?' · '+esc(_vvQuando(c.criadoEm)):''}${c.foto?' · com foto':''}${(_impressoes[c.para]||[]).includes(c.id)?' · impressa':''}</small></div>
+      <span class="encx-stb ${c.status==='pronta'?'pronta':c.status==='em edição'?'ed':'pendente'}">${esc(c.status==='pendente'?'aguardando':c.status)}</span>
+      <button class="icobtn" title="Ler a carta" aria-label="Ler a carta" onclick="event.stopPropagation();viewCarta('${c.id}')"><svg width="12" height="12"><use href="#ico-eye"/></svg></button>
+      ${adm?`<button class="icobtn red" title="Excluir carta" aria-label="Excluir carta" onclick="event.stopPropagation();delCarta('${c.id}')"><svg width="12" height="12"><use href="#ico-trash"/></svg></button>`:''}</div>`).join('')
+    :'<div class="encx-hint">Nenhuma carta recebida ainda.</div>';
+  return `<div class="encx-blk full"><div class="encx-sec-t">Cartas recebidas (${cs.length})</div>${lista}</div>`;
+}
+
+/* ───────── Layouts (foto e texto em áreas separadas) ───────── */
+const _VV_T0={vpos:'top',al:'left',fonte:'georgia',para:true,ass:true};
+const _VV_LAY_PADRAO={
+ texto:{nome:'Só texto',ativo:true,foto:null,texto:{..._VV_T0,x:0,y:0,w:100,h:100},semFoto:'tudo'},
+ topo:{nome:'Foto em cima',ativo:true,foto:{x:0,y:0,w:100,h:38,forma:'arred',estilo:'sombra'},texto:{..._VV_T0,x:0,y:43,w:100,h:57},semFoto:'tudo'},
+ lado:{nome:'Foto ao lado',ativo:true,foto:{x:0,y:0,w:42,h:50,forma:'arred',estilo:'sombra'},texto:{..._VV_T0,x:47,y:0,w:53,h:100},semFoto:'tudo'},
+ polaroid:{nome:'Polaroid',ativo:true,foto:{x:17,y:1,w:66,h:46,forma:'ret',estilo:'polaroid'},texto:{..._VV_T0,al:'center',x:0,y:52,w:100,h:48},semFoto:'tudo'},
+ retrato:{nome:'Retrato redondo',ativo:true,foto:{x:30,y:0,w:40,h:28,forma:'circ',estilo:'borda'},texto:{..._VV_T0,al:'center',x:0,y:32,w:100,h:68},semFoto:'tudo'},
+};
+const _VV_FONTES={georgia:{nome:'Serifada',ff:'Georgia'},nunito:{nome:'Arredondada',ff:'Nunito'},playfair:{nome:'Elegante',ff:'Playfair Display'}};
+function _vvLayouts(){ if(!window._vvLay) window._vvLay=JSON.parse(JSON.stringify(_VV_LAY_PADRAO)); return window._vvLay; }
+function _vvPad(){ return window._vvPadL||{com:'topo',sem:'texto'}; }
+function _vvArea(t){ return (t&&t.area)||{x:12,y:12,w:76,h:76}; }
+function _vvSemFotoDe(L,id){
+  if(!L.foto) return {id,L};
+  const LS=_vvLayouts();
+  if(L.semFoto==='mesmo') return {id,L:{...L,foto:null}};
+  if(L.semFoto!=='tudo'&&LS[L.semFoto]&&!LS[L.semFoto].foto) return {id:L.semFoto,L:LS[L.semFoto]};
+  return {id,L:{...L,foto:null,texto:{...L.texto,x:0,y:0,w:100,h:100}}};
+}
+function _vvResolver(id,temFoto){
+  const LS=_vvLayouts(), P=_vvPad();
+  if(!id||!LS[id]||!LS[id].ativo) id=temFoto?P.com:P.sem;
+  if(!LS[id]) id=Object.keys(LS)[0];
+  const L=LS[id];
+  return temFoto?{id,L}:_vvSemFotoDe(L,id);
+}
+function _vvHash(o){ const t=JSON.stringify(o); let h=0; for(let i=0;i<t.length;i++){h=(h*31+t.charCodeAt(i))|0} return String(h); }
+function _vvEstiloFotoCss(el){
+  if(el.fotoEstilo==='sombra') return 'box-shadow:0 6px 18px rgba(0,0,0,.18);';
+  if(el.fotoEstilo==='borda') return 'border:9px solid #fff;box-shadow:0 5px 16px rgba(0,0,0,.16);';
+  if(el.fotoEstilo==='polaroid') return 'border:13px solid #fff;border-bottom-width:44px;box-shadow:0 8px 22px rgba(0,0,0,.2);';
+  return '';
+}
+// Mede a altura real de um texto do editor (mesmas regras de estilo do editor)
+let _vvMed=null;
+function _vvMedir(el){
+  if(!_vvMed){ _vvMed=document.createElement('div'); _vvMed.className='a4-page'; _vvMed.style.cssText='position:absolute;left:-20000px;top:0;visibility:hidden;width:2000px;height:2000px;'; document.body.appendChild(_vvMed); }
+  const d=makeElDom({...el,h:undefined,x:0,y:0}); d.style.height='auto';
+  const inner=d.querySelector('.el-inner'); if(inner){ inner.style.height='auto'; }
+  _vvMed.appendChild(d); const h=d.offsetHeight; d.remove(); return h;
+}
+// Monta a página de uma carta seguindo o layout: foto na área da foto, texto
+// na área do texto, letra no maior tamanho que cabe. Tudo continua editável.
+function _vvPaginaPorLayout(c,i,PW,PH,opts={}){
+  const pg=newPg(c.id);
+  if(opts.tplId) pg.tplId=opts.tplId;
+  else { const pool=_poolTemplates(c.para); pg.tplId=pool.length?pool[i%pool.length].id:'none'; }
+  pg.bg='#ffffff'; pg.pw=PW; pg.ph=PH;
+  const t=templates.find(x=>x.id===pg.tplId), a=_vvArea(t);
+  const {id,L}=_vvResolver(opts.layout||null,!!c.foto);
+  pg.layout=id;
+  const A={x:a.x/100*PW,y:a.y/100*PH,w:a.w/100*PW,h:a.h/100*PH};
+  const zp=z=>({x:A.x+z.x/100*A.w,y:A.y+z.y/100*A.h,w:z.w/100*A.w,h:z.h/100*A.h});
+  const els=[]; let zz=1; const rid=()=>Math.random().toString(36).slice(2,6);
+  if(L.foto&&c.foto){
+    let f=zp(L.foto);
+    if(L.foto.forma==='circ'){ const l=Math.min(f.w,f.h); f={x:f.x+(f.w-l)/2,y:f.y+(f.h-l)/2,w:l,h:l}; }
+    els.push({id:'el_'+i+'_img_'+rid(),type:'image',x:Math.round(f.x),y:Math.round(f.y),w:Math.round(f.w),h:Math.round(f.h),z:zz++,opacity:1,src:c.foto,
+      borderRadius:L.foto.forma==='circ'?'50%':L.foto.forma==='arred'?'14px':'2px',shape:'square',fotoEstilo:L.foto.estilo&&L.foto.estilo!=='nada'?L.foto.estilo:null,rotation:L.foto.estilo==='polaroid'?-2:0});
+  }
+  const T=zp(L.texto), tz=L.texto, ff=(_VV_FONTES[tz.fonte]||_VV_FONTES.georgia).ff, al=tz.al||'left';
+  const corpo=String(c.carta||'').replace(/[ \t]+/g,' ').replace(/ *\n */g,'\n').replace(/\n{3,}/g,'\n\n').trim();
+  const pri=String(c.para||'').split(' ')[0];
+  const base=(txt,fs,st)=>({type:'text',w:Math.round(T.w),content:esc(txt),fontSize:fs,fontFamily:st.ff||ff,color:st.col||'#2e3138',fontWeight:st.fw||'400',fontStyle:st.fi||'normal',textDecoration:'none',textAlign:al,lineHeight:st.lh||1.55,opacity:1});
+  const partes=fs=>{
+    const p=[];
+    if(tz.para!==false) p.push(base('Para '+pri,Math.round(fs*1.6),{ff:'Playfair Display',fw:'700',col:'#3a3228',lh:1.2}));
+    p.push(base(corpo,Math.round(fs*10)/10,{}));
+    if(tz.ass!==false) p.push(base('Com carinho, '+(c.nome||'')+(c.relacao?' ('+c.relacao+')':''),Math.round(fs*1.15),{ff:'Playfair Display',fi:'italic',col:'#5a4630',lh:1.3}));
+    return p;
+  };
+  const alturas=p=>p.map(_vvMedir);
+  const total=(hs,fs)=>hs.reduce((s,h)=>s+h,0)+(hs.length-1)*Math.round(fs*.5);
+  const MIN=PW*0.0175, MAX=PW*0.026;
+  let fs=MAX, hs=alturas(partes(fs));
+  if(total(hs,fs)>T.h){
+    let lo=MIN, hi=MAX; hs=alturas(partes(lo));
+    if(total(hs,lo)<=T.h){ for(let k=0;k<8;k++){ const m=(lo+hi)/2; const hm=alturas(partes(m)); if(total(hm,m)<=T.h) lo=m; else hi=m; } }
+    else pg.longa=true;
+    fs=lo; hs=alturas(partes(fs));
+  }
+  const ps=partes(fs), gap=Math.round(fs*.5);
+  let tot=total(hs,fs);
+  if(pg.longa){ // não coube nem no menor tamanho: o corpo ocupa o que sobrar
+    const resto=T.h-hs.reduce((s,h,ix)=>s+(ps[ix].content===esc(corpo)?0:h),0)-(hs.length-1)*gap;
+    const ic=ps.findIndex(p=>p.content===esc(corpo)); hs[ic]=Math.max(60,resto); tot=T.h;
+  }
+  let y=T.y+(tz.vpos==='center'?(T.h-tot)/2:tz.vpos==='bottom'?T.h-tot:0);
+  ps.forEach((p,ix)=>{ els.push({...p,id:'el_'+i+'_'+zz+'_'+rid(),x:Math.round(T.x),y:Math.round(y),h:Math.round(hs[ix])+2,z:zz++}); y+=hs[ix]+gap; });
+  pg.elements=els;
+  pg.gerado=_vvHash(els.map(e=>[e.x,e.y,e.w,e.h,e.content,e.fontSize,e.fontFamily,e.src]));
+  return pg;
+}
+// Páginas feitas em outro tamanho de papel são reajustadas na proporção
+function _vvAjustarEscala(pages){
+  const PW=window._PRANCH_W||794, PH=window._PRANCH_H||1123; let mudou=false;
+  (pages||[]).forEach(pg=>{
+    if(!pg||!Array.isArray(pg.elements)) return;
+    if(pg.pw&&pg.ph&&(pg.pw!==PW||pg.ph!==PH)){
+      const sx=PW/pg.pw, sy=PH/pg.ph, k=Math.min(sx,sy);
+      pg.elements.forEach(el=>{ el.x=Math.round(el.x*sx); el.y=Math.round(el.y*sy); el.w=Math.round(el.w*sx); if(typeof el.h==='number') el.h=Math.round(el.h*sy); if(el.fontSize) el.fontSize=Math.round(el.fontSize*k*10)/10; });
+      mudou=true;
+    }
+    if(pg.pw!==PW||pg.ph!==PH){ pg.pw=PW; pg.ph=PH; }
+  });
+  return mudou;
+}
+
+/* ───────── Faixa em cima de cada página ───────── */
+function _vvFaixaPagina(pg,idx){
+  const d=document.createElement('div'); d.className='a4-band'; d.id='band-'+pg.id;
+  d.innerHTML=_vvFaixaHTML(pg,idx);
+  return d;
+}
+function _vvFaixaHTML(pg,idx){
+  const c=pg.cartaId&&cartasData.find(x=>x.id===pg.cartaId);
+  if(!c) return `<span class="who">Página extra</span>`;
+  const pron=c.status==='pronta';
+  const LS=_vvLayouts();
+  const ops=Object.entries(LS).filter(([k,l])=>l.ativo&&(c.foto||!l.foto)).map(([k,l])=>`<option value="${k}" ${pg.layout===k?'selected':''}>${esc(l.nome)}</option>`).join('');
+  return `<span class="who">${esc(c.nome||'—')}<small>${esc(c.relacao||'')}</small></span>
+    <select aria-label="Layout desta carta" title="Layout desta carta" onchange="trocarLayoutPagina(${idx},this.value)">${pg.layout&&LS[pg.layout]?'':'<option value="" selected>Layout…</option>'}${ops}</select>
+    ${pg.longa?'<span class="warn">Carta longa: confira se o texto coube</span>':''}
+    <button class="pf-ok ${pron?'on':''}" onclick="toggleStatusRapidoEditor('${c.id}','${c.status}')">${pron?'✓ Pronta':'Marcar como pronta'}</button>`;
+}
+function _vvAtualizarFaixas(){
+  if(!Array.isArray(pagesData)) return;
+  pagesData.forEach((pg,idx)=>{ const b=document.getElementById('band-'+pg.id); if(b) b.innerHTML=_vvFaixaHTML(pg,idx);
+    const c=pg.cartaId&&cartasData.find(x=>x.id===pg.cartaId); b?.parentElement?.classList.toggle('pronta',c?.status==='pronta'); });
+}
+function _vvProgresso(){
+  const el=document.getElementById('ed-prog'); if(!el) return;
+  if(!currentEncDoc){ el.innerHTML=''; return; }
+  const cs=cartasData.filter(c=>c.para===currentEncDoc&&c.status!=='pendente');
+  const pr=cs.filter(c=>c.status==='pronta').length;
+  el.innerHTML=`<b>${esc(currentEncDoc)} · ${pr} de ${cs.length} prontas</b><div class="bar"><i style="width:${cs.length?pr/cs.length*100:0}%"></i></div>`;
+}
+window.trocarLayoutPagina=(idx,lay)=>{
+  const pg=pagesData[idx]; if(!pg||!lay) return;
+  const c=cartasData.find(x=>x.id===pg.cartaId); if(!c) return;
+  const atual=_vvHash(pg.elements.map(e=>[e.x,e.y,e.w,e.h,e.content,e.fontSize,e.fontFamily,e.src]));
+  if(pg.gerado && atual!==pg.gerado && !confirm('Esta carta foi ajustada à mão. Trocar o layout monta a página de novo e desfaz esses ajustes. Continuar?')){ _vvAtualizarFaixas(); return; }
+  snapshot();
+  const nova=_vvPaginaPorLayout(c,idx,window._PRANCH_W||794,window._PRANCH_H||1123,{layout:lay,tplId:pg.tplId});
+  nova.id=pg.id; pagesData[idx]=nova;
+  renderAllPages(); setCurPage(idx); savePagesSilent(); _vvAtualizarFaixas();
+  toast(`Layout “${_vvLayouts()[lay]?.nome||lay}” aplicado`,'ok');
+};
+// O botão "Pronta" também atualiza a faixa, a lista e o progresso
+(function(){
+  const orig=window.toggleStatusRapidoEditor;
+  window.toggleStatusRapidoEditor=async(id,st)=>{
+    await orig(id,st);
+    _vvAtualizarFaixas(); _vvProgresso(); renderLeftPanel(document.getElementById('pl-search')?.value||'');
+    const s=document.getElementById('es-'+String(currentEncDoc||'').replace(/\W/g,'_')); if(s){ s.classList.add('open'); s.querySelector('.enc-sec-hd')?.classList.add('open'); }
+  };
+})();
+
+/* ───────── Impressão em janela ───────── */
+let _impAba='novas', _impSel=new Set();
+function _vvImpModal(){
+  let m=document.getElementById('m-imp');
+  if(m) return m;
+  m=document.createElement('div'); m.className='m-ov hidden'; m.id='m-imp';
+  m.innerHTML=`<div class="modal" style="max-width:640px;width:100%"><div class="mh"><span class="mt">Imprimir cartas prontas</span><button class="mc" onclick="closeM('m-imp')" aria-label="Fechar"><svg width="13" height="13"><use href="#ico-x"/></svg></button></div>
+    <div class="mb"><div class="imp-tabs" id="imp-tabs"></div><div id="imp-lista" style="max-height:52vh;overflow:auto;padding:4px"></div>
+      <div class="imp-opts"><label><input type="checkbox" id="imp-capa" checked onchange="_vvImpRender()"> Folha de rosto por encontrista</label>
+        <label><input type="radio" name="imp-fmt" id="imp-a4" checked onchange="_vvImpRender()"> 1 carta por folha</label>
+        <label><input type="radio" name="imp-fmt" id="imp-a5" onchange="_vvImpRender()"> 2 por folha</label></div></div>
+    <div class="mf"><span id="imp-info" style="font-size:.76rem;color:var(--mid);flex:1"></span><button class="btn btn-nm btn-sm" onclick="closeM('m-imp')">Cancelar</button><button class="btn btn-accent btn-sm" id="imp-go" onclick="_vvImprimirSel()">Ver prévia e imprimir</button></div></div>`;
+  m.addEventListener('click',e=>{ if(e.target===m) m.classList.add('hidden'); });
+  document.body.appendChild(m); return m;
+}
+function _vvImprimiveis(){
+  return _cartasProntas.filter(c=>{ if(!c.para) return false; if(CU?.perfil==='admin') return true; return c.servoUid===CU?.uid||_vvEhMeu(c.para); });
+}
+const _vvJaImpressa=c=>(_impressoes[c.para]||[]).includes(c.id);
+window.abrirImpressao=async()=>{
+  _vvImpModal(); _ouvirImpressoes?.();
+  // a lista de cartas já chega atualizada em tempo real (sem recarregar tudo, para não gastar leituras)
+  _impAba='novas'; _impSel=new Set(_vvImprimiveis().filter(c=>!_vvJaImpressa(c)).map(c=>c.id));
+  openM('m-imp'); _vvImpRender();
+};
+function _vvImpRender(){
+  const all=_vvImprimiveis(), novas=all.filter(c=>!_vvJaImpressa(c)), jah=all.filter(_vvJaImpressa);
+  document.getElementById('imp-tabs').innerHTML=[['novas','Para imprimir',novas.length],['jah','Já impressas',jah.length]].map(([k,l,n])=>`<button class="encx-fbtn ${_impAba===k?'on':''}" onclick="_impAba='${k}';_impSel=new Set(${k==='novas'?'_vvImprimiveis().filter(c=>!_vvJaImpressa(c)).map(c=>c.id)':'[]'});_vvImpRender()">${l}<span class="n">${n}</span></button>`).join('');
+  const base=_impAba==='novas'?novas:jah, por={};
+  base.forEach(c=>(por[c.para]=por[c.para]||[]).push(c));
+  const nomes=Object.keys(por).sort((a,b)=>a.localeCompare(b,'pt-BR',{sensitivity:'base'}));
+  document.getElementById('imp-lista').innerHTML=nomes.length?nomes.map((n,j)=>{
+    const cs=por[n].sort((a,b)=>_vvTempo(a.criadoEm)-_vvTempo(b.criadoEm)), todas=cs.every(c=>_impSel.has(c.id)), alg=cs.some(c=>_impSel.has(c.id));
+    const falta=cartasData.filter(c=>c.para===n&&c.status!=='pronta').length, d=_donoEnc(n);
+    return `<div class="imp-ig"><label><input type="checkbox" ${todas?'checked':''} ${!todas&&alg?'data-ind="1"':''} onchange="_vvImpEnc(${j},this.checked)"><div><b>${esc(n)}</b><small>${cs.length} carta${cs.length!==1?'s':''}${d?' · '+esc(d.nome||''):''}</small>${falta&&_impAba==='novas'?`<div class="imp-av">⚠ ${falta} carta${falta!==1?'s':''} ainda não ${falta!==1?'estão prontas':'está pronta'} e não ${falta!==1?'vão':'vai'} neste PDF</div>`:''}</div></label>
+      <div class="imp-l">${cs.map(c=>`<div class="imp-pc"><label><input type="checkbox" ${_impSel.has(c.id)?'checked':''} onchange="_vvImpCarta('${c.id}',this.checked)">${esc(c.nome||'—')} <small>${esc(c.relacao||'')}${c.foto?' · com foto':''}</small></label></div>`).join('')}</div></div>`;}).join('')
+    :`<div class="encx-hint" style="padding:20px;text-align:center">${_impAba==='novas'?'Nenhuma carta pronta esperando impressão.':'Nenhuma carta impressa ainda.'}</div>`;
+  document.querySelectorAll('#imp-lista [data-ind]').forEach(i=>i.indeterminate=true);
+  window._vvImpNomes=nomes;
+  const sel=base.filter(c=>_impSel.has(c.id)), encs=new Set(sel.map(c=>c.para)).size;
+  document.getElementById('imp-info').textContent=sel.length?`${sel.length} carta${sel.length!==1?'s':''} de ${encs} encontrista${encs!==1?'s':''}`:'Nenhuma carta selecionada';
+  document.getElementById('imp-go').disabled=!sel.length;
+}
+window._vvImpEnc=(j,v)=>{ const n=window._vvImpNomes[j]; _vvImprimiveis().filter(c=>c.para===n).forEach(c=>v?_impSel.add(c.id):_impSel.delete(c.id)); _vvImpRender(); };
+window._vvImpCarta=(id,v)=>{ v?_impSel.add(id):_impSel.delete(id); _vvImpRender(); };
+// Busca as páginas salvas das cartas escolhidas (mesma lógica de antes)
+async function _vvPaginasDe(nomeEnc,ids){
+  const prontas=_cartasProntas.filter(c=>c.para===nomeEnc&&ids.includes(c.id)).sort((a,b)=>_vvTempo(a.criadoEm)-_vvTempo(b.criadoEm));
+  let doIndice=[]; try{ doIndice=(await DB.loadEditorDoc(nomeEnc))||[]; }catch(_){ doIndice=[]; }
+  if(!Array.isArray(doIndice)) doIndice=[];
+  const porId=new Map(); doIndice.forEach(pg=>{ if(pg&&pg.cartaId&&ids.includes(pg.cartaId)&&!porId.has(pg.cartaId)) porId.set(pg.cartaId,pg); });
+  const {doc,getDoc}=window._FB;
+  await Promise.all(prontas.filter(c=>!porId.has(c.id)).map(async c=>{ try{ const sn=await getDoc(doc(window._FB.db,'editor_paginas',c.id)); const pg=sn.exists()?sn.data().page:null; if(pg){pg.cartaId=c.id;porId.set(c.id,pg);} }catch(_){} }));
+  await _carregarGeneros(); await _garantirGenero(nomeEnc);
+  const PW=window._PRANCH_W||794, PH=window._PRANCH_H||1123;
+  let pags=prontas.map((c,i)=>porId.get(c.id)||_criarPaginaPadrao(c,i,PW,PH));
+  _vvAjustarEscala(pags);
+  const g=_generoEnc(nomeEnc);
+  if(g){ const pool=templates.filter(t=>t.genero===g); if(pool.length){ const ok=new Set(pool.map(t=>t.id)); pags=pags.map((pg,i)=>(!pg.tplId||pg.tplId==='none'||ok.has(pg.tplId))?pg:{...pg,tplId:pool[i%pool.length].id}); } }
+  return {pags,ids:prontas.map(c=>c.id)};
+}
+window._vvImprimirSel=async()=>{
+  const base=_vvImprimiveis().filter(c=>_impSel.has(c.id)&&(_impAba==='novas'?!_vvJaImpressa(c):_vvJaImpressa(c)));
+  if(!base.length) return;
+  const capa=document.getElementById('imp-capa').checked, a5=document.getElementById('imp-a5').checked;
+  const btn=document.getElementById('imp-go'); btn.disabled=true; btn.textContent='Preparando…';
+  if(_modoKids()||!_moldurasCarregadas){ try{ await _carregarMolduras(); }catch(_){} }
+  try{
+    const por={}; base.forEach(c=>(por[c.para]=por[c.para]||[]).push(c.id));
+    const nomes=Object.keys(por).sort((a,b)=>a.localeCompare(b,'pt-BR',{sensitivity:'base'}));
+    const todas=[], lista=[];
+    for(const n of nomes){
+      const {pags,ids}=await _vvPaginasDe(n,por[n]);
+      if(!pags.length) continue;
+      if(capa) todas.push({capa:true,nome:n,n:pags.length,titulo:_cfg?.nomeSite||'Vida Vitoriosa',elements:[]});
+      todas.push(...pags); lista.push({nome:n,ids});
+    }
+    if(!todas.length){ toast('Nenhuma página encontrada para imprimir','wrn'); return; }
+    const orig=pagesData; pagesData=todas;
+    window._printCtx={titulo:nomes.length===1?nomes[0]:`${nomes.length} encontristas`,nome:nomes.length===1?nomes[0]:null,ids:lista.length===1?lista[0].ids:null,lista};
+    window._printFmt=a5?'a5':null;
+    closeM('m-imp');
+    try{ openPrint(); } finally { pagesData=orig; }
+    toast('Ao imprimir ou salvar o PDF, as cartas ficam marcadas como impressas','ok');
+  }catch(e){ console.error('imprimir:',e); toast('Erro ao preparar a impressão: '+e.message,'err'); }
+  finally{ btn.disabled=false; btn.textContent='Ver prévia e imprimir'; }
+};
+
+/* ───────── Preparar evento: fundos, área segura e layouts ───────── */
+function renderPrepEvento(){
+  const tb=document.getElementById('prep-tabs'); if(!tb) return;
+  tb.innerHTML=`<button class="encx-fbtn ${_prepAba==='fundos'?'on':''}" onclick="_prepAba='fundos';renderPrepEvento()">Fundos e área segura</button><button class="encx-fbtn ${_prepAba==='layouts'?'on':''}" id="prep-tab-lay" onclick="_prepAba='layouts';renderPrepEvento()">Layouts</button>`;
+  document.getElementById('prep-fundos').classList.toggle('hidden',_prepAba!=='fundos');
+  document.getElementById('prep-layouts').classList.toggle('hidden',_prepAba!=='layouts');
+  if(_prepAba==='fundos'){ renderAdminTpls(); _vvRenderArea(); } else _vvRenderLayouts();
+}
+const _vvAr=()=>`${(window._PRANCH_W||794)}/${(window._PRANCH_H||1123)}`;
+// Prévia de uma carta de exemplo num layout (só para a tela de preparação)
+function _vvPreviaHTML(L,t,amostra){
+  const a=_vvArea(t), comFoto=amostra!=='semfoto';
+  const LL=comFoto?L:_vvSemFotoDe(L,null).L, tz=LL.texto, fz=LL.foto;
+  const corpo=amostra==='longa'?'Meu querido filho,\n\nEscrevo esta carta com o coração cheio de gratidão. Lembro do dia em que você nasceu e de como prometi a Deus que faria de tudo para te ver feliz. Os anos passaram rápido demais. Você cresceu, fez escolhas, errou e acertou, e em cada passo eu estive orando.\n\nNeste encontro, deixe o coração aberto. Não tenha vergonha de chorar, de pedir perdão, de recomeçar. Recomeçar é coisa de gente forte.\n\nQuando voltar para casa, vamos sentar na varanda como antigamente e conversar sem pressa. Estou te esperando de braços abertos.':'Meu filho, desde o dia em que você nasceu eu oro por você. Que neste encontro você sinta o abraço de Deus e descubra o quanto é amado. Estou com saudade e muito orgulhosa de você.';
+  const box=z=>`left:${z.x}%;top:${z.y}%;width:${z.w}%;height:${z.h}%`;
+  const PW=window._PRANCH_W||794, PH=window._PRANCH_H||1123;
+  let foto='';
+  if(fz&&comFoto){ let st=''; if(fz.forma==='circ'){ const w=fz.w/100*a.w/100*PW, h=fz.h/100*a.h/100*PH, l=Math.min(w,h); st=`width:${l/w*100}%;height:${l/h*100}%;`; }
+    const r=fz.forma==='circ'?'50%':fz.forma==='arred'?'1.8cqw':'.3cqw';
+    const est=fz.estilo==='sombra'?'box-shadow:0 .8cqw 2.2cqw rgba(0,0,0,.18);':fz.estilo==='borda'?'border:1.1cqw solid #fff;box-shadow:0 .6cqw 2cqw rgba(0,0,0,.16);':fz.estilo==='polaroid'?'border:1.6cqw solid #fff;border-bottom-width:5.5cqw;box-shadow:0 .9cqw 2.6cqw rgba(0,0,0,.2);transform:rotate(-2deg);':'';
+    foto=`<div class="zf" style="${box(fz)}"><div class="ft" style="${st}border-radius:${r};${est}background-image:linear-gradient(135deg,#e3b6c4,#b9a0d6)"></div></div>`; }
+  const jc={top:'flex-start',center:'center',bottom:'flex-end'}[tz.vpos]||'flex-start';
+  const ff=(_VV_FONTES[tz.fonte]||_VV_FONTES.georgia).ff;
+  const html=fs=>`<div class="lpv" style="--ar:${_vvAr()};${t?`background-image:url('${tplSrc(t)}');`:''}"><div class="s" style="${box(a)}">${foto}<div class="tx" style="${box(tz)};justify-content:${jc};font-family:'${ff}',serif;text-align:${tz.al||'left'};font-size:${fs}cqw">${tz.para!==false?`<div class="pa" style="font-size:${fs*1.6}cqw">Para Vinícius</div>`:''}<div class="co">${esc(corpo)}</div>${tz.ass!==false?`<div class="de" style="font-size:${fs*1.15}cqw">Com carinho, Cláudia (Mãe)</div>`:''}</div></div></div>`;
+  // maior letra que cabe (mesma faixa usada nas cartas de verdade)
+  const med=document.getElementById('vv-lpv-med')||Object.assign(document.body.appendChild(document.createElement('div')),{id:'vv-lpv-med'});
+  med.style.cssText='position:absolute;left:-20000px;top:0;width:600px;visibility:hidden';
+  const cabe=fs=>{ med.innerHTML=html(fs); const tx=med.querySelector('.tx'); return tx.scrollHeight<=tx.clientHeight+1; };
+  let lo=1.75,hi=2.6; if(cabe(hi)) lo=hi; else if(cabe(lo)){ for(let k=0;k<8;k++){ const m=(lo+hi)/2; cabe(m)?lo=m:hi=m; } }
+  return html(lo);
+}
+function _vvRenderArea(){
+  const box=document.getElementById('tpl-area-ed'); if(!box) return;
+  const t=templates.find(x=>x.id===_tplAreaEd);
+  if(!t){ box.innerHTML=''; return; }
+  const a=_vvArea(t), L=_vvLayouts()[_vvPad().com]||Object.values(_vvLayouts())[0];
+  box.innerHTML=`<div class="area-ed"><div><div class="sec-t">Área segura — arraste ou puxe os cantos</div>
+      <div class="area-w" id="area-w" style="--ar:${_vvAr()}"><img src="${tplSrc(t)}" alt="Fundo"><div class="area-r" id="area-r" style="left:${a.x}%;top:${a.y}%;width:${a.w}%;height:${a.h}%"><i class="h1" data-h="1"></i><i class="h2" data-h="2"></i></div></div>
+      <div class="seg2" style="margin-top:10px"><button class="btn btn-accent btn-sm" onclick="salvarAreaSegura()">Salvar área segura</button><button class="btn btn-nm btn-sm" onclick="_tplAreaEd=null;renderAdminTpls();_vvRenderArea()">Fechar</button></div></div>
+    <div><div class="sec-t">Como uma carta fica neste fundo</div><div id="area-prev">${_vvPreviaHTML(L,t,'curta')}</div>
+      <div class="encx-hint" style="margin-top:8px">Os layouts ficam sempre dentro desta área, em qualquer fundo.</div></div></div>`;
+  const r=document.getElementById('area-r'), w=document.getElementById('area-w');
+  r.onpointerdown=ev=>{ ev.preventDefault(); const R=w.getBoundingClientRect(), a0={..._vvArea(t)}, h=ev.target.dataset.h, x0=ev.clientX, y0=ev.clientY; r.setPointerCapture(ev.pointerId);
+    r.onpointermove=m=>{ const dx=(m.clientX-x0)/R.width*100, dy=(m.clientY-y0)/R.height*100, n={...a0};
+      if(h==='1'){n.x+=dx;n.y+=dy;n.w-=dx;n.h-=dy}else if(h==='2'){n.w+=dx;n.h+=dy}else{n.x+=dx;n.y+=dy}
+      n.w=Math.max(30,Math.min(96,n.w));n.h=Math.max(30,Math.min(96,n.h));n.x=Math.max(2,Math.min(98-n.w,n.x));n.y=Math.max(2,Math.min(98-n.h,n.y));
+      t.area={x:Math.round(n.x*2)/2,y:Math.round(n.y*2)/2,w:Math.round(n.w*2)/2,h:Math.round(n.h*2)/2}; Object.assign(r.style,{left:n.x+'%',top:n.y+'%',width:n.w+'%',height:n.h+'%'}); };
+    r.onpointerup=()=>{ r.onpointermove=null; document.getElementById('area-prev').innerHTML=_vvPreviaHTML(L,t,'curta'); };
+  };
+}
+window.abrirAreaSegura=id=>{ _tplAreaEd=_tplAreaEd===id?null:id; renderAdminTpls(); _vvRenderArea(); document.getElementById('tpl-area-ed')?.scrollIntoView({block:'nearest',behavior:'smooth'}); };
+window.salvarAreaSegura=async()=>{ await DB.setCfg('templates',templates); toast('Área segura salva. As próximas cartas já usam essa área.','ok'); };
+const _vvThumb=L=>`<div class="lic">${L.foto?`<i class="f" style="left:${L.foto.x*.84+8}%;top:${L.foto.y*.84+8}%;width:${L.foto.w*.84}%;height:${L.foto.h*.84}%;${L.foto.forma==='circ'?'border-radius:50%':''}"></i>`:''}<i class="t" style="left:${L.texto.x*.84+8}%;top:${L.texto.y*.84+8}%;width:${L.texto.w*.84}%;height:${L.texto.h*.84}%"></i></div>`;
+const _vvSobrepoe=(a,b)=>a&&b&&a.x<b.x+b.w-.5&&b.x<a.x+a.w-.5&&a.y<b.y+b.h-.5&&b.y<a.y+a.h-.5;
+let _vvLaySalvarT=null;
+// Grava os layouts substituindo o campo inteiro (para um layout excluído sumir de verdade)
+function _vvSalvarLayouts(){ clearTimeout(_vvLaySalvarT); _vvLaySalvarT=setTimeout(async()=>{
+  try{ const {doc,setDoc}=window._FB; await setDoc(doc(window._FB.db,'config','site'),{layouts:_vvLayouts(),layoutPadrao:_vvPad()},{mergeFields:['layouts','layoutPadrao']}); }
+  catch(e){ console.error('layouts:',e); toast('Erro ao salvar os layouts','err'); } },600); }
+// Recebe os layouts do banco (exceto enquanto o admin está editando na tela de Layouts)
+window._vvReceberLayouts=d=>{
+  const editando=_prepAba==='layouts'&&document.querySelector('.admin-tab.act')?.id==='at-templates'&&!document.getElementById('screen-admin')?.classList.contains('hidden');
+  if(editando) return;
+  if(d.layouts&&typeof d.layouts==='object'&&Object.keys(d.layouts).length) window._vvLay=d.layouts;
+  if(d.layoutPadrao) window._vvPadL=d.layoutPadrao;
+};
+function _vvRenderLayouts(){
+  const box=document.getElementById('prep-layouts'); if(!box) return;
+  const LS=_vvLayouts(), P=_vvPad();
+  if(!LS[_layEd]) _layEd=P.com in LS?P.com:Object.keys(LS)[0];
+  const L=LS[_layEd]; if(_zonaSel==='foto'&&!L.foto) _zonaSel='texto';
+  const z=L[_zonaSel];
+  const t=templates.find(x=>x.id===_layPrevTpl)||templates[0]||null, a=_vvArea(t);
+  const lista=Object.entries(LS).map(([k,l])=>`<button class="lbi ${k===_layEd?'on':''}" onclick="_layEd='${k}';_vvRenderLayouts()">${_vvThumb(l)}<div style="min-width:0"><b>${esc(l.nome)}</b>${P.com===k?'<span class="tg">Padrão com foto</span>':''}${P.sem===k?'<span class="tg">Padrão sem foto</span>':''}${!l.ativo?'<span class="tg off">Oculto</span>':''}</div></button>`).join('');
+  const zona=(k,zz)=>zz?`<div class="lz ${k} ${_zonaSel===k?'sel':''}" data-z="${k}" style="left:${zz.x}%;top:${zz.y}%;width:${zz.w}%;height:${zz.h}%"><span class="tag">${k==='foto'?'FOTO':'TEXTO'}</span>${['nw','ne','sw','se'].map(h=>`<i class="hd ${h}" data-h="${h}"></i>`).join('')}</div>`:'';
+  const seg=(campo,ops)=>`<div class="seg2">${ops.map(([v,l])=>`<button class="btn btn-nm btn-sm ${z[campo]===v?'on':''}" onclick="_vvSetZona('${campo}','${v}')">${l}</button>`).join('')}</div>`;
+  const semF=Object.entries(LS).filter(([k,l])=>!l.foto&&k!==_layEd);
+  box.innerHTML=`<div class="lb">
+    <div><div class="sec-t">Layouts</div><div class="lb-list" id="lb-list">${lista}<button class="lbi" onclick="_vvNovoLayout()"><div class="lic" style="display:flex;align-items:center;justify-content:center;color:var(--light);font-weight:800">+</div><b>Novo layout</b></button></div></div>
+    <div><div class="sec-t">Arraste a foto e o texto separadamente</div>
+      <div class="lb-cv" id="lb-cv"><div id="lb-prev">${_vvPreviaHTML(L,t,_layAmostra)}</div><div class="lb-safe" id="lb-safe" style="left:${a.x}%;top:${a.y}%;width:${a.w}%;height:${a.h}%">${zona('foto',L.foto)}${zona('texto',L.texto)}</div></div>
+      ${templates.length?`<div class="sec-t" style="margin-top:12px">Ver no fundo</div><div class="seg2">${templates.slice(0,12).map((x,i)=>`<button class="btn btn-nm btn-sm ${t&&t.id===x.id?'on':''}" onclick="_layPrevTpl='${x.id}';_vvRenderLayouts()">${i+1}${x.genero?' · '+x.genero:''}</button>`).join('')}</div>`:''}
+      <div class="sec-t" style="margin-top:10px">Carta de exemplo</div><div class="seg2">${[['curta','Curta com foto'],['longa','Longa com foto'],['semfoto','Sem foto']].map(([k,l])=>`<button class="btn btn-nm btn-sm ${_layAmostra===k?'on':''}" onclick="_layAmostra='${k}';_vvRenderLayouts()">${l}</button>`).join('')}</div>
+      <div class="encx-hint" style="margin-top:8px">O tracejado é a área segura do fundo. A foto e o texto ficam sempre dentro dela, então o mesmo layout serve para todos os fundos.</div></div>
+    <div class="lb-p" id="lb-props">
+      <div class="ctl"><span class="sec-t" style="margin:0">Nome do layout</span><input class="fi2" id="lay-nome" value="${esc(L.nome)}" maxlength="30" onchange="_vvLayouts()[_layEd].nome=this.value.trim()||'Sem nome';_vvSalvarLayouts();_vvRenderLayouts()"></div>
+      <label class="sw2"><input type="checkbox" id="lay-ativo" ${L.ativo?'checked':''} onchange="_vvLayouts()[_layEd].ativo=this.checked;_vvSalvarLayouts();_vvRenderLayouts()"> Disponível para os servos</label>
+      <div class="ctl"><span class="sec-t" style="margin:0">Editar a área</span><div class="seg2">${L.foto?`<button class="btn btn-nm btn-sm ${_zonaSel==='foto'?'on':''}" style="color:#3b6fd4" onclick="_zonaSel='foto';_vvRenderLayouts()">■ Foto</button>`:''}<button class="btn btn-nm btn-sm ${_zonaSel==='texto'?'on':''}" style="color:#c4883a" onclick="_zonaSel='texto';_vvRenderLayouts()">■ Texto</button>${L.foto?`<button class="btn btn-nm btn-sm" onclick="_vvTirarFoto()">Tirar a foto</button>`:`<button class="btn btn-nm btn-sm" onclick="_vvPorFoto()">+ Foto</button>`}</div></div>
+      <div class="ctl"><span class="sec-t" style="margin:0">Posição e tamanho (% da área segura)</span><div class="num4">${[['x','Esquerda'],['y','Topo'],['w','Largura'],['h','Altura']].map(([k,l])=>`<label>${l}<input type="number" id="z-${k}" min="0" max="100" value="${Math.round(z[k])}" onchange="_vvSetZonaNum('${k}',+this.value)"></label>`).join('')}</div></div>
+      ${_zonaSel==='foto'?`<div class="ctl"><span class="sec-t" style="margin:0">Formato da foto</span>${seg('forma',[['ret','Retângulo'],['arred','Cantos redondos'],['circ','Círculo']])}</div>
+        <div class="ctl"><span class="sec-t" style="margin:0">Acabamento</span>${seg('estilo',[['nada','Nenhum'],['sombra','Sombra'],['borda','Borda branca'],['polaroid','Polaroid']])}</div>`
+      :`<div class="ctl"><span class="sec-t" style="margin:0">Alinhamento</span>${seg('al',[['left','Esquerda'],['center','Centro'],['justify','Justificado']])}</div>
+        <div class="ctl"><span class="sec-t" style="margin:0">Posição do texto na área</span>${seg('vpos',[['top','Em cima'],['center','No meio'],['bottom','Embaixo']])}</div>
+        <div class="ctl"><span class="sec-t" style="margin:0">Letra</span>${seg('fonte',Object.entries(_VV_FONTES).map(([k,f])=>[k,f.nome]))}</div>
+        <label class="sw2"><input type="checkbox" ${L.texto.para!==false?'checked':''} onchange="_vvSetZona('para',this.checked)"> Mostrar “Para Fulano” no topo</label>
+        <label class="sw2"><input type="checkbox" ${L.texto.ass!==false?'checked':''} onchange="_vvSetZona('ass',this.checked)"> Mostrar a assinatura no fim</label>`}
+      ${L.foto?`<div class="ctl"><span class="sec-t" style="margin:0">Quando a carta não tiver foto</span><select class="fi2" onchange="_vvLayouts()[_layEd].semFoto=this.value;_vvSalvarLayouts();_vvRenderLayouts()">
+        <option value="tudo" ${L.semFoto==='tudo'?'selected':''}>O texto ocupa a área toda</option><option value="mesmo" ${L.semFoto==='mesmo'?'selected':''}>O texto fica no mesmo lugar</option>
+        ${semF.map(([k,l])=>`<option value="${k}" ${L.semFoto===k?'selected':''}>Usar o layout “${esc(l.nome)}”</option>`).join('')}</select></div>`:''}
+      ${_vvSobrepoe(L.foto,L.texto)?'<div class="warn-b">⚠ A foto e o texto estão se sobrepondo.</div>':''}
+      <div class="ctl"><span class="sec-t" style="margin:0">Usar como padrão</span><div class="seg2">${L.foto?`<button class="btn btn-nm btn-sm ${P.com===_layEd?'on':''}" onclick="_vvPadrao('com')">Para cartas com foto</button>`:`<button class="btn btn-nm btn-sm ${P.sem===_layEd?'on':''}" onclick="_vvPadrao('sem')">Para cartas sem foto</button>`}</div></div>
+      <div class="seg2"><button class="btn btn-nm btn-sm" onclick="_vvDuplicarLayout()">Duplicar</button>${Object.keys(LS).length>1&&P.com!==_layEd&&P.sem!==_layEd?`<button class="btn btn-nm btn-sm" style="color:var(--err)" onclick="_vvExcluirLayout()">Excluir</button>`:''}</div>
+      <div class="encx-hint">As mudanças valem para as cartas montadas daqui em diante. Cartas já abertas no editor mudam só se o servo trocar o layout na faixa da página.</div>
+    </div></div>`;
+  _vvLigarZonas(t);
+}
+window._vvSetZona=(k,v)=>{ _vvLayouts()[_layEd][_zonaSel][k]=v; _vvSalvarLayouts(); _vvRenderLayouts(); };
+const _vvLimitar=z=>{ z.w=Math.max(10,Math.min(100,z.w)); z.h=Math.max(8,Math.min(100,z.h)); z.x=Math.max(0,Math.min(100-z.w,z.x)); z.y=Math.max(0,Math.min(100-z.h,z.y)); };
+window._vvSetZonaNum=(k,v)=>{ const z=_vvLayouts()[_layEd][_zonaSel]; z[k]=v; _vvLimitar(z); _vvSalvarLayouts(); _vvRenderLayouts(); };
+window._vvTirarFoto=()=>{ const LS=_vvLayouts(), L=LS[_layEd]; L.foto=null; _zonaSel='texto'; const P=_vvPad(); if(P.com===_layEd){ P.com=Object.keys(LS).find(k=>LS[k].foto)||P.com; window._vvPadL=P; } _vvSalvarLayouts(); _vvRenderLayouts(); };
+window._vvPorFoto=()=>{ const L=_vvLayouts()[_layEd]; L.foto={x:0,y:0,w:100,h:36,forma:'arred',estilo:'sombra'}; if(L.texto.y<40){L.texto.y=41;L.texto.h=Math.min(L.texto.h,59);} L.semFoto='tudo'; _zonaSel='foto'; _vvSalvarLayouts(); _vvRenderLayouts(); };
+window._vvNovoLayout=()=>{ const LS=_vvLayouts(); let n=1; while(LS['novo'+n]) n++; LS['novo'+n]={nome:'Novo layout '+n,ativo:false,foto:{x:10,y:0,w:80,h:40,forma:'arred',estilo:'sombra'},texto:{..._VV_T0,x:0,y:45,w:100,h:55},semFoto:'tudo'}; _layEd='novo'+n; _zonaSel='foto'; _vvSalvarLayouts(); _vvRenderLayouts(); toast('Layout criado. Ele só aparece para os servos quando você marcar “Disponível”.','ok'); };
+window._vvDuplicarLayout=()=>{ const LS=_vvLayouts(); let n=1; while(LS['novo'+n]) n++; LS['novo'+n]=JSON.parse(JSON.stringify({...LS[_layEd],nome:LS[_layEd].nome+' (cópia)',ativo:false})); _layEd='novo'+n; _vvSalvarLayouts(); _vvRenderLayouts(); };
+window._vvExcluirLayout=()=>{ const LS=_vvLayouts(); if(!confirm(`Excluir o layout “${LS[_layEd].nome}”?`)) return; delete LS[_layEd]; _layEd=null; _vvSalvarLayouts(); _vvRenderLayouts(); toast('Layout excluído','ok'); };
+window._vvPadrao=q=>{ const P={..._vvPad()}; P[q]=_layEd; window._vvPadL=P; _vvLayouts()[_layEd].ativo=true; _vvSalvarLayouts(); _vvRenderLayouts(); toast(q==='com'?'Padrão para cartas com foto atualizado':'Padrão para cartas sem foto atualizado','ok'); };
+function _vvLigarZonas(t){
+  const sf=document.getElementById('lb-safe'); if(!sf) return;
+  let raf=0; const prev=()=>{ if(raf) return; raf=requestAnimationFrame(()=>{ raf=0; document.getElementById('lb-prev').innerHTML=_vvPreviaHTML(_vvLayouts()[_layEd],t,_layAmostra); }); };
+  sf.querySelectorAll('.lz').forEach(el=>{ el.onpointerdown=ev=>{
+    ev.preventDefault(); const k=el.dataset.z, h=ev.target.dataset.h;
+    if(_zonaSel!==k){ _zonaSel=k; sf.querySelectorAll('.lz').forEach(x=>x.classList.toggle('sel',x===el)); }
+    const R=sf.getBoundingClientRect(), L=_vvLayouts()[_layEd], z=L[k], z0={...z}, x0=ev.clientX, y0=ev.clientY, outra=L[k==='foto'?'texto':'foto'];
+    el.setPointerCapture(ev.pointerId);
+    const alvos=[0,50,100,...(outra?[outra.x,outra.x+outra.w,outra.y,outra.y+outra.h]:[])];
+    const ima=v=>{ for(const a of alvos) if(Math.abs(v-a)<1.6) return a; return null; };
+    el.onpointermove=m=>{ const dx=(m.clientX-x0)/R.width*100, dy=(m.clientY-y0)/R.height*100; const n={...z0};
+      if(!h){ n.x=z0.x+dx; n.y=z0.y+dy;
+        const sx=[[n.x,0],[n.x+n.w/2,n.w/2],[n.x+n.w,n.w]].map(([v,o])=>{const a=ima(v);return a==null?null:a-o}).find(v=>v!=null); if(sx!=null) n.x=sx;
+        const sy=[[n.y,0],[n.y+n.h/2,n.h/2],[n.y+n.h,n.h]].map(([v,o])=>{const a=ima(v);return a==null?null:a-o}).find(v=>v!=null); if(sy!=null) n.y=sy; }
+      else { if(h.includes('w')){ n.x=z0.x+dx; n.w=z0.w-dx; const a=ima(n.x); if(a!=null){ n.w+=n.x-a; n.x=a; } }
+        if(h.includes('e')){ n.w=z0.w+dx; const a=ima(n.x+n.w); if(a!=null) n.w=a-n.x; }
+        if(h.includes('n')){ n.y=z0.y+dy; n.h=z0.h-dy; const a=ima(n.y); if(a!=null){ n.h+=n.y-a; n.y=a; } }
+        if(h.includes('s')){ n.h=z0.h+dy; const a=ima(n.y+n.h); if(a!=null) n.h=a-n.y; } }
+      _vvLimitar(n); Object.assign(z,n); Object.assign(el.style,{left:n.x+'%',top:n.y+'%',width:n.w+'%',height:n.h+'%'});
+      ['x','y','w','h'].forEach(q=>{ const i=document.getElementById('z-'+q); if(i&&_zonaSel===k) i.value=Math.round(n[q]); });
+      prev(); };
+    el.onpointerup=()=>{ el.onpointermove=null; ['x','y','w','h'].forEach(q=>z[q]=Math.round(z[q]*2)/2); _vvSalvarLayouts(); _vvRenderLayouts(); };
+  }; });
+}
+
+/* ───────── Ajuda: dúvidas frequentes e tutoriais na tela ───────── */
+let _ajQ='', _ajCat='todas', _ajAberta=null;
+const _VV_FAQ=[
+ ['Encontristas','todos','Como recebo cartas para diagramar?','Assuma um encontrista na aba <b>Encontristas</b>. A partir daí, todas as cartas dele vão para o seu Editor, inclusive as que chegarem depois.','assumir'],
+ ['Encontristas','todos','Posso assumir um encontrista que ainda não tem cartas?','Pode. Ele fica com você e, quando a primeira carta chegar, ela já aparece no seu Editor.','assumir'],
+ ['Encontristas','todos','Outro servo já assumiu o encontrista. Consigo pegar?','Não. Cada encontrista fica com um servo só, para ninguém trabalhar na mesma carta. Peça ao administrador para liberar ou passar para você.',null],
+ ['Encontristas','todos','Como devolvo um encontrista?','Abra o encontrista na aba <b>Encontristas</b> e toque em <b>Liberar</b>. As cartas que ainda não estavam prontas voltam para “aguardando”, e outro servo pode assumir.',null],
+ ['Encontristas','todos','Como falo com a família pelo WhatsApp?','Na aba <b>Encontristas</b>, abra o encontrista e use o botão <b>WhatsApp</b> do contato. Não é obrigatório e não precisa marcar nada: é só um atalho para quando for preciso.','familia'],
+ ['Editor','todos','A carta chegou, mas não aparece no meu Editor.','O Editor mostra só os encontristas que <b>você assumiu</b>. Confira em <b>Encontristas → Meus encontristas</b>. Se ele estiver com outro servo, a carta aparece no Editor dessa pessoa.',null],
+ ['Editor','todos','Preciso montar a página de cada carta?','Não. A página chega montada pelo layout: foto no lugar dela, texto no lugar dele e letra no maior tamanho que cabe. Confira e, se quiser, clique em qualquer parte para editar.','editor'],
+ ['Editor','todos','Como edito uma carta?','No Editor, as cartas do encontrista ficam uma embaixo da outra. Clique no texto, na foto ou em qualquer elemento: ele fica selecionado e o painel da direita mostra fonte, tamanho, cor, alinhamento e posição. Arraste para mover e puxe os cantos para mudar o tamanho.','editar'],
+ ['Editor','todos','Como troco o layout de uma carta?','Na faixa em cima da página, escolha outro layout na lista. Se você já tinha ajustado a carta à mão, o site pergunta antes de montar de novo.','editor'],
+ ['Editor','todos','Como marco uma carta como pronta?','Na faixa em cima da página, toque em <b>Marcar como pronta</b>. Para voltar para edição, toque de novo em <b>✓ Pronta</b>.','editor'],
+ ['Editor','todos','A carta é muito longa e não coube.','A faixa da página mostra “Carta longa”. Experimente o layout <b>Só texto</b>, diminua um pouco a letra ou use o <b>+</b> para criar outra página e passar parte do texto para ela.',null],
+ ['Editor','todos','Posso corrigir o texto da família?','O texto é o que a família escreveu. Corrija só o necessário, com cuidado.',null],
+ ['Impressão','todos','Quem pode imprimir?','O servo imprime as cartas dos encontristas dele. O administrador imprime todas. Só entram cartas <b>prontas</b>; as que ainda estão em edição ficam de fora, com um aviso.','imprimir'],
+ ['Impressão','todos','Como imprimo as cartas?','<ol><li>No Editor, toque em <b>Imprimir</b>.</li><li>Confira quem vai sair: as prontas ainda não impressas já vêm marcadas.</li><li>Escolha a folha de rosto e se quer 1 ou 2 cartas por folha.</li><li>Toque em <b>Ver prévia e imprimir</b>. Na janela que abrir, use <b>Imprimir / PDF</b>.</li></ol>','imprimir'],
+ ['Impressão','todos','Preciso imprimir de novo uma carta.','Na janela de impressão, abra a aba <b>Já impressas</b>, marque a carta e imprima de novo.','imprimir'],
+ ['Impressão','todos','Para que serve a folha de rosto?','É uma página com o nome do encontrista antes das cartas dele. Ajuda na hora de separar e colocar nos envelopes.',null],
+ ['Administração','admin','O que é o número laranja no menu Encontristas?','É a quantidade de cartas que chegaram para encontristas que <b>ninguém assumiu</b>. Use o filtro <b>Cartas sem servo</b> para ver quais são.','semservo'],
+ ['Administração','admin','Como preparo um novo evento?','Em <b>Preparar evento</b>: envie os fundos, marque F ou M e a <b>área segura</b> de cada um, e revise os <b>layouts</b>.','preparar'],
+ ['Administração','admin','Como crio um layout novo?','Em <b>Preparar evento → Layouts</b>, toque em <b>Novo layout</b>. A foto (caixa azul) e o texto (caixa laranja) são áreas separadas: arraste e redimensione cada uma, escolha o formato da foto e o que fazer quando a carta não tiver foto. Depois marque <b>Disponível para os servos</b>.','layout'],
+ ['Administração','admin','O que é a área segura de um fundo?','É o retângulo onde a foto e o texto podem ficar sem bater nos desenhos do fundo. Você marca uma vez por fundo e os layouts se encaixam dentro dela.','preparar'],
+ ['Administração','admin','Como importo a planilha de inscrições?','Em <b>Encontristas → Importar planilha</b>, envie a exportação da plataforma de inscrição. A equipe e os dados pessoais (documentos, endereço) são ignorados, e nomes repetidos não são duplicados.','importar'],
+ ['Administração','admin','Como removo um servo?','Em <b>Usuários</b>, toque na lixeira do servo. O login dele é bloqueado e as cartas que ainda não estavam prontas voltam para “aguardando”.',null],
+ ['Administração','admin','Por que a família não consegue mandar outra carta?','Cada pessoa (pelo telefone) pode mandar uma carta por hora para o mesmo encontrista. Para outros encontristas, pode mandar à vontade.',null],
+ ['Acesso','todos','Esqueci minha senha.','Na tela de login, toque em <b>Esqueci minha senha</b> e siga o e-mail que chegar. Se não chegar, confira o spam.',null],
+ ['Acesso','todos','Funciona no celular?','Funciona. Assumir encontristas, conferir cartas e falar com a família ficam bem no celular. Para editar as cartas, o computador é mais confortável.',null],
+];
+const _vvVis=sel=>[...document.querySelectorAll(sel)].find(e=>{const r=e.getBoundingClientRect();return r.width>0&&r.height>0})||null;
+const _vvLivre=()=>encsData.find(e=>!_donoEnc(e.nome));
+const _vvMeuEnc=()=>encsData.find(e=>_vvEhMeu(e.nome)&&cartasData.some(c=>c.para===e.nome&&c.status!=='pendente'))||encsData.find(e=>_vvEhMeu(e.nome))
+  ||(CU?.perfil==='admin'?encsData.find(e=>_donoEnc(e.nome)&&cartasData.some(c=>c.para===e.nome&&c.status!=='pendente')):null);
+const _vvEncComContato=()=>encsData.find(e=>_vvEhMeu(e.nome)&&_encDados[e.id]?.contatos?.length)||(CU?.perfil==='admin'?encsData.find(e=>_encDados[e.id]?.contatos?.length):null)||_vvMeuEnc();
+const _vvIrEnc=()=>{ document.querySelectorAll('[id^=screen-]').forEach(e=>e.id!=='screen-admin'&&e.id!=='screen-logout'&&e.classList.add('hidden')); if(document.getElementById('screen-admin').classList.contains('hidden')) showAdmin(); adminTab('encontristas'); };
+const _vvAbrirMeuNoEditor=async()=>{ const e=_vvMeuEnc(); switchToEditor(); if(e&&cartasData.some(c=>c.para===e.nome)&&(currentEncDoc!==e.nome||!pagesData.length)){ await loadEncDocument(e.nome); } };
+const _VV_TUT={
+ assumir:{nome:'Assumir um encontrista',desc:'Pegue um encontrista para você. As cartas dele passam a chegar no seu Editor.',perfis:'todos',passos:[
+  {go:()=>{_vvIrEnc();_encFiltro=CU?.perfil==='admin'?'semresp':'livres';_encAberto=null;renderAdminEncs()},el:()=>_vvVis(`.encx-fbtn[data-k="${CU?.perfil==='admin'?'semresp':'livres'}"]`),t:'Encontre quem está livre',x:'Este filtro mostra os encontristas que ainda não têm ninguém responsável.'},
+  {go:()=>{const e=_vvLivre();_encAberto=e?.id||null;renderAdminEncs()},el:()=>{const e=_vvLivre();return e?document.getElementById('encx-assumir-'+e.id)?.closest('.encx-card'):_vvVis('#enc-list-wrap')},t:'Abra o encontrista',x:'Toque no nome para ver as cartas que já chegaram e os contatos da família.'},
+  {el:()=>{const e=_vvLivre();return e?_vvVis('#encx-assumir-'+e.id):null},t:'Toque em “Assumir encontrista”',x:'Pronto: ele fica com você. As cartas dele, e as que chegarem depois, aparecem no seu Editor já montadas.'}]},
+ editor:{nome:'Conferir e marcar cartas como prontas',desc:'Como as cartas aparecem no Editor e como marcar cada uma como pronta.',perfis:'todos',passos:[
+  {go:()=>{switchToEditor()},el:()=>_vvVis('#enc-group'),t:'Seus encontristas',x:'Aqui ficam só os encontristas que você assumiu, com quantas cartas já estão prontas. Toque no nome para abrir.'},
+  {go:_vvAbrirMeuNoEditor,el:()=>_vvVis('.a4-wrap .a4-page')||_vvVis('#canvas-area'),t:'Uma carta embaixo da outra',x:'Cada carta vira uma página, já montada pelo layout. Role a tela para ver todas.'},
+  {el:()=>_vvVis('.a4-band select'),t:'Layout da carta',x:'Se quiser outro arranjo de foto e texto, escolha outro layout aqui.'},
+  {el:()=>_vvVis('.a4-band .pf-ok'),t:'Marque como pronta',x:'Quando a carta estiver certa, toque aqui. Ela fica verde e entra na lista de impressão.'},
+  {el:()=>_vvVis('#ed-prog'),t:'Acompanhe o progresso',x:'Mostra quantas cartas do encontrista já estão prontas.'}]},
+ editar:{nome:'Editar uma carta',desc:'Clique em qualquer parte da página para mudar texto, foto, fonte, tamanho e posição.',perfis:'todos',passos:[
+  {go:_vvAbrirMeuNoEditor,el:()=>_vvVis('.a4-page .el-text'),t:'Clique no que quiser mudar',x:'Clique uma vez para selecionar. Arraste para mover e puxe os cantos para mudar o tamanho. Dois cliques no texto para escrever.'},
+  {el:()=>_vvVis('#panel-right'),t:'Painel de edição',x:'Com um elemento selecionado, aqui aparecem fonte, tamanho, cor, alinhamento, camadas e o enquadramento da foto.'},
+  {el:()=>_vvVis('#btn-undo'),t:'Desfazer',x:'Errou? Use desfazer e refazer (Ctrl+Z e Ctrl+Y).'}]},
+ familia:{nome:'Falar com a família',desc:'Encontre os contatos da inscrição e abra a conversa no WhatsApp quando precisar.',perfis:'todos',passos:[
+  {go:()=>{_vvIrEnc();const e=_vvEncComContato();_encFiltro=e&&_vvEhMeu(e.nome)?'meus':'todos';_encAberto=e?.id||null;renderAdminEncs()},el:()=>_vvVis('.encx-card.open')||_vvVis('#enc-list-wrap'),t:'Abra o seu encontrista',x:'Em Encontristas → Meus encontristas, toque no nome.'},
+  {el:()=>_vvVis('.encx-card.open .encx-ctblk'),t:'Contatos da família',x:'Os contatos que o encontrista informou na inscrição.'},
+  {el:()=>_vvVis('.encx-card.open .encx-ctblk .encx-wa'),t:'Abra o WhatsApp',x:'O botão abre a conversa com esse contato. Use quando precisar; não há nada para marcar depois.'}]},
+ imprimir:{nome:'Imprimir as cartas prontas',desc:'Escolha o que vai sair, a folha de rosto e o formato.',perfis:'todos',passos:[
+  {go:()=>{switchToEditor()},el:()=>_vvVis('#btn-imprimir-ed'),t:'Toque em “Imprimir”',x:'Fica no alto do Editor.'},
+  {go:()=>window.abrirImpressao(),el:()=>_vvVis('#imp-lista'),t:'Confira quem vai sair',x:'As cartas prontas e ainda não impressas já vêm marcadas, separadas por encontrista. Desmarque o que não quiser.'},
+  {el:()=>_vvVis('.imp-opts'),t:'Escolha o formato',x:'Folha de rosto com o nome do encontrista e 1 ou 2 cartas por folha.'},
+  {el:()=>_vvVis('#imp-go'),t:'Prévia e impressão',x:'Abre a prévia. Lá, use “Imprimir / PDF”. Ao imprimir, as cartas ficam marcadas como impressas.'}]},
+ semservo:{nome:'Cartas sem servo',desc:'Veja as cartas de encontristas que ninguém assumiu.',perfis:'admin',passos:[
+  {go:()=>{_vvIrEnc()},el:()=>_vvVis('#nav-enc-bd')||_vvVis('.anav-item'),t:'O número laranja',x:'Mostra quantas cartas chegaram para encontristas sem responsável.'},
+  {go:()=>{_encFiltro='semservo';_encAberto=null;renderAdminEncs()},el:()=>_vvVis('.encx-fbtn[data-k="semservo"]'),t:'Filtro “Cartas sem servo”',x:'Lista só esses encontristas. Abra um e toque em Assumir, ou peça a um servo para assumir.'}]},
+ importar:{nome:'Importar a planilha de inscrições',desc:'Suba a exportação da inscrição sem duplicar nomes nem trazer a equipe.',perfis:'admin',passos:[
+  {go:()=>{_vvIrEnc()},el:()=>_vvVis('label[for="encx-file"]')||document.getElementById('encx-file')?.closest('label'),t:'Toque em “Importar planilha”',x:'Escolha o arquivo exportado da plataforma de inscrição (Excel ou CSV). Antes de gravar, o site mostra um resumo.'},
+  {el:()=>_vvVis('#enc-list-wrap'),t:'A lista se atualiza',x:'Quem já estava na lista não é duplicado, a equipe fica de fora e documentos e endereço não são guardados.'}]},
+ preparar:{nome:'Preparar o evento',desc:'Fundos, F ou M e área segura de cada fundo.',perfis:'admin',passos:[
+  {go:()=>{_vvIrEnc();_prepAba='fundos';adminTab('templates')},el:()=>_vvVis('#admin-tpl-grid'),t:'Fundos',x:'Envie os fundos e marque cada um como F ou M.'},
+  {go:()=>{if(templates[0]){_tplAreaEd=templates[0].id;renderPrepEvento()}},el:()=>_vvVis('#area-w')||_vvVis('.tpl-area-btn'),t:'Área segura',x:'Arraste o retângulo ou puxe os cantos para dizer onde a foto e o texto podem ficar. Depois toque em “Salvar área segura”.'}]},
+ layout:{nome:'Criar um layout',desc:'Monte a posição da foto e do texto separadamente.',perfis:'admin',passos:[
+  {go:()=>{_vvIrEnc();_prepAba='layouts';adminTab('templates')},el:()=>_vvVis('#lb-list'),t:'Seus layouts',x:'Escolha um para editar ou toque em “Novo layout”. As etiquetas mostram o padrão para cartas com e sem foto.'},
+  {el:()=>_vvVis('#lb-cv .lz.foto')||_vvVis('#lb-cv'),t:'Área da foto',x:'Arraste a caixa azul para mudar onde a foto fica e puxe os cantos para mudar o tamanho.'},
+  {el:()=>_vvVis('#lb-cv .lz.texto'),t:'Área do texto',x:'A caixa laranja é o texto, separado da foto. As caixas grudam nas bordas, no centro e na outra caixa.'},
+  {el:()=>_vvVis('#lb-props'),t:'Detalhes',x:'Formato e acabamento da foto, alinhamento e letra do texto, e o que fazer quando a carta não tiver foto.'},
+  {el:()=>_vvVis('#lay-ativo')?.closest('label'),t:'Libere para a equipe',x:'Um layout novo só aparece para os servos quando “Disponível para os servos” estiver marcado.'}]},
+};
+function renderAjuda(){
+  const c=document.getElementById('ajuda-c'); if(!c) return;
+  const adm=CU?.perfil==='admin';
+  const card=([k,t])=>`<div class="tut"><b>${t.nome}</b><p>${t.desc}</p><div class="f2"><small>${t.passos.length} passos · mostra na tela</small><button class="btn btn-accent btn-sm" onclick="iniciarTour('${k}')">Começar</button></div></div>`;
+  const todos=Object.entries(_VV_TUT).filter(([k,t])=>t.perfis==='todos'), adms=Object.entries(_VV_TUT).filter(([k,t])=>t.perfis==='admin');
+  c.innerHTML=`<div class="aj"><div class="aj-busca"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg><input id="aj-q" placeholder="Qual é a sua dúvida? Ex.: foto, imprimir, liberar" value="${esc(_ajQ)}" oninput="_ajQ=this.value;_vvRenderFaq()" autocomplete="off"></div>
+    <div class="sec-t">Tutoriais passo a passo${adm?' · dia a dia':''}</div><div class="tuts">${todos.map(card).join('')}</div>
+    ${adm?`<div class="sec-t" style="margin-top:20px">Tutoriais do administrador</div><div class="tuts">${adms.map(card).join('')}</div>`:''}
+    <div class="sec-t" style="margin-top:26px">Dúvidas frequentes</div><div class="encx-fil" id="aj-cats"></div><div id="aj-faq"></div>
+    <div class="aj-fim"><b>Ainda com dúvida?</b> Fale com o líder da Secretaria 2.</div></div>`;
+  _vvRenderFaq();
+}
+window._vvRenderFaq=()=>{
+  const adm=CU?.perfil==='admin', lista=_VV_FAQ.filter(f=>f[1]==='todos'||adm);
+  const cats=['todas',...new Set(lista.map(f=>f[0]))];
+  const ce=document.getElementById('aj-cats'); if(!ce) return;
+  ce.innerHTML=cats.map(c=>`<button class="encx-fbtn ${_ajCat===c?'on':''}" onclick="_ajCat='${c}';_vvRenderFaq()">${c==='todas'?'Todas':c}</button>`).join('');
+  const q=_vvSemAc(_ajQ.trim());
+  const fs=lista.map((f,i)=>({f,i})).filter(({f})=>(_ajCat==='todas'||f[0]===_ajCat)&&(!q||q.split(/\s+/).every(w=>_vvSemAc(f[2]+' '+f[3].replace(/<[^>]+>/g,'')).includes(w))));
+  document.getElementById('aj-faq').innerHTML=fs.length?fs.map(({f,i})=>{ const op=_ajAberta===i||(q&&fs.length<=3);
+    return `<div class="faq ${op?'open':''}"><button class="q" aria-expanded="${op}" onclick="_ajAberta=_ajAberta===${i}?null:${i};_vvRenderFaq()"><span>${f[2]}</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M9 6l6 6-6 6"/></svg></button>${op?`<div class="a">${f[3]}${f[4]&&_VV_TUT[f[4]]&&(_VV_TUT[f[4]].perfis==='todos'||adm)?`<div style="margin-top:10px"><button class="btn btn-nm btn-sm" onclick="iniciarTour('${f[4]}')">▶ Mostrar como fazer</button></div>`:''}</div>`:''}</div>`; }).join('')
+    :`<div class="encx-hint" style="padding:20px;text-align:center">Nada encontrado para “${esc(_ajQ)}”. Tente outra palavra, como “foto”, “imprimir” ou “liberar”.</div>`;
+};
+let _vvTour=null;
+window.iniciarTour=k=>{
+  let el=document.getElementById('vv-tour');
+  if(!el){ el=document.createElement('div'); el.id='vv-tour'; el.innerHTML='<div class="sp" id="vv-tour-sp"></div><div class="bb" id="vv-tour-b" role="dialog" aria-live="polite"></div>'; document.body.appendChild(el); }
+  el.style.display=''; _vvTour={k,i:0}; _vvPasso();
+};
+async function _vvPasso(){
+  const t=_VV_TUT[_vvTour.k], p=t.passos[_vvTour.i];
+  try{ if(p.go) await p.go(); }catch(_){}
+  setTimeout(()=>{ let el=null; try{ el=p.el(); }catch(_){} if(el) el.scrollIntoView({block:'center',behavior:'instant'}); if(_vvTour){ _vvTour.el=el; _vvPosTour(); } },180);
+}
+function _vvPosTour(){
+  if(!_vvTour) return; const t=_VV_TUT[_vvTour.k], p=t.passos[_vvTour.i], el=_vvTour.el;
+  const sp=document.getElementById('vv-tour-sp'), b=document.getElementById('vv-tour-b'), ult=_vvTour.i===t.passos.length-1;
+  b.innerHTML=`<div class="pn">${t.nome} · passo ${_vvTour.i+1} de ${t.passos.length}</div><div class="tt">${p.t}</div><div>${p.x}</div><div class="bt"><button class="sair" onclick="fimTour()">Sair</button>${_vvTour.i?'<button class="ant" onclick="_vvTour.i--;_vvPasso()">Voltar</button>':''}<button class="prox" onclick="${ult?'fimTour(true)':'_vvTour.i++;_vvPasso()'}">${ult?'Concluir':'Próximo'}</button></div>`;
+  const W=innerWidth, H=innerHeight, bw=b.offsetWidth, bh=b.offsetHeight;
+  if(el){ const r=el.getBoundingClientRect(), pd=6, R={l:Math.max(4,r.left-pd),t:Math.max(4,r.top-pd),r:Math.min(W-4,r.right+pd),b:Math.min(H-4,r.bottom+pd)};
+    Object.assign(sp.style,{display:'block',left:R.l+'px',top:R.t+'px',width:(R.r-R.l)+'px',height:(R.b-R.t)+'px'});
+    let y=R.b+14; if(y+bh>H-10) y=R.t-14-bh; if(y<10) y=Math.min(H-bh-10,Math.max(10,R.t+10));
+    b.style.left=Math.min(W-bw-16,Math.max(16,(R.l+R.r)/2-bw/2))+'px'; b.style.top=y+'px';
+  } else { sp.style.display='none'; b.style.left=(W-bw)/2+'px'; b.style.top=(H-bh)/2+'px'; }
+}
+window.fimTour=ok=>{ const k=_vvTour?.k; _vvTour=null; const el=document.getElementById('vv-tour'); if(el) el.style.display='none'; closeM('m-imp'); if(ok&&k) toast(`Tutorial “${_VV_TUT[k].nome}” concluído`,'ok'); };
+addEventListener('resize',()=>_vvTour&&_vvPosTour());
+addEventListener('scroll',()=>_vvTour&&_vvPosTour(),true);
+addEventListener('keydown',e=>{ if(_vvTour&&e.key==='Escape') fimTour(); },true);
+
 </script>
 </body>
 </html>
